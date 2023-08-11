@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E822F7492A7941D6008BEC33 /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F7482A7941D6008BEC33 /* ChatGPT.swift */; };
+		E822F74B2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F74A2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift */; };
+		E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F74C2A7DF16E008BEC33 /* RealmWrapper.swift */; };
+		E822F7502A7DF209008BEC33 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E822F74F2A7DF209008BEC33 /* Realm */; };
+		E822F7522A7DF209008BEC33 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E822F7512A7DF209008BEC33 /* RealmSwift */; };
+		E822F7542A7DF220008BEC33 /* StudyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F7532A7DF220008BEC33 /* StudyHistory.swift */; };
+		E822F7562A7DF258008BEC33 /* StudyHistoryDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F7552A7DF258008BEC33 /* StudyHistoryDatasource.swift */; };
+		E822F7582A7DF27D008BEC33 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F7572A7DF27D008BEC33 /* DataSourceProtocol.swift */; };
+		E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822F7592A7DF2BF008BEC33 /* StudyHistoryState.swift */; };
+		E842B6232A7F423900961719 /* CameraStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842B6222A7F423900961719 /* CameraStatus.swift */; };
+		E842B6252A7F905200961719 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842B6242A7F905200961719 /* SpeechToText.swift */; };
 		E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */; };
 		E84EE4972A6D12EA0045A804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4962A6D12EA0045A804 /* ContentView.swift */; };
 		E84EE4992A6D12EB0045A804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84EE4982A6D12EB0045A804 /* Assets.xcassets */; };
@@ -14,6 +25,17 @@
 		E84EE4A62A6D12EB0045A804 /* EnglishCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4A52A6D12EB0045A804 /* EnglishCameraTests.swift */; };
 		E84EE4B02A6D12EB0045A804 /* EnglishCameraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4AF2A6D12EB0045A804 /* EnglishCameraUITests.swift */; };
 		E84EE4B22A6D12EB0045A804 /* EnglishCameraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4B12A6D12EB0045A804 /* EnglishCameraUITestsLaunchTests.swift */; };
+		E84EE4BF2A6D14110045A804 /* GeneratedPluginRegistrant.mlkitmodel in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4BE2A6D14110045A804 /* GeneratedPluginRegistrant.mlkitmodel */; };
+		E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4C72A6D59C00045A804 /* VideoCapture.swift */; };
+		E84EE4CA2A6D5A4E0045A804 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4C92A6D5A4E0045A804 /* MLManager.swift */; };
+		E84EE4CC2A6D5AFF0045A804 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4CB2A6D5AFF0045A804 /* Resnet50.mlmodel */; };
+		E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */; };
+		E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CB2A7E28FD00F23507 /* CameraView.swift */; };
+		E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */; };
+		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
+		E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2C2A84C42000231BA1 /* RecordVoice.swift */; };
+		E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2E2A85D23400231BA1 /* AppValue.swift */; };
+		E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E822F7482A7941D6008BEC33 /* ChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT.swift; sourceTree = "<group>"; };
+		E822F74A2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeImageClassificationView.swift; sourceTree = "<group>"; };
+		E822F74C2A7DF16E008BEC33 /* RealmWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWrapper.swift; sourceTree = "<group>"; };
+		E822F7532A7DF220008BEC33 /* StudyHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistory.swift; sourceTree = "<group>"; };
+		E822F7552A7DF258008BEC33 /* StudyHistoryDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryDatasource.swift; sourceTree = "<group>"; };
+		E822F7572A7DF27D008BEC33 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
+		E822F7592A7DF2BF008BEC33 /* StudyHistoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryState.swift; sourceTree = "<group>"; };
+		E842B6222A7F423900961719 /* CameraStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStatus.swift; sourceTree = "<group>"; };
+		E842B6242A7F905200961719 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		E84EE4912A6D12EA0045A804 /* EnglishCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishCameraApp.swift; sourceTree = "<group>"; };
 		E84EE4962A6D12EA0045A804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +75,17 @@
 		E84EE4AB2A6D12EB0045A804 /* EnglishCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnglishCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84EE4AF2A6D12EB0045A804 /* EnglishCameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishCameraUITests.swift; sourceTree = "<group>"; };
 		E84EE4B12A6D12EB0045A804 /* EnglishCameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishCameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E84EE4BE2A6D14110045A804 /* GeneratedPluginRegistrant.mlkitmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GeneratedPluginRegistrant.mlkitmodel; sourceTree = "<group>"; };
+		E84EE4C72A6D59C00045A804 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		E84EE4C92A6D5A4E0045A804 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
+		E84EE4CB2A6D5AFF0045A804 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeImageClassificationViewModel.swift; sourceTree = "<group>"; };
+		E85286CB2A7E28FD00F23507 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryView.swift; sourceTree = "<group>"; };
+		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E8799D2C2A84C42000231BA1 /* RecordVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVoice.swift; sourceTree = "<group>"; };
+		E8799D2E2A85D23400231BA1 /* AppValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppValue.swift; sourceTree = "<group>"; };
+		E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeak.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E822F7522A7DF209008BEC33 /* RealmSwift in Frameworks */,
+				E822F7502A7DF209008BEC33 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +115,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E822F75B2A7DF34D008BEC33 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				E822F74C2A7DF16E008BEC33 /* RealmWrapper.swift */,
+				E822F7532A7DF220008BEC33 /* StudyHistory.swift */,
+				E822F7592A7DF2BF008BEC33 /* StudyHistoryState.swift */,
+				E822F7552A7DF258008BEC33 /* StudyHistoryDatasource.swift */,
+				E822F7572A7DF27D008BEC33 /* DataSourceProtocol.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		E822F75C2A7DF380008BEC33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E84EE4C72A6D59C00045A804 /* VideoCapture.swift */,
+				E84EE4C92A6D5A4E0045A804 /* MLManager.swift */,
+				E822F7482A7941D6008BEC33 /* ChatGPT.swift */,
+				E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */,
+				E842B6242A7F905200961719 /* SpeechToText.swift */,
+				E8799D2C2A84C42000231BA1 /* RecordVoice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E84EE4882A6D12EA0045A804 = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +163,18 @@
 		E84EE4932A6D12EA0045A804 /* EnglishCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E85286CA2A7E274500F23507 /* ViewModel */,
+				E85286C92A7E272D00F23507 /* View */,
+				E822F75C2A7DF380008BEC33 /* Model */,
+				E822F75B2A7DF34D008BEC33 /* DataSource */,
+				E84EE4CB2A6D5AFF0045A804 /* Resnet50.mlmodel */,
+				E84EE4BE2A6D14110045A804 /* GeneratedPluginRegistrant.mlkitmodel */,
 				E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */,
-				E84EE4962A6D12EA0045A804 /* ContentView.swift */,
 				E84EE4982A6D12EB0045A804 /* Assets.xcassets */,
 				E84EE49A2A6D12EB0045A804 /* Preview Content */,
+				E85286CF2A7E60BE00F23507 /* Extensions.swift */,
+				E842B6222A7F423900961719 /* CameraStatus.swift */,
+				E8799D2E2A85D23400231BA1 /* AppValue.swift */,
 			);
 			path = EnglishCamera;
 			sourceTree = "<group>";
@@ -127,6 +204,25 @@
 			path = EnglishCameraUITests;
 			sourceTree = "<group>";
 		};
+		E85286C92A7E272D00F23507 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E84EE4962A6D12EA0045A804 /* ContentView.swift */,
+				E822F74A2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift */,
+				E85286CB2A7E28FD00F23507 /* CameraView.swift */,
+				E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E85286CA2A7E274500F23507 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +239,10 @@
 			dependencies = (
 			);
 			name = EnglishCamera;
+			packageProductDependencies = (
+				E822F74F2A7DF209008BEC33 /* Realm */,
+				E822F7512A7DF209008BEC33 /* RealmSwift */,
+			);
 			productName = EnglishCamera;
 			productReference = E84EE4912A6D12EA0045A804 /* EnglishCamera.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +315,9 @@
 				Base,
 			);
 			mainGroup = E84EE4882A6D12EA0045A804;
+			packageReferences = (
+				E822F74E2A7DF209008BEC33 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E84EE4922A6D12EA0045A804 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +360,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84EE4CA2A6D5A4E0045A804 /* MLManager.swift in Sources */,
+				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
+				E822F7562A7DF258008BEC33 /* StudyHistoryDatasource.swift in Sources */,
+				E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */,
+				E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */,
+				E84EE4BF2A6D14110045A804 /* GeneratedPluginRegistrant.mlkitmodel in Sources */,
+				E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */,
+				E822F7492A7941D6008BEC33 /* ChatGPT.swift in Sources */,
 				E84EE4972A6D12EA0045A804 /* ContentView.swift in Sources */,
+				E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */,
+				E84EE4CC2A6D5AFF0045A804 /* Resnet50.mlmodel in Sources */,
+				E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */,
+				E822F7542A7DF220008BEC33 /* StudyHistory.swift in Sources */,
+				E822F7582A7DF27D008BEC33 /* DataSourceProtocol.swift in Sources */,
+				E822F74B2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift in Sources */,
+				E842B6252A7F905200961719 /* SpeechToText.swift in Sources */,
+				E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */,
+				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,
+				E842B6232A7F423900961719 /* CameraStatus.swift in Sources */,
+				E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */,
+				E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,17 +537,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
-				DEVELOPMENT_TEAM = J9ATR58RL2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YTQ2PNQMMN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = 1.0;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,6 +561,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartconnections.EnglishCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildCard;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,17 +574,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
-				DEVELOPMENT_TEAM = J9ATR58RL2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YTQ2PNQMMN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = 1.0;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +598,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartconnections.EnglishCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildCard;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,6 +722,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E822F74E2A7DF209008BEC33 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E822F74F2A7DF209008BEC33 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E822F74E2A7DF209008BEC33 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E822F7512A7DF209008BEC33 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E822F74E2A7DF209008BEC33 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E84EE4892A6D12EA0045A804 /* Project object */;
 }

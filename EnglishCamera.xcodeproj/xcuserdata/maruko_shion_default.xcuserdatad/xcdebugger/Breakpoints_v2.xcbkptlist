@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "21AECF4B-5379-48A8-9DFB-4EEFB5A41086"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "590149C4-6BDF-41E0-9DE2-A60C41CB2A1B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/View/StudyHistoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/Model/ChatGPT.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "chat(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C - 24176011125e2567"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.ChatGPT.sendHttpRequest(Swift.Array&lt;EnglishCamera.Message&gt;) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+               <Location
+                  uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C - 24176011125e2567"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.ChatGPT.sendHttpRequest(Swift.Array&lt;EnglishCamera.Message&gt;) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/View/RealTimeImageClassificationView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "saveStudyHistory()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076 - a84867a3bc79b162"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.RealTimeImageClassificationView.saveStudyHistory() -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/View/RealTimeImageClassificationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076 - a84867a3bc79b162"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.RealTimeImageClassificationView.saveStudyHistory() -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/View/RealTimeImageClassificationView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "524">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
