@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ChatGPTDelegate: AnyObject {
-    func receiveMessage(_ message: String)
+    func receiveMessage(_ message: Message)
     func receiveTranscript(_ text: String)
 }
 
@@ -31,11 +31,11 @@ class ChatGPT {
             "messages": messsagesParam,
             "temperature": 0.3,
             "top_p": 0.3,
-            "max_tokens": 20
+            "max_tokens": 100
         ] as [String : Any], options: [])
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(response)
-            print(error)
+            debugPrint(response as Any)
+            debugPrint(error as Any)
             // レスポンスが返ってきた時の処理
             if let data = data {
                 do {
@@ -45,7 +45,7 @@ class ChatGPT {
                     let response = try decoder.decode(ChatCompletionResponse.self, from: jsonData)
                     if let firstChoice = response.choices.first {
                         print("Finish Reason: \(firstChoice.finishReason)")
-                        self.delegate?.receiveMessage(firstChoice.message.content)
+                        self.delegate?.receiveMessage(firstChoice.message)
                         print("Message Content: \(firstChoice.message.content)")
                         print("Message Role: \(firstChoice.message.role)")
                     }
@@ -87,8 +87,8 @@ class ChatGPT {
         request.httpBody = body as Data
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(response)
-            print(error)
+            debugPrint(response as Any)
+            debugPrint(error as Any)
             // レスポンスが返ってきた時の処理
             if let data = data {
                 do {

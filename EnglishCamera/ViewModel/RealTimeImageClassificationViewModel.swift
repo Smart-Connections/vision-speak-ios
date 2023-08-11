@@ -14,6 +14,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var passedTime: TimeInterval = 0
     @Published var remainSeconds: TimeInterval = TimeInterval(AppValue.initSecondsSymbol)
     @Published var messagesWithChatGPT = [Message]()
+    @Published var jaMessages = [Message]()
     @Published var observationText: String = ""
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
     @Published var status: CameraStatus = .ready
@@ -54,6 +55,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     @MainActor func sendReply() {
         guard let url = self.recordVoice.stopRecording() else { return }
+        self.recordVoice.cancelRecording()
         chatGPT.transcript(url)
         self.status = .waitingGptMessage
     }
@@ -64,8 +66,16 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         status = .ready
     }
     
+    func toggleLanguage(message: Message) {
+        if let index = jaMessages.firstIndex(of: message) {
+            jaMessages.remove(at: index)
+        } else {
+            jaMessages.append(message)
+        }
+    }
+    
     private func callGPT() {
-        let content = "You are a AI of learning English App. Please start to talk with me about one of \(observationText) from making a question in a fun mood. Please use lower than 16 words."
+        let content = "You are a AI of learning English App. Please talk with me about one of \(observationText). Please use lower than 15 words. Please use this format \"[En] [Ja]\" and return English and Japanese."
         messagesWithChatGPT.append(Message(content: content, role: "user"))
         chatGPT.chat(messagesWithChatGPT.filter { $0.role != "symbol"} )
         self.status = .waitingGptMessage
@@ -91,8 +101,8 @@ extension RealTimeImageClassificationViewModel: Resnet50ModelManagerDelegate {
         DispatchQueue.main.async {
             let observationText = "\(observation.identifier)"
             
-            // 50%以上の確率で識別できた場合に会話対象を更新する
-            if (observation.confidence.convertPercent >= 50) {
+            // 60%以上の確率で識別できた場合に会話対象を更新する
+            if (observation.confidence.convertPercent >= 60) {
                 self.observationText = observationText
             }
             
@@ -114,10 +124,10 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
         chatGPT.chat(messagesWithChatGPT.filter { $0.role != "symbol"} )
     }
     
-    func receiveMessage(_ message: String) {
+    func receiveMessage(_ message: Message) {
         DispatchQueue.main.async {
-            self.textToSpeak.textToSpeak(text: message)
-            self.messagesWithChatGPT.append(Message(content: message, role: "system"))
+            self.textToSpeak.textToSpeak(text: message.en)
+            self.messagesWithChatGPT.append(message)
         }
     }
 }
@@ -127,4 +137,16 @@ extension RealTimeImageClassificationViewModel: TextToSpeakDelegate {
         self.status = .inputingReply
         self.recordVoice.startRecording()
     }
+}
+
+extension Message {
+    
+    var ja: String {
+        return String(content.split(separator: "[Ja] ").last ?? "")
+    }
+    
+    var en: String {
+        return String(content.split(separator: "[Ja] ").first ?? "").replacing("[En] ", with: "").replacing("\n", with: "")
+    }
+    
 }

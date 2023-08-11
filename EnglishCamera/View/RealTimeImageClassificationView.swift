@@ -54,10 +54,19 @@ struct RealTimeImageClassificationView: View {
                 Spacer()
                 if (viewModel.messagesWithChatGPT.count >= 0) {
                     ForEach(viewModel.messagesWithChatGPT.dropFirst(2), id: \.hashValue) { message in
-                        Text(message.content)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color(uiColor: .white))
+                        HStack {
+                            Text(viewModel.jaMessages.contains(message) ? message.ja : message.en)
+                            Spacer()
+                            Button(action: {
+                                viewModel.toggleLanguage(message: message)
+                            }) {
+                                Text("あ/A").font(.caption)
+                            }
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(message.role == "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92))
+                        .cornerRadius(8)
                     }
                 }
                 ZStack {
