@@ -16,6 +16,8 @@ struct RealTimeImageClassificationView: View {
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     
+    private let studyHistoryDataSource = StudyHistoryDataSource()
+    
     init(showNextView: Binding<Bool>) {
         self._ShowNextView = showNextView
     }
@@ -57,12 +59,14 @@ struct RealTimeImageClassificationView: View {
                         HStack {
                             Text(viewModel.jaMessages.contains(message) ? message.ja : message.en)
                             Spacer()
-                            Button(action: {
-                                viewModel.toggleLanguage(message: message)
-                            }) {
-                                Text("あ/A").font(.caption)
+                            if (message.role != "user") {
+                                Button(action: {
+                                    viewModel.toggleLanguage(message: message)
+                                }) {
+                                    Text("あ/A").font(.caption)
+                                }
                             }
-                        }
+                         }
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(message.role == "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92))
@@ -102,7 +106,7 @@ struct RealTimeImageClassificationView: View {
             viewModel.startCapturing()
         }
         .onDisappear {
-            viewModel.stopCapturing()
+            viewModel.reset()
             saveStudyHistory()
             studyHistoryState.refresh()
         }
@@ -110,11 +114,11 @@ struct RealTimeImageClassificationView: View {
     }
     
     func saveStudyHistory() {
-        if let historyValue = StudyHistoryDataSource().todayHistory() {
-            StudyHistoryDataSource().updateHistory(historyValue, Int(viewModel.passedTime), viewModel.wordsCount)
+        if let historyValue = studyHistoryDataSource.todayHistory() {
+            studyHistoryDataSource.updateHistory(historyValue, Int(viewModel.passedTime), viewModel.wordsCount)
         } else {
             let history: StudyHistory = StudyHistory(studyTimeSeconds: Int(viewModel.passedTime), userCredits: viewModel.wordsCount, createdAt: Date().ymd)
-            StudyHistoryDataSource().update(history)
+            studyHistoryDataSource.update(history)
         }
     }
 }

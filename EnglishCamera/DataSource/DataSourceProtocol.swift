@@ -47,6 +47,6 @@ extension DataSource {
     }
     
     private func printResult(_ funcName: String, data: Any) {
-        debugPrint("\(type(of: self)): \(funcName) \(data)")
+        debugPrint("Realm DataSource: \(type(of: self)): \(funcName) \(data)")
     }
 }

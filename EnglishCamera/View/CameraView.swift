@@ -12,8 +12,10 @@ struct CameraView: View {
     
     @State var showNextView = false
     
+    private let studyHistoryDataSource = StudyHistoryDataSource()
+    
     var body: some View {
-        let history = StudyHistoryDataSource().getWhere(Date().ymd).first
+        let history = studyHistoryDataSource.getWhere(Date().ymd).first
         let enable = (history?.studyTimeSeconds ?? 0) < AppValue.limitSeconds
         return NavigationView{
             VStack{
@@ -52,7 +54,6 @@ struct CameraView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
                 .cornerRadius(8)
-                
                 Spacer()
             }
             .padding()

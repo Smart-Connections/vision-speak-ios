@@ -67,7 +67,7 @@ class SpeechToText {
     nonisolated private func transcribe(_ message: String) {
         Task { @MainActor in
             transcript = message
-            print(transcript)
+            print("transcribe \(transcript)")
         }
     }
     

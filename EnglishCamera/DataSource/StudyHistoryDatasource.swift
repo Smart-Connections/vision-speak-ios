@@ -14,6 +14,7 @@ class StudyHistoryDataSource: DataSource {
     var realm: Realm
     
     init() {
+        print("StudyHistoryDataSource init")
         self.realm = try! RealmWrapper.sharedInstance()
     }
 }

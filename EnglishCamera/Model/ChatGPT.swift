@@ -19,6 +19,7 @@ class ChatGPT {
     
     // HTTPリクエストを送信する
     func chat(_ messages: [Message]) {
+        print("==========start chat==========")
         let messsagesParam = messages.map({ ["role": $0.role, "content": $0.content] })
         let endPoint = "https://api.openai.com/v1/chat/completions"
         let url = URL(string: endPoint)!
@@ -39,13 +40,11 @@ class ChatGPT {
             // レスポンスが返ってきた時の処理
             if let data = data {
                 do {
-                    let jsonString = String(data: data, encoding: .utf8) ?? ""
-                    let jsonData = jsonString.data(using: .utf8)!
-                    let decoder = JSONDecoder()
-                    let response = try decoder.decode(ChatCompletionResponse.self, from: jsonData)
+                    let jsonData = (String(data: data, encoding: .utf8) ?? "").data(using: .utf8)!
+                    let response = try JSONDecoder().decode(ChatCompletionResponse.self, from: jsonData)
                     if let firstChoice = response.choices.first {
-                        print("Finish Reason: \(firstChoice.finishReason)")
                         self.delegate?.receiveMessage(firstChoice.message)
+                        print("Messages Prompts: \(messsagesParam)")
                         print("Message Content: \(firstChoice.message.content)")
                         print("Message Role: \(firstChoice.message.role)")
                     }
@@ -58,6 +57,7 @@ class ChatGPT {
     }
     
     func transcript(_ path: URL) {
+        print("==========start transcript==========")
         guard let audioData = FileManager().contents(atPath: path.relativePath) else { return }
         let endPoint = "https://api.openai.com/v1/audio/transcriptions"
         let url = URL(string: endPoint)!
@@ -92,8 +92,7 @@ class ChatGPT {
             // レスポンスが返ってきた時の処理
             if let data = data {
                 do {
-                    let jsonString = String(data: data, encoding: .utf8) ?? ""
-                    let json = try JSONSerialization.jsonObject(with: jsonString.data(using: .utf8)!, options: []) as? [String: Any]
+                    let json = try JSONSerialization.jsonObject(with: (String(data: data, encoding: .utf8) ?? "").data(using: .utf8)!, options: []) as? [String: Any]
                     self.delegate?.receiveTranscript(json?["text"] as! String)
                 } catch {
                     print("Error parsing JSON: \(error)")

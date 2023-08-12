@@ -25,7 +25,6 @@ struct StudyHistoryView: View {
                             .tag(index)
                     }
                 }
-                .padding()
                 .pickerStyle(SegmentedPickerStyle())
                 Spacer().frame(height: 16)
                 Chart {
@@ -38,7 +37,12 @@ struct StudyHistoryView: View {
                     }
                 }
                 .padding()
-            }.navigationTitle("学習記録")
-        }.background(Color(red: 247/255, green: 247/255, blue: 247/255))
+                .cornerRadius(8)
+                .background(Color.white)
+            }
+            .padding()
+            .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+            .navigationTitle("学習記録")
+        }
     }
 }

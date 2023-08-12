@@ -8,6 +8,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     private let chatGPT = ChatGPT()
     private let textToSpeak = TextToSpeak()
     private let recordVoice = RecordVoice()
+    private let studyHistoryDataSource = StudyHistoryDataSource()
     var timer: Timer?
     
     @Published var wordsCount: Int = 0
@@ -27,18 +28,13 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         chatGPT.delegate = self
         textToSpeak.delegate = self
         
-        $observationText
-            .receive(on: DispatchQueue.main)
-            .sink { _ in }
-            .store(in: &cancellables)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.timer = Timer
                 .scheduledTimer(
                     withTimeInterval: 1.0,
                     repeats: true
                 ) { _ in
-                    let seconds = Double(StudyHistoryDataSource().todayHistory()?.studyTimeSeconds ?? 0)
+                    let seconds = Double(self.studyHistoryDataSource.todayHistory()?.studyTimeSeconds ?? 0)
                     self.passedTime += 1
                     self.remainSeconds = Double(AppValue.limitSeconds) - seconds - self.passedTime
                 }
@@ -49,8 +45,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         videoCapture.startCapturing()
     }
     
-    func stopCapturing() {
+    func reset() {
         videoCapture.stopCapturing()
+        self.recordVoice.cancelRecording()
     }
     
     @MainActor func sendReply() {
@@ -120,8 +117,9 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
         DispatchQueue.main.async {
             self.messagesWithChatGPT.append(Message(content: text, role: "user"))
             self.wordsCount += text.split(separator: " ").count
+            print("received Transcript: \(text)")
+            self.chatGPT.chat(self.messagesWithChatGPT.filter { $0.role != "symbol"} )
         }
-        chatGPT.chat(messagesWithChatGPT.filter { $0.role != "symbol"} )
     }
     
     func receiveMessage(_ message: Message) {

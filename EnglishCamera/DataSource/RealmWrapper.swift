@@ -35,7 +35,7 @@ class RealmWrapper {
 
     private static func threadId() -> String {
         let id = Thread.current.name ?? ""
-        debugPrint(id)
+        debugPrint("threadId: \(id)")
         return id
     }
 }
