@@ -18,7 +18,9 @@ struct StudyHistoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer().frame(height: 16)
+                Spacer().frame(height: 24)
+                Text("学習記録").font(.largeTitle.bold()).frame(maxWidth: .infinity, alignment: .leading)
+                Spacer().frame(height: 24)
                 Picker("", selection: self.$selectedIndex) {
                     ForEach(0..<self.segmentPickerTitles.count) { index in
                         Text(self.segmentPickerTitles[index])
@@ -37,12 +39,11 @@ struct StudyHistoryView: View {
                     }
                 }
                 .padding()
-                .cornerRadius(8)
                 .background(Color.white)
+                .cornerRadius(8)
             }
             .padding()
             .background(Color(red: 247/255, green: 247/255, blue: 247/255))
-            .navigationTitle("学習記録")
         }
     }
 }

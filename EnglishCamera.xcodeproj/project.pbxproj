@@ -39,6 +39,9 @@
 		E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2C2A84C42000231BA1 /* RecordVoice.swift */; };
 		E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2E2A85D23400231BA1 /* AppValue.swift */; };
 		E8799D312A872FD200231BA1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D302A872FD200231BA1 /* Purchase.swift */; };
+		E8799D332A873C6000231BA1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D322A873C6000231BA1 /* MenuView.swift */; };
+		E8799D352A87512E00231BA1 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D342A87512E00231BA1 /* PurchaseView.swift */; };
+		E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */; };
 		E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,9 @@
 		E8799D2C2A84C42000231BA1 /* RecordVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVoice.swift; sourceTree = "<group>"; };
 		E8799D2E2A85D23400231BA1 /* AppValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppValue.swift; sourceTree = "<group>"; };
 		E8799D302A872FD200231BA1 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		E8799D322A873C6000231BA1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E8799D342A87512E00231BA1 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
+		E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 		E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeak.swift; sourceTree = "<group>"; };
 		E93DB6C73589EE4E65CF8380 /* Pods_EnglishCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -254,6 +260,8 @@
 				E822F74A2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift */,
 				E85286CB2A7E28FD00F23507 /* CameraView.swift */,
 				E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */,
+				E8799D322A873C6000231BA1 /* MenuView.swift */,
+				E8799D342A87512E00231BA1 /* PurchaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */,
+				E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -512,6 +521,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E84EE4CA2A6D5A4E0045A804 /* MLManager.swift in Sources */,
+				E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */,
+				E8799D332A873C6000231BA1 /* MenuView.swift in Sources */,
 				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
 				E822F7562A7DF258008BEC33 /* StudyHistoryDatasource.swift in Sources */,
 				E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */,
@@ -528,6 +539,7 @@
 				E822F7582A7DF27D008BEC33 /* DataSourceProtocol.swift in Sources */,
 				E822F74B2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift in Sources */,
 				E842B6252A7F905200961719 /* SpeechToText.swift in Sources */,
+				E8799D352A87512E00231BA1 /* PurchaseView.swift in Sources */,
 				E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */,
 				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,
@@ -695,7 +707,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YTQ2PNQMMN;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = 1.0;
@@ -712,10 +724,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartconnections.EnglishCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildCard;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Daily Speak Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -733,7 +745,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = YTQ2PNQMMN;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = 1.0;
@@ -750,10 +762,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartconnections.EnglishCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = WildCard;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Daily Speak Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
