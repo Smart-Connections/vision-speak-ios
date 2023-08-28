@@ -29,7 +29,7 @@ class GoogleCloudOCR {
             case .success(let session):
                 guard let cognitoTokenProvider = session as? AuthCognitoTokensProvider else { return }
                 let tokens = try? cognitoTokenProvider.getCognitoTokens().get()
-                let token = tokens?.refreshToken ?? ""
+                let token = tokens?.accessToken ?? ""
 
                 var request = URLRequest(url: self.endpoint)
                 request.httpMethod = "POST"

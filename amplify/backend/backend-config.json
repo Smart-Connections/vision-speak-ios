@@ -1,6 +1,6 @@
 {
   "auth": {
-    "visionspeak979bb3f4": {
+    "visionspeak2c6ad725": {
       "customAuth": false,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -9,35 +9,35 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_visionspeak979bb3f4_nativeClientId": {
+    "AMPLIFY_auth_visionspeak2c6ad725_nativeClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "visionspeak979bb3f4"
+          "resourceName": "visionspeak2c6ad725"
         }
       ]
     },
-    "AMPLIFY_auth_visionspeak979bb3f4_userPoolId": {
+    "AMPLIFY_auth_visionspeak2c6ad725_userPoolId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "visionspeak979bb3f4"
+          "resourceName": "visionspeak2c6ad725"
         }
       ]
     },
-    "AMPLIFY_auth_visionspeak979bb3f4_userPoolName": {
+    "AMPLIFY_auth_visionspeak2c6ad725_userPoolName": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "visionspeak979bb3f4"
+          "resourceName": "visionspeak2c6ad725"
         }
       ]
     },
-    "AMPLIFY_auth_visionspeak979bb3f4_webClientId": {
+    "AMPLIFY_auth_visionspeak2c6ad725_webClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "visionspeak979bb3f4"
+          "resourceName": "visionspeak2c6ad725"
         }
       ]
     }

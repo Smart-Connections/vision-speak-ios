@@ -309,8 +309,6 @@
 			dependencies = (
 			);
 			name = EnglishCamera;
-			packageProductDependencies = (
-			);
 			productName = EnglishCamera;
 			productReference = E84EE4912A6D12EA0045A804 /* EnglishCamera.app */;
 			productType = "com.apple.product-type.application";
@@ -438,9 +436,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnglishCamera/Pods-EnglishCamera-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnglishCamera/Pods-EnglishCamera-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -521,9 +523,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnglishCamera-EnglishCameraUITests/Pods-EnglishCamera-EnglishCameraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnglishCamera-EnglishCameraUITests/Pods-EnglishCamera-EnglishCameraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
