@@ -78,10 +78,10 @@
             filePath = "EnglishCamera/View/RealTimeImageClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "saveStudyHistory()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076 - a84867a3bc79b162"
