@@ -8,6 +8,8 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     private let chatGPT = ChatGPT()
     private let textToSpeak = TextToSpeak()
     private let recordVoice = RecordVoice()
+    private let cloudVision = GoogleCloudOCR()
+    
     private let studyHistoryDataSource = StudyHistoryDataSource()
     var timer: Timer?
     
@@ -19,14 +21,17 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var observationText: String = ""
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
     @Published var status: CameraStatus = .ready
+    @Published var picture: Data?
+    @Published var imageResult: DetectImageResult?
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        resnet50ModelManager.delegate = self
+//        resnet50ModelManager.delegate = self
         videoCapture.delegate = self
         chatGPT.delegate = self
         textToSpeak.delegate = self
+        cloudVision.delegate = self
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.timer = Timer
@@ -43,6 +48,10 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     func startCapturing() {
         videoCapture.startCapturing()
+    }
+    
+    func takePicture() {
+        videoCapture.takePicture()
     }
     
     func reset() {
@@ -80,6 +89,11 @@ class RealTimeImageClassificationViewModel: ObservableObject {
 }
 
 extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
+    func didTakePicture(_ data: Data) {
+        self.picture = data
+        cloudVision.detectImage(imageBase64: data.base64EncodedString())
+    }
+    
     func didSet(_ previewLayer: AVCaptureVideoPreviewLayer) {
         DispatchQueue.main.async {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
@@ -89,26 +103,7 @@ extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     }
     
     func didCaptureFrame(from imageBuffer: CVImageBuffer) {
-        resnet50ModelManager.performRequet(with: imageBuffer)
-    }
-}
-
-extension RealTimeImageClassificationViewModel: Resnet50ModelManagerDelegate {
-    func didRecieve(_ observation: VNClassificationObservation) {
-        DispatchQueue.main.async {
-            let observationText = "\(observation.identifier)"
-            
-            // 60%以上の確率で識別できた場合に会話対象を更新する
-            if (observation.confidence.convertPercent >= 60) {
-                self.observationText = observationText
-            }
-            
-            // 現在会話がなく、かつ会話対象がある場合にはChatGPTにリクエストを投げる
-            if (self.messagesWithChatGPT.isEmpty && !self.observationText.isEmpty) {
-                self.messagesWithChatGPT.append(Message(content: "=====Start=====", role: "symbol"))
-                self.callGPT()
-            }
-        }
+//        resnet50ModelManager.performRequet(with: imageBuffer)
     }
 }
 
@@ -132,8 +127,16 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
 
 extension RealTimeImageClassificationViewModel: TextToSpeakDelegate {
     func finishSpeak() {
-        self.status = .inputingReply
+        self.status = .inputtingReply
         self.recordVoice.startRecording()
+    }
+}
+
+extension RealTimeImageClassificationViewModel: GoogleCloudOCRDelegate {
+    func detectedImage(_ result: DetectImageResult) {
+        DispatchQueue.main.async {
+            self.imageResult = result
+        }
     }
 }
 

@@ -1,0 +1,25 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-visionspeak-prod-182739-authRole",
+      "UnauthRoleArn": "arn:aws:iam::050355054934:role/amplify-visionspeak-prod-182739-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::050355054934:role/amplify-visionspeak-prod-182739-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-visionspeak-prod-182739-deployment",
+      "UnauthRoleName": "amplify-visionspeak-prod-182739-unauthRole",
+      "StackName": "amplify-visionspeak-prod-182739",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:050355054934:stack/amplify-visionspeak-prod-182739/cddf3c90-43f2-11ee-a031-0a4ba3b58dad",
+      "AmplifyAppId": "d29m0wxdqctbbh"
+    },
+    "categories": {
+      "auth": {
+        "visionspeak979bb3f4": {
+          "userPoolId": "ap-northeast-1_Tzia07FMO",
+          "userPoolName": "vision-speak-user-pool-prod",
+          "webClientId": "5kpitppstd6uuevimqg59ss96g",
+          "nativeClientId": "5kpitppstd6uuevimqg59ss96g"
+        }
+      }
+    }
+  }
+}

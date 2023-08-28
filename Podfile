@@ -6,7 +6,11 @@ target 'EnglishCamera' do
   use_frameworks!
 
   # Pods for EnglishCamera
+  pod 'RealmSwift'
   pod 'RevenueCat', '~> 4.15'
+  pod 'Amplify'
+  pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
+  pod 'AWSMobileClient'
   
   target 'EnglishCameraTests' do
     inherit! :search_paths

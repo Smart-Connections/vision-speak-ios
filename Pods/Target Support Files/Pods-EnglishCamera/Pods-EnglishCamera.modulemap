@@ -1,6 +1,0 @@
-framework module Pods_EnglishCamera {
-  umbrella header "Pods-EnglishCamera-umbrella.h"
-
-  export *
-  module * { export * }
-}

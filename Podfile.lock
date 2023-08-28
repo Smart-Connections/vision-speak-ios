@@ -1,16 +1,71 @@
 PODS:
-  - RevenueCat (4.25.4)
+  - Amplify (1.30.4):
+    - Amplify/Default (= 1.30.4)
+  - Amplify/Default (1.30.4)
+  - AmplifyPlugins/AWSCognitoAuthPlugin (1.30.4):
+    - AWSAuthCore (~> 2.33.0)
+    - AWSCognitoIdentityProvider (~> 2.33.0)
+    - AWSCognitoIdentityProviderASF (~> 2.33.0)
+    - AWSCore (~> 2.33.0)
+    - AWSMobileClient (~> 2.33.0)
+    - AWSPluginsCore (= 1.30.4)
+  - AWSAuthCore (2.33.4):
+    - AWSCore (= 2.33.4)
+  - AWSCognitoIdentityProvider (2.33.4):
+    - AWSCognitoIdentityProviderASF (= 2.33.4)
+    - AWSCore (= 2.33.4)
+  - AWSCognitoIdentityProviderASF (2.33.4):
+    - AWSCore (= 2.33.4)
+  - AWSCore (2.33.4)
+  - AWSMobileClient (2.33.4):
+    - AWSAuthCore (= 2.33.4)
+    - AWSCognitoIdentityProvider (= 2.33.4)
+    - AWSCognitoIdentityProviderASF (= 2.33.4)
+    - AWSCore (= 2.33.4)
+  - AWSPluginsCore (1.30.4):
+    - Amplify (= 1.30.4)
+    - AWSCore (~> 2.33.0)
+  - Realm (10.42.0):
+    - Realm/Headers (= 10.42.0)
+  - Realm/Headers (10.42.0)
+  - RealmSwift (10.42.0):
+    - Realm (= 10.42.0)
+  - RevenueCat (4.25.7)
 
 DEPENDENCIES:
+  - Amplify
+  - AmplifyPlugins/AWSCognitoAuthPlugin
+  - AWSMobileClient
+  - RealmSwift
   - RevenueCat (~> 4.15)
 
 SPEC REPOS:
   trunk:
+    - Amplify
+    - AmplifyPlugins
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPluginsCore
+    - Realm
+    - RealmSwift
     - RevenueCat
 
 SPEC CHECKSUMS:
-  RevenueCat: 77f863268cfb1819cd0119749d488f3a50576b97
+  Amplify: 4e41668c8801667e174ab50c12bc3099c71a257f
+  AmplifyPlugins: 1335f0919aa07329df58685a020f2311c75a5176
+  AWSAuthCore: 0584cee14bd5a692b8daa1c43b06df9524533692
+  AWSCognitoIdentityProvider: 74464aeebddb8546586f979c8ed055180a4b1855
+  AWSCognitoIdentityProviderASF: 28c6a2916512c08ded36b1aab4d92a1b5805d868
+  AWSCore: 83e3416d2224ba98b61d8eadcfcb1f90f48fab82
+  AWSMobileClient: ff115272d8b29f05443f82f5800036c498c5ca8b
+  AWSPluginsCore: f2188458c27e6cb09597c67876f80611d14275d7
+  Realm: 490aad28f1360e58fc22256d5d686d3a36525346
+  RealmSwift: f6a9b56d747bbdd7931de1835896c5f024b6898a
+  RevenueCat: a70e08e45bd96bea5187dbd7b18f5f1db39646be
 
-PODFILE CHECKSUM: 03311ce019477375067dc742cce85019091e288a
+PODFILE CHECKSUM: 89f2903e8f45e6ca677415a338c26fe1ea02525c
 
 COCOAPODS: 1.12.1

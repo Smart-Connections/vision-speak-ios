@@ -7,8 +7,10 @@
 
 enum CameraStatus {
     case ready
+    case waitingVisionResults
+    case waitingSelectVisionResults
     case gptSpeaking
-    case inputingReply
+    case inputtingReply
     case stoppingReply
     case waitingGptMessage
 }

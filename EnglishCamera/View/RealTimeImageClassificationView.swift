@@ -74,11 +74,23 @@ struct RealTimeImageClassificationView: View {
                     }
                 }
                 ZStack {
-                    if (viewModel.status == .inputingReply) {
+                    if (viewModel.status == .inputtingReply) {
                         Button(action: {
                             viewModel.sendReply()
                         }) {
                             Image(systemName: "arrow.up")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .frame(width: 64, height: 64)
+                                .background(Color.blue)
+                                .cornerRadius(32)
+                        }
+                    }
+                    if (viewModel.status == .ready) {
+                        Button(action: {
+                            viewModel.takePicture()
+                        }) {
+                            Image(systemName: "camera")
                                 .font(.title)
                                 .foregroundColor(.white)
                                 .frame(width: 64, height: 64)

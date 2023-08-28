@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "108D4DEE-716F-4A96-BA92-79B397095B0A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58A555E8-1ECA-464C-82DA-A1690721A2D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/Model/ChatGPT.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "transcript(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "58A555E8-1ECA-464C-82DA-A1690721A2D2 - 1298f2e2c6cf4110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EnglishCamera.ChatGPT.transcript(Foundation.URL) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1424">
+               </Location>
+               <Location
+                  uuid = "58A555E8-1ECA-464C-82DA-A1690721A2D2 - 1298f2e2c6cf4110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EnglishCamera.ChatGPT.transcript(Foundation.URL) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "1572">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBF452B1-1D4C-412E-9057-F4971E9EC0C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/Model/CloudVision.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "detectImage(imageBase64:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FBF452B1-1D4C-412E-9057-F4971E9EC0C3 - 524247d27125ce0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "FBF452B1-1D4C-412E-9057-F4971E9EC0C3 - 524247d27125ce0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "FBF452B1-1D4C-412E-9057-F4971E9EC0C3 - 85afa392d80cd395"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79AEFF29-B245-48AC-809F-AA05FAA01517"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/Model/CloudVision.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "detectImage(imageBase64:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "79AEFF29-B245-48AC-809F-AA05FAA01517 - 3213494dd6709288"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;AWSMobileClient.Tokens&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1244">
+               </Location>
+               <Location
+                  uuid = "79AEFF29-B245-48AC-809F-AA05FAA01517 - 85afa392d80cd3e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "79AEFF29-B245-48AC-809F-AA05FAA01517 - 85afa392d80cd3e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "79AEFF29-B245-48AC-809F-AA05FAA01517 - 85afa392d80cd3e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.GoogleCloudOCR.detectImage(imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/CloudVision.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "708">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

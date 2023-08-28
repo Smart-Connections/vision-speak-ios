@@ -6,13 +6,15 @@
 //
 
 import AVFoundation
+import UIKit
 
 protocol VideoCaptureDelegate: AnyObject {
     func didSet(_ previewLayer: AVCaptureVideoPreviewLayer)
     func didCaptureFrame(from imageBuffer: CVImageBuffer)
+    func didTakePicture(_ data: Data)
 }
 
-class VideoCapture: NSObject {
+class VideoCapture: NSObject, AVCapturePhotoCaptureDelegate {
 
     weak var delegate: VideoCaptureDelegate?
 
@@ -21,6 +23,9 @@ class VideoCapture: NSObject {
 
     // ビデオを記録し、処理を行うためにビデオフレームへのアクセスを提供するoutput
     private let videoOutput = AVCaptureVideoDataOutput()
+    
+    // 写真を撮影するためのアウトプット
+    private let photoOutput = AVCapturePhotoOutput()
 
     // カメラセットアップとフレームキャプチャを処理する為のDispathQueue
     private let sessionQueue = DispatchQueue(label: "object-detection-queue")
@@ -46,6 +51,7 @@ class VideoCapture: NSObject {
 
             // captureSessionから出力を取得するためにdataOutputをセット
             self.captureSession.addOutput(self.videoOutput)
+            self.captureSession.addOutput(self.photoOutput)
 
             // captureSessionをUIに描画するためにPreviewLayerにsessionを追加
             let previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
@@ -56,6 +62,13 @@ class VideoCapture: NSObject {
     func stopCapturing() {
         // キャプチャセッションの終了
         captureSession.stopRunning()
+    }
+    
+    func takePicture() {
+        let settings = AVCapturePhotoSettings()
+        settings.flashMode = .auto
+        settings.maxPhotoDimensions = CMVideoDimensions()
+        self.photoOutput.capturePhoto(with: settings, delegate: self)
     }
 }
 
@@ -72,5 +85,16 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         else { return }
 
         delegate?.didCaptureFrame(from: imageBuffer)
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation() {
+            // 写真ライブラリに画像を保存
+            delegate?.didTakePicture(imageData)
+        }
+    }
+    
+    func  photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        AudioServicesDisposeSystemSoundID(1108)
     }
 }

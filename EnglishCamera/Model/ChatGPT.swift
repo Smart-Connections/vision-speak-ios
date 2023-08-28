@@ -17,9 +17,7 @@ class ChatGPT {
     
     var seacretKey: String = "Bearer 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"
     
-    // HTTPリクエストを送信する
     func chat(_ messages: [Message]) {
-        print("==========start chat==========")
         let messsagesParam = messages.map({ ["role": $0.role, "content": $0.content] })
         let endPoint = "https://api.openai.com/v1/chat/completions"
         let url = URL(string: endPoint)!
@@ -57,7 +55,6 @@ class ChatGPT {
     }
     
     func transcript(_ path: URL) {
-        print("==========start transcript==========")
         guard let audioData = FileManager().contents(atPath: path.relativePath) else { return }
         let endPoint = "https://api.openai.com/v1/audio/transcriptions"
         let url = URL(string: endPoint)!
