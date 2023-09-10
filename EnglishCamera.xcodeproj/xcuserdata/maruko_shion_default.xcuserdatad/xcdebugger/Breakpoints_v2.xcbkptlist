@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EnglishCamera/Model/ChatGPT.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "chat(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C - 24176011125e2567"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EnglishCamera.ChatGPT.sendHttpRequest(Swift.Array&lt;EnglishCamera.Message&gt;) -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "1036">
-               </Location>
-               <Location
-                  uuid = "ADD9D7DD-89EB-47E8-B5F7-5F10809E5E0C - 24176011125e2567"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EnglishCamera.ChatGPT.sendHttpRequest(Swift.Array&lt;EnglishCamera.Message&gt;) -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/ChatGPT.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "1020">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,8 +30,8 @@
             filePath = "EnglishCamera/View/RealTimeImageClassificationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "saveStudyHistory()"
             landmarkType = "7">
             <Locations>

@@ -8,8 +8,6 @@ target 'EnglishCamera' do
   # Pods for EnglishCamera
   pod 'RealmSwift'
   pod 'RevenueCat', '~> 4.15'
-  pod 'Amplify'
-  pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
   pod 'AWSMobileClient'
   
   target 'EnglishCameraTests' do

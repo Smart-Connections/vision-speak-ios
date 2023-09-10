@@ -4,11 +4,11 @@ import Combine
 
 class RealTimeImageClassificationViewModel: ObservableObject {
     private let videoCapture = VideoCapture()
-    private let resnet50ModelManager = Resnet50ModelManager()
+    private let imageAnalysisModel = ImageAnalysisModel()
     private let chatGPT = ChatGPT()
     private let textToSpeak = TextToSpeak()
     private let recordVoice = RecordVoice()
-    private let cloudVision = GoogleCloudOCR()
+    private let cloudVision = AnalyzeImage()
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
     var timer: Timer?
@@ -18,16 +18,15 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var remainSeconds: TimeInterval = TimeInterval(AppValue.initSecondsSymbol)
     @Published var messagesWithChatGPT = [Message]()
     @Published var jaMessages = [Message]()
-    @Published var observationText: String = ""
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
     @Published var status: CameraStatus = .ready
     @Published var picture: Data?
-    @Published var imageResult: DetectImageResult?
+    @Published var imageResult: AnalyzeImageResult?
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-//        resnet50ModelManager.delegate = self
+        imageAnalysisModel.delegate = self
         videoCapture.delegate = self
         chatGPT.delegate = self
         textToSpeak.delegate = self
@@ -52,6 +51,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     func takePicture() {
         videoCapture.takePicture()
+        status = .waitingVisionResults
     }
     
     func reset() {
@@ -61,14 +61,14 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     @MainActor func sendReply() {
         guard let url = self.recordVoice.stopRecording() else { return }
+        guard let audioData = FileManager().contents(atPath: url.relativePath) else { return }
         self.recordVoice.cancelRecording()
-        chatGPT.transcript(url)
+        chatGPT.sendVoice(voiceBase64Decoded: audioData.base64EncodedString(), threadId: imageResult?.chatThreadID ?? "")
         self.status = .waitingGptMessage
     }
     
     func clearChatHistory() {
         messagesWithChatGPT.removeAll()
-        observationText = ""
         status = .ready
     }
     
@@ -80,10 +80,8 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         }
     }
     
-    private func callGPT() {
-        let content = "You are a AI of learning English App. Please talk with me about one of \(observationText). Please use lower than 15 words. Please use this format \"[En] [Ja]\" and return English and Japanese."
-        messagesWithChatGPT.append(Message(content: content, role: "user"))
-        chatGPT.chat(messagesWithChatGPT.filter { $0.role != "symbol"} )
+    private func callGPT(_ text: String) {
+        chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "")
         self.status = .waitingGptMessage
     }
 }
@@ -91,7 +89,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
 extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     func didTakePicture(_ data: Data) {
         self.picture = data
-        cloudVision.detectImage(imageBase64: data.base64EncodedString())
+        cloudVision.analyzeImage(imageBase64: data.base64EncodedString())
     }
     
     func didSet(_ previewLayer: AVCaptureVideoPreviewLayer) {
@@ -103,23 +101,23 @@ extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     }
     
     func didCaptureFrame(from imageBuffer: CVImageBuffer) {
-//        resnet50ModelManager.performRequet(with: imageBuffer)
+        imageAnalysisModel.performRequet(with: imageBuffer)
     }
 }
 
 extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveTranscript(_ text: String) {
         DispatchQueue.main.async {
-            self.messagesWithChatGPT.append(Message(content: text, role: "user"))
-            self.wordsCount += text.split(separator: " ").count
-            print("received Transcript: \(text)")
-            self.chatGPT.chat(self.messagesWithChatGPT.filter { $0.role != "symbol"} )
+//            self.messagesWithChatGPT.append(Message(content: text, role: "user"))
+//            self.wordsCount += text.split(separator: " ").count
+//            print("received Transcript: \(text)")
+//            self.callGPT(text)
         }
     }
     
     func receiveMessage(_ message: Message) {
         DispatchQueue.main.async {
-            self.textToSpeak.textToSpeak(text: message.en)
+            self.textToSpeak.textToSpeak(text: message.english_message)
             self.messagesWithChatGPT.append(message)
         }
     }
@@ -132,22 +130,17 @@ extension RealTimeImageClassificationViewModel: TextToSpeakDelegate {
     }
 }
 
-extension RealTimeImageClassificationViewModel: GoogleCloudOCRDelegate {
-    func detectedImage(_ result: DetectImageResult) {
+extension RealTimeImageClassificationViewModel: AnalyzeImageDelegate {
+    func didAnalyzeImage(_ result: AnalyzeImageResult) {
         DispatchQueue.main.async {
             self.imageResult = result
+            self.callGPT(result.description)
         }
     }
 }
 
-extension Message {
-    
-    var ja: String {
-        return String(content.split(separator: "[Ja] ").last ?? "")
+extension RealTimeImageClassificationViewModel: ImageAnalysisModelDelegate {
+    func didRecieve(_ observation: VNClassificationObservation) {
+        print(observation)
     }
-    
-    var en: String {
-        return String(content.split(separator: "[Ja] ").first ?? "").replacing("[En] ", with: "").replacing("\n", with: "")
-    }
-    
 }

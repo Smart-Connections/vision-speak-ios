@@ -8,38 +8,11 @@
       "serviceType": "imported"
     }
   },
-  "parameters": {
-    "AMPLIFY_auth_visionspeak2c6ad725_nativeClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "visionspeak2c6ad725"
-        }
-      ]
-    },
-    "AMPLIFY_auth_visionspeak2c6ad725_userPoolId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "visionspeak2c6ad725"
-        }
-      ]
-    },
-    "AMPLIFY_auth_visionspeak2c6ad725_userPoolName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "visionspeak2c6ad725"
-        }
-      ]
-    },
-    "AMPLIFY_auth_visionspeak2c6ad725_webClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "visionspeak2c6ad725"
-        }
-      ]
+  "function": {
+    "setupChatProd": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   }
 }

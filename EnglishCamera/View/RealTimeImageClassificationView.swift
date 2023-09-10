@@ -7,16 +7,12 @@
 
 import SwiftUI
 import AVFoundation
-import Speech
 
 struct RealTimeImageClassificationView: View {
     @ObservedObject private var viewModel = RealTimeImageClassificationViewModel()
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @State var showVocabulary: Bool = false
-    
     @Binding var ShowNextView: Bool
-    
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
     
@@ -35,9 +31,9 @@ struct RealTimeImageClassificationView: View {
                 ChatHeader(ShowNextView: $ShowNextView).environmentObject(viewModel)
                 Spacer()
                 if (viewModel.messagesWithChatGPT.count >= 0) {
-                    ForEach(viewModel.messagesWithChatGPT.dropFirst(2), id: \.hashValue) { message in
+                    ForEach(viewModel.messagesWithChatGPT, id: \.hashValue) { message in
                         HStack {
-                            Text(viewModel.jaMessages.contains(message) ? message.ja : message.en)
+                            Text(viewModel.jaMessages.contains(message) ? message.japanese_message : message.english_message)
                             Spacer()
                             if (message.role != "user") {
                                 Button(action: {
@@ -57,22 +53,7 @@ struct RealTimeImageClassificationView: View {
                 Spacer().frame(height: 16)
             }.padding()
             if (self.showVocabulary) {
-                VStack {
-                    Spacer()
-                    VStack {
-                        ForEach(0..<3) { index in
-                            Text("\(index)")
-                            Divider().frame(height: 0.5)
-                        }.padding().frame(maxWidth: .infinity)
-                    }.background(.white).cornerRadius(8)
-                    Spacer().frame(height: 96)
-                }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.black.opacity(0.4))
-                .onTapGesture {
-                    showVocabulary = false
-                }
+                VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
             }
         }
         .onAppear {

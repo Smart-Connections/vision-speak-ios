@@ -5,9 +5,8 @@
 //  Created by maruko_shion_default on 2023/08/26.
 //
 
-import Amplify
-import AmplifyPlugins
 import Security
+import AWSMobileClient
 
 class Authenticator {
     
@@ -17,8 +16,16 @@ class Authenticator {
             if (isLoggedIn) { return }
             let username = self.randomString(length: 10)
             let password = self.randomPassword()
-            _ = Amplify.Auth.signUp(username: username, password: password)
-            _ = Amplify.Auth.signIn(username: username, password: password)
+            // Cognitoでusernameとpasswordでユーザーを作成する
+            AWSMobileClient.default().signUp(username: username, password: password) {result, error in
+                print("result: \(result)")
+                print("error: \(error)")
+                // usernameとpasswordでログインする
+                AWSMobileClient.default().signIn(username: username, password: password) {result, error in
+                    print("result: \(result)")
+                    print("error: \(error)")
+                }
+            }
         }
     }
 
@@ -29,13 +36,20 @@ class Authenticator {
     }
     
     func checkUserLoggedIn(completion: @escaping (Bool) -> Void) {
-        Amplify.Auth.fetchAuthSession { result in
-            switch result {
-            case .success(let session):
-                print("Is user signed in - \(session.isSignedIn)")
-                completion(session.isSignedIn)
-            case .failure(let error):
-                print("Fetch auth session failed with error \(error)")
+        AWSMobileClient.default().initialize { userState, error in
+            if let error = error {
+                print("error: \(error)")
+                completion(false)
+                return
+            }
+            guard let userState = userState else {
+                completion(false)
+                return
+            }
+            switch userState {
+            case .signedIn:
+                completion(true)
+            default:
                 completion(false)
             }
         }
