@@ -11,7 +11,10 @@ import AVFoundation
 struct RealTimeImageClassificationView: View {
     @ObservedObject private var viewModel = RealTimeImageClassificationViewModel()
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
+    
     @State var showVocabulary: Bool = false
+    @State var showVocabularySetting: Bool = false
+    
     @Binding var ShowNextView: Bool
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
@@ -22,7 +25,16 @@ struct RealTimeImageClassificationView: View {
     
     var body: some View {
         if (viewModel.remainSeconds <= 0) {
+            // 制限時間を超えていれば前の画面に戻る
             ShowNextView = false
+        }
+        if (viewModel.vocabulary.isEmpty && !viewModel.notSetVocabulary) {
+            // ボキャブラリーが未設定の場合はモーダルを表示する
+            // 3秒後に実行
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.showVocabularySetting = true
+                viewModel.notSetVocabulary = true
+            }
         }
         return ZStack {
             CameraPreviewView().environmentObject(viewModel)
@@ -30,30 +42,15 @@ struct RealTimeImageClassificationView: View {
                 Spacer().frame(height: 32)
                 ChatHeader(ShowNextView: $ShowNextView).environmentObject(viewModel)
                 Spacer()
-                if (viewModel.messagesWithChatGPT.count >= 0) {
-                    ForEach(viewModel.messagesWithChatGPT, id: \.hashValue) { message in
-                        HStack {
-                            Text(viewModel.jaMessages.contains(message) ? message.japanese_message : message.english_message)
-                            Spacer()
-                            if (message.role != "user") {
-                                Button(action: {
-                                    viewModel.toggleLanguage(message: message)
-                                }) {
-                                    Text("あ/A").font(.caption)
-                                }
-                            }
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(message.role == "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92))
-                        .cornerRadius(8)
-                    }
-                }
+                ChatMessages().environmentObject(viewModel)
                 ChatBottomActions(showVocabulary: $showVocabulary).environmentObject(viewModel)
                 Spacer().frame(height: 16)
             }.padding()
             if (self.showVocabulary) {
                 VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
+            }
+            if (self.showVocabularySetting) {
+                VocabularySettingView(showVocabularySetting: $showVocabularySetting).environmentObject(viewModel)
             }
         }
         .onAppear {

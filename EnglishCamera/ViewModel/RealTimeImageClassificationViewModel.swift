@@ -17,11 +17,14 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var passedTime: TimeInterval = 0
     @Published var remainSeconds: TimeInterval = TimeInterval(AppValue.initSecondsSymbol)
     @Published var messagesWithChatGPT = [Message]()
-    @Published var jaMessages = [Message]()
+    @Published var jaMessages = [Message]() // 日本語で表示するメッセージ
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
     @Published var status: CameraStatus = .ready
+    
     @Published var picture: Data?
     @Published var imageResult: AnalyzeImageResult?
+    @Published var vocabulary: [Vocabulary] = []
+    @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
     
     private var cancellables = Set<AnyCancellable>()
     

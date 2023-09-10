@@ -46,6 +46,8 @@
 		E8D403372AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */; };
 		E8D403392AAD5E0A00EC9A12 /* VocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */; };
 		E8D4033B2AAD5F0300EC9A12 /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4033A2AAD5F0300EC9A12 /* Vocabulary.swift */; };
+		E8D4033D2AAD67FF00EC9A12 /* ChatMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4033C2AAD67FF00EC9A12 /* ChatMessages.swift */; };
+		E8D4033F2AAD685500EC9A12 /* VocabularySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4033E2AAD685500EC9A12 /* VocabularySettingView.swift */; };
 		FC88BA9F5067822C5DDE4BE8 /* Pods_EnglishCameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9087BDE84D62DFF240AE7820 /* Pods_EnglishCameraTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyView.swift; sourceTree = "<group>"; };
 		E8D4033A2AAD5F0300EC9A12 /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
+		E8D4033C2AAD67FF00EC9A12 /* ChatMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessages.swift; sourceTree = "<group>"; };
+		E8D4033E2AAD685500EC9A12 /* VocabularySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySettingView.swift; sourceTree = "<group>"; };
 		EC2575AEFB0F79F7CE072B3E /* Pods-EnglishCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishCamera.debug.xcconfig"; path = "Target Support Files/Pods-EnglishCamera/Pods-EnglishCamera.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +216,7 @@
 				E82724002A9CF4B400E34D5A /* ChatBottomActions.swift */,
 				E82724022A9CF79400E34D5A /* ChatHeader.swift */,
 				E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */,
+				E8D4033C2AAD67FF00EC9A12 /* ChatMessages.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */,
 				E8799D322A873C6000231BA1 /* MenuView.swift */,
 				E8799D342A87512E00231BA1 /* PurchaseView.swift */,
+				E8D4033E2AAD685500EC9A12 /* VocabularySettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,11 +564,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D4033F2AAD685500EC9A12 /* VocabularySettingView.swift in Sources */,
 				E84EE4CA2A6D5A4E0045A804 /* MLManager.swift in Sources */,
 				E83E145E2A9A41CD00A440D2 /* Authenticator.swift in Sources */,
 				E82724012A9CF4B400E34D5A /* ChatBottomActions.swift in Sources */,
 				E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */,
 				E82724032A9CF79400E34D5A /* ChatHeader.swift in Sources */,
+				E8D4033D2AAD67FF00EC9A12 /* ChatMessages.swift in Sources */,
 				E8799D332A873C6000231BA1 /* MenuView.swift in Sources */,
 				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
 				E822F7562A7DF258008BEC33 /* StudyHistoryDatasource.swift in Sources */,
