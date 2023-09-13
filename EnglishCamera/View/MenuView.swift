@@ -27,7 +27,9 @@ struct MenuView: View {
                         }
                         HStack {
                             Spacer()
-                            Text(purchaseViewModel.getCurrentStatus().name).font(.title).foregroundColor(.black)
+                            Text(purchaseViewModel.getCurrentStatus().name)
+                                .font(.title)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                     }

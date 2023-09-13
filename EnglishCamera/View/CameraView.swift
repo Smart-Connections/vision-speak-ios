@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CameraView: View {
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
+    @EnvironmentObject private var vocabularyState: VocabularyState
     
     @State private var showNextView = false
     @State private var showMenu = false
@@ -62,7 +63,9 @@ struct CameraView: View {
                     .disabled(!enable)
                     .frame(maxWidth: .infinity)
                     .fullScreenCover(isPresented: $showNextView, content: {
-                        RealTimeImageClassificationView(showNextView: $showNextView).environmentObject(studyHistoryState)
+                        RealTimeImageClassificationView(showNextView: $showNextView)
+                            .environmentObject(studyHistoryState)
+                            .environmentObject(vocabularyState)
                     })
                 }
                 .padding()

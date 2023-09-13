@@ -9,19 +9,37 @@ import Foundation
 import SwiftUI
 
 struct VocabularySettingView: View {
+    @EnvironmentObject private var vocabularyState: VocabularyState
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     @Binding var showVocabularySetting: Bool
     
+    @State private var showSearchModal = false
+    
     var body: some View {
         VStack {
-            Spacer()
             VStack {
-                ForEach(0..<3) { index in
-                    Text("\(index)")
-                    Divider().frame(height: 0.5)
-                }.padding().frame(maxWidth: .infinity)
-            }.background(.white).cornerRadius(8)
-            Spacer().frame(height: 96)
+                Text("使いたいVocabularyを設定しよう").font(.title3)
+                Spacer().frame(height: 16)
+                VocabularyHistoryList().environmentObject(vocabularyState)
+                Button(action: {
+                    showSearchModal = true
+                }) {
+                    HStack {
+                        Text("追加する")
+                        Image(systemName: "plus.circle")
+                    }
+                    .padding(.vertical, 8)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                }.sheet(isPresented: $showSearchModal) {
+                    VocabularySearchView(showSearchModal: $showSearchModal)
+                }
+            }
+            .padding()
+            .background(.white)
+            .cornerRadius(8)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -30,6 +48,5 @@ struct VocabularySettingView: View {
             showVocabularySetting = false
         }
     }
-    
 }
 

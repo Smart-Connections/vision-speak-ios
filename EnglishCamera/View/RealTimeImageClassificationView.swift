@@ -11,6 +11,7 @@ import AVFoundation
 struct RealTimeImageClassificationView: View {
     @ObservedObject private var viewModel = RealTimeImageClassificationViewModel()
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
+    @EnvironmentObject private var vocabularyState: VocabularyState
     
     @State var showVocabulary: Bool = false
     @State var showVocabularySetting: Bool = false
@@ -50,7 +51,9 @@ struct RealTimeImageClassificationView: View {
                 VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
             }
             if (self.showVocabularySetting) {
-                VocabularySettingView(showVocabularySetting: $showVocabularySetting).environmentObject(viewModel)
+                VocabularySettingView(showVocabularySetting: $showVocabularySetting)
+                    .environmentObject(viewModel)
+                    .environmentObject(vocabularyState)
             }
         }
         .onAppear {

@@ -71,3 +71,9 @@ enum Difficulty: String, PersistableEnum {
     case normal = "普通"
     case hard = "難しい"
 }
+
+enum VocabularyType: String, PersistableEnum {
+    case word = "単語"
+    case sentence = "短文"
+    case idiom = "イディオム"
+}

@@ -24,7 +24,9 @@ class VisionSpeakApiClient {
             request.httpBody = body
             
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                debugPrint((try? JSONSerialization.jsonObject(with: data!, options: [])) ?? "")
+                if (data != nil) {
+                    debugPrint((try? JSONSerialization.jsonObject(with: data ?? Data(), options: [])) ?? "")
+                }
                 debugPrint(response as Any)
                 debugPrint(error as Any)
                 completion(data, response, error)

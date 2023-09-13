@@ -8,8 +8,12 @@
 import Foundation
 
 protocol ChatGPTDelegate: AnyObject {
-    func receiveMessage(_ message: Message)
-    func receiveTranscript(_ text: String)
+}
+
+extension ChatGPTDelegate {
+    func receiveMessage(_ message: Message){}
+    func receiveTranscript(_ text: String){}
+    func getVocabulary(_ vocabulary: [String]){}
 }
 
 class ChatGPT {
@@ -51,3 +55,4 @@ struct Message: Codable, Hashable {
     let english_message: String
     let japanese_message: String
 }
+

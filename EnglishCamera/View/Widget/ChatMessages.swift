@@ -11,7 +11,6 @@ import SwiftUI
 struct ChatMessages: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     
-    
     var body: some View {
         if (viewModel.messagesWithChatGPT.count >= 0) {
             ForEach(viewModel.messagesWithChatGPT, id: \.hashValue) { message in
