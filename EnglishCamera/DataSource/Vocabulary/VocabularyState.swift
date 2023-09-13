@@ -17,4 +17,8 @@ class VocabularyState: ObservableObject {
     func allVocabulary() -> [Vocabulary] {
         return datasource.getAll()
     }
+    
+    func addAll(_ vocabularies: [Vocabulary]) {
+        datasource.add(vocabularies)
+    }
 }

@@ -73,36 +73,75 @@ struct VocabularySearchView: View {
                     viewModel.search(
                         SearchVocabularyCondition(
                             keyword: $searchText.wrappedValue,
-                            situation: $situationOption.wrappedValue.rawValue,
-                            style: $styleOption.wrappedValue.rawValue,
-                            difficulty: $difficultyOption.wrappedValue.rawValue,
-                            type: $type.wrappedValue.rawValue
+                            situation: $situationOption.wrappedValue,
+                            style: $styleOption.wrappedValue,
+                            difficulty: $difficultyOption.wrappedValue,
+                            type: $type.wrappedValue
                         ))
                 }) {
                     HStack {
                         Text("検索する")
                         Image(systemName: "magnifyingglass")
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 10)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
-                    .background($searchText.wrappedValue.isEmpty ? Color.gray : Color.blue)
+                    .background($searchText.wrappedValue.isEmpty || viewModel.lastSearchVocabularyCondition != nil ? Color.gray : Color.blue)
                     .cornerRadius(8)
-                }
-                .disabled($searchText.wrappedValue.isEmpty)
-                List {
-                    ForEach(viewModel.vocabularyList, id: \.hashValue) { vocabulary in
-                        Text(vocabulary)
+                }.disabled($searchText.wrappedValue.isEmpty || viewModel.lastSearchVocabularyCondition != nil)
+                List(viewModel.vocabularyList, id: \.self, selection: $viewModel.selectedVocabulary) { vocabulary in
+                    Text(vocabulary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if viewModel.selectedVocabulary.contains(vocabulary) {
+                                viewModel.selectedVocabulary.remove(vocabulary)
+                            } else {
+                                viewModel.selectedVocabulary.insert(vocabulary)
+                            }
+                        }
+                }.environment(\.editMode, .constant(.active))
+                if !viewModel.vocabularyList.isEmpty {
+                    HStack {
+                        Button(action: {
+                            viewModel.clearResult()
+                        }) {
+                            HStack {
+                                Text("クリア")
+                            }
+                            .padding(.vertical, 10)
+                            .foregroundColor(.blue)
+                            .frame(width: 80)
+                            .background(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.blue, lineWidth: 0.5)
+                            )
+                        }
+                        Button(action: {
+                            viewModel.saveVocabulary()
+                            showSearchModal = false
+                        }) {
+                            HStack {
+                                Text("保存する")
+                                Image(systemName: "plus.circle")
+                            }
+                            .padding(.vertical, 10)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .background(viewModel.selectedVocabulary.isEmpty ? Color.gray : Color.blue)
+                            .cornerRadius(8)
+                        }.disabled(viewModel.selectedVocabulary.isEmpty)
                     }
                 }
             }
             .padding()
             .navigationBarTitle(Text("Vocabulary検索"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
-                    showSearchModal = false
-                }) {
-                    Text("Close").bold()
-                })
+                showSearchModal = false
+            }) {
+                Text("Close").bold()
+            })
         }
     }
 }

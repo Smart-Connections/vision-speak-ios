@@ -15,7 +15,14 @@ class RealmWrapper {
     private init() { }
 
     static func sharedInstance() throws -> Realm {
-        let config = Realm.Configuration(schemaVersion: 1)
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+            if (oldSchemaVersion < 2) {
+                migration.enumerateObjects(ofType: Vocabulary.className()) { oldObject, newObject in
+                }
+            }
+        })
         Realm.Configuration.defaultConfiguration = config
         var realm = self.realmPerThread[self.threadId()]
         if realm == nil {

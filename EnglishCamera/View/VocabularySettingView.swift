@@ -28,7 +28,7 @@ struct VocabularySettingView: View {
                         Text("追加する")
                         Image(systemName: "plus.circle")
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 10)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
