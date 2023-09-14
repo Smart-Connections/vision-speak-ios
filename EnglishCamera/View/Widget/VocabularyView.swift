@@ -15,8 +15,8 @@ struct VocabularyView: View {
         VStack {
             Spacer()
             VStack {
-                ForEach(0..<3) { index in
-                    Text("\(index)")
+                ForEach(Array(viewModel.selectedVocabulary)) { vocabulary in
+                    Text(vocabulary.vocabulary)
                     Divider().frame(height: 0.5)
                 }.padding().frame(maxWidth: .infinity)
             }.background(.white).cornerRadius(8)

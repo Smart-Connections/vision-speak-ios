@@ -29,7 +29,7 @@ struct RealTimeImageClassificationView: View {
             // 制限時間を超えていれば前の画面に戻る
             ShowNextView = false
         }
-        if (viewModel.vocabulary.isEmpty && !viewModel.notSetVocabulary) {
+        if (viewModel.selectedVocabulary.isEmpty && !viewModel.notSetVocabulary) {
             // ボキャブラリーが未設定の場合はモーダルを表示する
             // 3秒後に実行
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

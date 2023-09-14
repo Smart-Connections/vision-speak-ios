@@ -23,7 +23,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     @Published var picture: Data?
     @Published var imageResult: AnalyzeImageResult?
-    @Published var vocabulary: [Vocabulary] = []
+    @Published var selectedVocabulary = Set<Vocabulary>()
     @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
     
     private var cancellables = Set<AnyCancellable>()

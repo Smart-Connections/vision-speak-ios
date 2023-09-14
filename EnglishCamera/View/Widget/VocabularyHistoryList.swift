@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct VocabularyHistoryList: View {
+    @EnvironmentObject private var realTimeImageClassificationViewModel: RealTimeImageClassificationViewModel
     @EnvironmentObject private var vocabularyState: VocabularyState
     
     var body: some View {
         return VStack() {
-            Text("未学習のVocabulary")
             if (vocabularyState.allVocabulary().isEmpty) {
                 Spacer()
                 Text("未学習のVocabularyはありません")
                 Spacer()
             } else {
-                List{
-                    ForEach(vocabularyState.allVocabulary()) { entry in
-                        Text(entry.vocabulary).padding()
-                    }
-                }
+                List(vocabularyState.allVocabulary(), id: \.self, selection: $realTimeImageClassificationViewModel.selectedVocabulary) { vocabulary in
+                    Text(vocabulary.vocabulary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if realTimeImageClassificationViewModel.selectedVocabulary.contains(vocabulary) {
+                                realTimeImageClassificationViewModel.selectedVocabulary.remove(vocabulary)
+                            } else {
+                                realTimeImageClassificationViewModel.selectedVocabulary.insert(vocabulary)
+                            }
+                        }
+                }.environment(\.editMode, .constant(.active))
             }
-        }.frame(height: 240)
+        }.frame(height: 360)
     }
 }
