@@ -34,12 +34,16 @@ struct AnalyzeImageResult: Codable {
     let description: String
     let presignedURL: URL
     let chatThreadID: String
+    let englishMessage: String
+    let japaneseMessage: String
     let tags: [Tag]
     
     enum CodingKeys: String, CodingKey {
         case description
         case presignedURL = "presigned_url"
         case chatThreadID = "chat_thread_id"
+        case englishMessage = "english_message"
+        case japaneseMessage = "japanese_message"
         case tags
     }
     
