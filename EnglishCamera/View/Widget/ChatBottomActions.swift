@@ -15,7 +15,7 @@ struct ChatBottomActions: View {
         ZStack {
             if (viewModel.status == .inputtingReply) {
                 Button(action: {
-                    viewModel.sendReply()
+                    viewModel.transcript()
                 }) {
                     Image(systemName: "arrow.up")
                         .font(.title)

@@ -62,11 +62,11 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         self.recordVoice.cancelRecording()
     }
     
-    @MainActor func sendReply() {
+    @MainActor func transcript() {
         guard let url = self.recordVoice.stopRecording() else { return }
         guard let audioData = FileManager().contents(atPath: url.relativePath) else { return }
         self.recordVoice.cancelRecording()
-        chatGPT.sendVoice(voiceBase64Decoded: audioData.base64EncodedString(), threadId: imageResult?.chatThreadID ?? "")
+        chatGPT.transcript(message: audioData.base64EncodedString())
         self.status = .waitingGptMessage
     }
     
@@ -111,14 +111,15 @@ extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
 extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveTranscript(_ text: String) {
         DispatchQueue.main.async {
-//            self.messagesWithChatGPT.append(Message(content: text, role: "user"))
-//            self.wordsCount += text.split(separator: " ").count
-//            print("received Transcript: \(text)")
-//            self.callGPT(text)
+            self.messagesWithChatGPT.append(Message(role: "user", english_message: text, japanese_message: ""))
+            self.wordsCount += text.split(separator: " ").count
+            print("received Transcript: \(text)")
+            self.callGPT(text)
         }
     }
     
     func receiveMessage(_ message: Message) {
+        print("received Message: \(message)")
         DispatchQueue.main.async {
             self.textToSpeak.textToSpeak(text: message.english_message)
             self.messagesWithChatGPT.append(message)

@@ -8,12 +8,8 @@
 import Foundation
 
 protocol ChatGPTDelegate: AnyObject {
-}
-
-extension ChatGPTDelegate {
-    func receiveMessage(_ message: Message){}
-    func receiveTranscript(_ text: String){}
-    func getVocabulary(_ vocabulary: [String]){}
+    func receiveMessage(_ message: Message)
+    func receiveTranscript(_ text: String)
 }
 
 class ChatGPT {
@@ -24,9 +20,9 @@ class ChatGPT {
             "message": message, "chat_thread_id": threadId]) { (data, response, error) in
                 if let data = data {
                     do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode(Message.self, from: data)
-                        self.delegate?.receiveMessage(result)
+                        let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
+                        let message = Message(role: "assistant", english_message: result["english_message"] ?? "", japanese_message: result["japanese_message"] ?? "")
+                        self.delegate?.receiveMessage(message)
                     } catch {
                         print("Error parsing JSON: \(error)")
                     }
@@ -34,14 +30,13 @@ class ChatGPT {
             }
     }
     
-    func sendVoice(voiceBase64Decoded: String, threadId: String) {
-        VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_send_message", body: [
-            "message_voice": voiceBase64Decoded, "chat_thread_id": threadId]) { (data, response, error) in
+    func transcript(message: String) {
+        VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_transcript", body: [
+            "message_voice": message]) { (data, response, error) in
                 if let data = data {
                     do {
-                        let decoder = JSONDecoder()
-                        let result = try decoder.decode(Message.self, from: data)
-                        self.delegate?.receiveMessage(result)
+                        let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
+                        self.delegate?.receiveTranscript(result["text"] ?? "")
                     } catch {
                         print("Error parsing JSON: \(error)")
                     }
@@ -51,7 +46,7 @@ class ChatGPT {
 }
 
 struct Message: Codable, Hashable {
-    let role: String = ""
+    var role: String = ""
     let english_message: String
     let japanese_message: String
 }
