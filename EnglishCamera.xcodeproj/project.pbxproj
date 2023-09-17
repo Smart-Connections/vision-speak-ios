@@ -42,6 +42,7 @@
 		E8799D352A87512E00231BA1 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D342A87512E00231BA1 /* PurchaseView.swift */; };
 		E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */; };
 		E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88A5E772A8C45A0003D787F /* CloudVision.swift */; };
+		E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B332AB5E19100FBA45F /* FeedbackView.swift */; };
 		E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */; };
 		E8D403372AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */; };
 		E8D403392AAD5E0A00EC9A12 /* VocabularyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */; };
@@ -120,6 +121,7 @@
 		E8799D342A87512E00231BA1 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 		E88A5E772A8C45A0003D787F /* CloudVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudVision.swift; sourceTree = "<group>"; };
+		E8C92B332AB5E19100FBA45F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeak.swift; sourceTree = "<group>"; };
 		E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				E8799D342A87512E00231BA1 /* PurchaseView.swift */,
 				E8D4033E2AAD685500EC9A12 /* VocabularySettingView.swift */,
 				E8D403482AAD85E200EC9A12 /* VocabularySearchView.swift */,
+				E8C92B332AB5E19100FBA45F /* FeedbackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				E84EE4972A6D12EA0045A804 /* ContentView.swift in Sources */,
 				E8D403472AAD7FBD00EC9A12 /* VocabularyHistoryList.swift in Sources */,
 				E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */,
+				E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */,
 				E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */,
 				E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */,
 				E822F7542A7DF220008BEC33 /* StudyHistory.swift in Sources */,

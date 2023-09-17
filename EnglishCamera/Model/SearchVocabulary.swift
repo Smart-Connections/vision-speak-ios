@@ -22,8 +22,7 @@ class SearchVocabulary {
             "style": searchVocabularyCondition.style.rawValue,
             "difficulty": searchVocabularyCondition.difficulty.rawValue,
             "type": searchVocabularyCondition.type.rawValue
-        ]
-        ) { (data, response, error) in
+        ]) { (data, response, error) in
                 if let data = data {
                     do {
                         let decoder = JSONDecoder()

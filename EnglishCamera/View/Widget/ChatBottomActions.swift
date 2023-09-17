@@ -10,6 +10,9 @@ import SwiftUI
 struct ChatBottomActions: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     @Binding var showVocabulary: Bool
+    
+    @State private var showingFinishAlert = false
+    @State var showFeedbackView: Bool = false
 
     var body: some View {
         ZStack {
@@ -39,13 +42,24 @@ struct ChatBottomActions: View {
             }
             HStack {
                 Button(action: {
-                    viewModel.clearChatHistory()
+                    showingFinishAlert = true
                 }) {
-                    Text("clear")
+                    Text("終了")
                         .foregroundColor(.white)
                         .frame(maxWidth: 64, maxHeight: 48)
                         .background(Color.gray)
                         .cornerRadius(25)
+                } .alert("トピックを終了しますか？", isPresented: $showingFinishAlert) {
+                    Button("フィードバックを見る") {
+                        showFeedbackView = true
+                    }
+                    Button("フィードバックを見ずに終了") {
+                        viewModel.clearChatHistory()
+                        showingFinishAlert  = false
+                    }
+                    Button("会話を続ける") {
+                        showingFinishAlert  = false
+                    }
                 }
                 Spacer()
                 Button(action: {
@@ -59,6 +73,8 @@ struct ChatBottomActions: View {
                         .cornerRadius(24)
                 }
             }
-        }
+        }.navigationDestination(isPresented: $showFeedbackView, destination: {
+            FeedbackView(showFeedbackView: $showFeedbackView).environmentObject(viewModel)
+        })
     }
 }

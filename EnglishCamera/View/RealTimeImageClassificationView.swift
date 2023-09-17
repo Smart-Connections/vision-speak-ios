@@ -30,33 +30,33 @@ struct RealTimeImageClassificationView: View {
             ShowNextView = false
         }
         if (viewModel.selectedVocabulary.isEmpty && !viewModel.notSetVocabulary) {
-            // ボキャブラリーが未設定の場合はモーダルを表示する
-            // 3秒後に実行
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            // ボキャブラリーが未設定の場合は1秒後にモーダルを表示する
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.showVocabularySetting = true
                 viewModel.notSetVocabulary = true
             }
         }
-        return ZStack {
-            CameraPreviewView().environmentObject(viewModel)
-            VStack {
-                Spacer().frame(height: 32)
-                ChatHeader(ShowNextView: $ShowNextView).environmentObject(viewModel)
-                Spacer()
-                ChatMessages().environmentObject(viewModel)
-                ChatBottomActions(showVocabulary: $showVocabulary).environmentObject(viewModel)
-                Spacer().frame(height: 16)
-            }.padding()
-            if (self.showVocabulary) {
-                VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
-            }
-            if (self.showVocabularySetting) {
-                VocabularySettingView(showVocabularySetting: $showVocabularySetting)
-                    .environmentObject(viewModel)
-                    .environmentObject(vocabularyState)
-            }
-        }
-        .onAppear {
+        return NavigationStack {
+            ZStack {
+                CameraPreviewView().environmentObject(viewModel)
+                VStack {
+                    Spacer().frame(height: 32)
+                    ChatHeader(ShowNextView: $ShowNextView).environmentObject(viewModel)
+                    Spacer()
+                    ChatMessages().environmentObject(viewModel)
+                    ChatBottomActions(showVocabulary: $showVocabulary).environmentObject(viewModel)
+                    Spacer().frame(height: 16)
+                }.padding()
+                if (self.showVocabulary) {
+                    VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
+                }
+                if (self.showVocabularySetting) {
+                    VocabularySettingView(showVocabularySetting: $showVocabularySetting)
+                        .environmentObject(viewModel)
+                        .environmentObject(vocabularyState)
+                }
+            }.ignoresSafeArea()
+        }.onAppear {
             viewModel.startCapturing()
         }
         .onDisappear {
@@ -64,7 +64,6 @@ struct RealTimeImageClassificationView: View {
             saveStudyHistory()
             studyHistoryState.refresh()
         }
-        .ignoresSafeArea()
     }
     
     func saveStudyHistory() {
