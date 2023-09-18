@@ -23,7 +23,7 @@ struct CameraView: View {
             VStack{
                 Spacer().frame(height: 24)
                 HStack {
-                    Text("Camera").font(.largeTitle.bold())
+                    Text("学習").font(.largeTitle.bold())
                     Spacer()
                     Button(action: {
                         showMenu = true
