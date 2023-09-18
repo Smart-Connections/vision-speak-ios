@@ -23,7 +23,7 @@ struct FeedbackView: View {
                         VStack(alignment: .center) {
                             Text("使えた数").frame(maxWidth: .infinity, alignment: .center).font(.title3)
                             Spacer().frame(height: 4)
-                            Text("\(1)/\(viewModel.selectedVocabulary.count)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
+                            Text("\(viewModel.selectedVocabulary.filter{ $0.learned }.count)/\(viewModel.selectedVocabulary.count)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
                         }
                         Spacer()
                         VStack(alignment: .center) {
@@ -37,7 +37,7 @@ struct FeedbackView: View {
                         HStack(alignment: .center) {
                             Text(vocabulary.vocabulary).frame(maxWidth: .infinity, alignment: .leading)
                             Spacer()
-                            Image(systemName: "star.fill").resizable().frame(width: 24, height: 24).foregroundColor(.yellow)
+                            Image(systemName: "star.fill").resizable().frame(width: 24, height: 24).foregroundColor(vocabulary.learned ? .yellow : .gray)
                         }.padding(.vertical, 2)
                     }.padding(.horizontal, 48)
                     Spacer().frame(height: 32)

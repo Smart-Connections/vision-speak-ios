@@ -49,6 +49,7 @@ struct VocabularySettingView: View {
                 VocabularyHistoryList().environmentObject(vocabularyState)
                 Button(action: {
                     showVocabularySetting = false
+                    viewModel.startTimer()
                 }) {
                     Text("Start")
                         .padding(.vertical, 10)

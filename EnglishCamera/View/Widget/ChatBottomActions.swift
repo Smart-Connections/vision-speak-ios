@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ChatBottomActions: View {
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     @Binding var showVocabulary: Bool
     @Binding var showRealTimeView: Bool

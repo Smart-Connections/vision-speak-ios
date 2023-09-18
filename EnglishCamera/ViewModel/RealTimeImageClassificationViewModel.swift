@@ -21,7 +21,6 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var feedbacks = [Feedback]() // Feedbackの数
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
     @Published var status: CameraStatus = .ready
-    
     @Published var picture: Data?
     @Published var imageResult: AnalyzeImageResult?
     @Published var selectedVocabulary = Set<Vocabulary>()
@@ -35,8 +34,10 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         chatGPT.delegate = self
         textToSpeak.delegate = self
         cloudVision.delegate = self
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+    }
+    
+    func startTimer() {
+        DispatchQueue.main.async {
             self.timer = Timer
                 .scheduledTimer(
                     withTimeInterval: 1.0,
@@ -118,8 +119,8 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
         DispatchQueue.main.async {
             self.messagesWithChatGPT.append(Message(role: "user", english_message: text, japanese_message: ""))
             self.wordsCount += text.split(separator: " ").count
-            print("received Transcript: \(text)")
             self.callGPT(text)
+            self.standLearnedFlagIfNeeded(text)
         }
     }
     
@@ -133,6 +134,14 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveFeedback(feedback: Feedback) {
         DispatchQueue.main.async {
             self.feedbacks.append(feedback)
+        }
+    }
+    
+    private func standLearnedFlagIfNeeded(_ text: String) {
+        selectedVocabulary.forEach { vocabulary in
+            if (text.contains(vocabulary.vocabulary)) {
+                vocabulary.learned = true
+            }
         }
     }
 }
