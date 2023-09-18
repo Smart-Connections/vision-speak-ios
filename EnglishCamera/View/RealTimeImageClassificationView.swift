@@ -16,18 +16,18 @@ struct RealTimeImageClassificationView: View {
     @State var showVocabulary: Bool = false
     @State var showVocabularySetting: Bool = false
     
-    @Binding var ShowNextView: Bool
+    @Binding private var showRealTimeView: Bool
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
     
     init(showNextView: Binding<Bool>) {
-        self._ShowNextView = showNextView
+        self._showRealTimeView = showNextView
     }
     
     var body: some View {
         if (viewModel.remainSeconds <= 0) {
             // 制限時間を超えていれば前の画面に戻る
-            ShowNextView = false
+            showRealTimeView = false
         }
         if (viewModel.selectedVocabulary.isEmpty && !viewModel.notSetVocabulary) {
             // ボキャブラリーが未設定の場合は1秒後にモーダルを表示する
@@ -41,10 +41,10 @@ struct RealTimeImageClassificationView: View {
                 CameraPreviewView().environmentObject(viewModel)
                 VStack {
                     Spacer().frame(height: 32)
-                    ChatHeader(ShowNextView: $ShowNextView).environmentObject(viewModel)
+                    ChatHeader(ShowNextView: $showRealTimeView).environmentObject(viewModel)
                     Spacer()
                     ChatMessages().environmentObject(viewModel)
-                    ChatBottomActions(showVocabulary: $showVocabulary).environmentObject(viewModel)
+                    ChatBottomActions(showVocabulary: $showVocabulary, showRealTimeView: $showRealTimeView).environmentObject(viewModel)
                     Spacer().frame(height: 16)
                 }.padding()
                 if (self.showVocabulary) {
