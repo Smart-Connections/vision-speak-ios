@@ -12,13 +12,18 @@ class Purchase {
     
     private let entitlementId = "tech.smartconnections.daily.speak"
     
+    func login(_ userId: String) {
+        Purchases.shared.logIn(userId) { info, result, error in
+            print("==========Login==========\n\(String(describing: info))\n\(String(describing: result))\n\(String(describing: error))\n=========================")
+        }
+    }
+    
     func getStatus() -> PurchaseStatus {
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
-            print("==========")
-            print(customerInfo!)
-            print(error)
+            print("==========CustomrInfo==========\n\(String(describing: customerInfo))\n===============================")
+            if let error = error { print(error) }
         }
-        return PurchaseStatus.free
+        return .basic
     }
     
     func purchase(productId:String, successfulPurchase:@escaping() -> Void, cancelPurchase:@escaping() -> Void) {
@@ -65,11 +70,22 @@ enum PurchaseStatus: String, CaseIterable {
     var description: String {
         switch (self) {
         case .free:
-            return "毎日1分間の英会話が可能"
+            return "毎日3分間の英会話が可能"
         case .basic:
-            return "毎日5分間の英会話が可能"
+            return "毎日10分間の英会話が可能"
         case .unlimited:
             return "無制限に英会話が可能"
+        }
+    }
+    
+    var limitSeconds: Double {
+        switch (self) {
+        case .free:
+            return 60 * 3
+        case .basic:
+            return 60 * 10
+        case .unlimited:
+            return 0
         }
     }
 }

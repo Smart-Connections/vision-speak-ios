@@ -29,7 +29,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                             forKey: CognitoConstants.SignInProviderKey)
         
         Task {
-            await Authenticator().signUpUser()
+            await Authenticator().signUpUser() { userId in
+                print("userId: \(userId)")
+                if let userId = userId {
+                    Purchase().login(userId)
+                }
+            }
         }
         return true
     }

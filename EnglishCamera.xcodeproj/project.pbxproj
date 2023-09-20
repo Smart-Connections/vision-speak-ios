@@ -122,6 +122,7 @@
 		E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 		E88A5E772A8C45A0003D787F /* CloudVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudVision.swift; sourceTree = "<group>"; };
 		E8C92B332AB5E19100FBA45F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		E8C92B352AB9DB7000FBA45F /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKit.storekit; sourceTree = "<group>"; };
 		E8D2A9392A7E8ED900EAD243 /* TextToSpeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeak.swift; sourceTree = "<group>"; };
 		E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		E8D403382AAD5E0A00EC9A12 /* VocabularyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyView.swift; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 		E84EE4882A6D12EA0045A804 = {
 			isa = PBXGroup;
 			children = (
+				E8C92B352AB9DB7000FBA45F /* StoreKit.storekit */,
 				E84EE4932A6D12EA0045A804 /* EnglishCamera */,
 				E84EE4A42A6D12EB0045A804 /* EnglishCameraTests */,
 				E84EE4AE2A6D12EB0045A804 /* EnglishCameraUITests */,

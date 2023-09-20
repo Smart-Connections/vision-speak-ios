@@ -10,7 +10,7 @@ import AWSMobileClient
 
 class Authenticator {
     
-    func signUpUser() async {
+    func signUpUser(completion: @escaping (String?) -> Void) async {
         checkUserLoggedIn { isLoggedIn in
             print("Is user signed in - \(isLoggedIn)")
             if (isLoggedIn) { return }
@@ -24,6 +24,7 @@ class Authenticator {
                 AWSMobileClient.default().signIn(username: username, password: password) {result, error in
                     print("result: \(result)")
                     print("error: \(error)")
+                    completion(username)
                 }
             }
         }

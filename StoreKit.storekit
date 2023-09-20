@@ -1,0 +1,77 @@
+{
+  "identifier" : "C9572447",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "BF572EFB",
+      "localizations" : [
+
+      ],
+      "name" : "subscription_group",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "31D4BD12",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.smartconnections.daily.speak.basic.subscription",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "basic",
+          "subscriptionGroupID" : "BF572EFB",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "22B04DC1",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.smartconnections.daily.speak.unlimited.subscription",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "unlimited",
+          "subscriptionGroupID" : "BF572EFB",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

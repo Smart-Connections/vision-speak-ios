@@ -18,7 +18,7 @@ struct CameraView: View {
     
     var body: some View {
         let history = studyHistoryDataSource.getWhere(Date().ymd).first
-        let enable = (history?.studyTimeSeconds ?? 0) < AppValue.limitSeconds
+        let enable = (Double(history?.studyTimeSeconds ?? 0)) < Purchase().getStatus().limitSeconds
         return NavigationView{
             VStack{
                 Spacer().frame(height: 24)

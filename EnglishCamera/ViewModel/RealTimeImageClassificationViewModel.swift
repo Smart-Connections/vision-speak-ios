@@ -9,8 +9,10 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     private let textToSpeak = TextToSpeak()
     private let recordVoice = RecordVoice()
     private let cloudVision = AnalyzeImage()
+    private let purchase = Purchase()
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
+    private let vocabularyDataSource = VocabularyDataSource()
     var timer: Timer?
     
     @Published var wordsCount: Int = 0
@@ -27,6 +29,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
     
     private var cancellables = Set<AnyCancellable>()
+    private var lessonLimitSeconds: Double? = nil
     
     init() {
         imageAnalysisModel.delegate = self
@@ -34,9 +37,13 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         chatGPT.delegate = self
         textToSpeak.delegate = self
         cloudVision.delegate = self
+        
+        self.lessonLimitSeconds = limitSeconds()
     }
     
     func startTimer() {
+        if (purchase.getStatus() == .unlimited) { return }
+        guard let lessonLimitSeconds = self.lessonLimitSeconds else { return }
         DispatchQueue.main.async {
             self.timer = Timer
                 .scheduledTimer(
@@ -45,7 +52,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
                 ) { _ in
                     let seconds = Double(self.studyHistoryDataSource.todayHistory()?.studyTimeSeconds ?? 0)
                     self.passedTime += 1
-                    self.remainSeconds = Double(AppValue.limitSeconds) - seconds - self.passedTime
+                    self.remainSeconds = lessonLimitSeconds - seconds - self.passedTime
                 }
         }
     }
@@ -92,6 +99,10 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     private func callGPT(_ text: String) {
         chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "")
         self.status = .waitingGptMessage
+    }
+    
+    private func limitSeconds() -> Double {
+        return purchase.getStatus().limitSeconds
     }
 }
 
@@ -140,7 +151,7 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     private func standLearnedFlagIfNeeded(_ text: String) {
         selectedVocabulary.forEach { vocabulary in
             if (text.contains(vocabulary.vocabulary)) {
-                vocabulary.learned = true
+                vocabularyDataSource.updateVocabulary(vocabulary, true)
             }
         }
     }

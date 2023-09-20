@@ -14,9 +14,9 @@
             filePath = "EnglishCamera/Model/Authenticator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "signUpUser()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "signUpUser(completion:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -71,49 +71,19 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EnglishCamera/Model/Authenticator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "Authenticator"
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 1b1218ef9522b85e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.Authenticator.checkUserLoggedIn(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/Authenticator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1152">
-               </Location>
-               <Location
-                  uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 1b1218ef9522b85e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Amplify.AuthSession, Amplify.AuthError&gt;) -&gt; () in EnglishCamera.Authenticator.checkUserLoggedIn(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/Authenticator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1128">
-               </Location>
-               <Location
-                  uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 8ec32dceb7008442"
+                  uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 8ec32dceb700841d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -123,8 +93,23 @@
                   urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/Authenticator.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 8ec32dceb70085df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EnglishCamera.Authenticator.randomString(length: Swift.Int) -&gt; Swift.String"
+                  moduleName = "EnglishCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/Model/Authenticator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
                   offsetFromSymbolStart = "112">
                </Location>
             </Locations>

@@ -18,3 +18,11 @@ class VocabularyDataSource: DataSource {
         self.realm = try! RealmWrapper.sharedInstance()
     }
 }
+
+extension VocabularyDataSource {
+    func updateVocabulary(_ data: Target, _ learned: Bool) {
+        try! realm.write {
+            data.learned = learned
+        }
+    }
+}

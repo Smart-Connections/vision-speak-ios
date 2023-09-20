@@ -11,7 +11,11 @@ class PurchaseViewModel: ObservableObject {
     private let purchase = Purchase()
     
     func purchase(_ status: PurchaseStatus) {
-        purchase.purchase(productId: status.rawValue, successfulPurchase: {}, cancelPurchase: {})
+        purchase.purchase(productId: status.rawValue, successfulPurchase: {
+            print("課金成功")
+        }, cancelPurchase: {
+            print("課金キャンセル")
+        })
     }
     
     func getCurrentStatus() -> PurchaseStatus {
