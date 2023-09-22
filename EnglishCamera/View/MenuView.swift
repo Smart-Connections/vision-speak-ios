@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject private var purchaseState: PurchaseState
     @ObservedObject private var purchaseViewModel: PurchaseViewModel = PurchaseViewModel()
     
     @Binding var showMenu: Bool
@@ -19,7 +20,7 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel)) {
+                NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel).environmentObject(purchaseState)) {
                     ZStack {
                         HStack {
                             Text("ステータス").font(.caption).foregroundColor(.black)
@@ -27,7 +28,7 @@ struct MenuView: View {
                         }
                         HStack {
                             Spacer()
-                            Text(purchaseViewModel.getCurrentStatus().name)
+                            Text(purchaseState.status.name)
                                 .font(.title)
                                 .foregroundColor(.black)
                             Spacer()

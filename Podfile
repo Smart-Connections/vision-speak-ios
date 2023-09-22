@@ -7,7 +7,6 @@ target 'EnglishCamera' do
 
   # Pods for EnglishCamera
   pod 'RealmSwift'
-  pod 'RevenueCat', '~> 4.15'
   pod 'AWSMobileClient'
   
   target 'EnglishCameraTests' do

@@ -17,12 +17,10 @@ PODS:
   - Realm/Headers (10.42.0)
   - RealmSwift (10.42.0):
     - Realm (= 10.42.0)
-  - RevenueCat (4.25.7)
 
 DEPENDENCIES:
   - AWSMobileClient
   - RealmSwift
-  - RevenueCat (~> 4.15)
 
 SPEC REPOS:
   trunk:
@@ -33,7 +31,6 @@ SPEC REPOS:
     - AWSMobileClient
     - Realm
     - RealmSwift
-    - RevenueCat
 
 SPEC CHECKSUMS:
   AWSAuthCore: 0584cee14bd5a692b8daa1c43b06df9524533692
@@ -43,8 +40,7 @@ SPEC CHECKSUMS:
   AWSMobileClient: ff115272d8b29f05443f82f5800036c498c5ca8b
   Realm: 490aad28f1360e58fc22256d5d686d3a36525346
   RealmSwift: f6a9b56d747bbdd7931de1835896c5f024b6898a
-  RevenueCat: a70e08e45bd96bea5187dbd7b18f5f1db39646be
 
-PODFILE CHECKSUM: 040ccd21632053b8d7354fa5175bcc8e73fce2e1
+PODFILE CHECKSUM: 21f170f4a72bcb715493cc6510538ed096f5d274
 
 COCOAPODS: 1.12.1

@@ -37,6 +37,8 @@ class Authenticator {
     }
     
     func checkUserLoggedIn(completion: @escaping (Bool) -> Void) {
+        completion(false)
+        return 
         AWSMobileClient.default().initialize { userState, error in
             if let error = error {
                 print("error: \(error)")

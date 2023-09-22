@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CameraView: View {
+    @EnvironmentObject private var purchaseState: PurchaseState
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState
     
@@ -18,7 +19,7 @@ struct CameraView: View {
     
     var body: some View {
         let history = studyHistoryDataSource.getWhere(Date().ymd).first
-        let enable = (Double(history?.studyTimeSeconds ?? 0)) < Purchase().getStatus().limitSeconds
+        let enable = purchaseState.status == .unlimited || (Double(history?.studyTimeSeconds ?? 0)) < purchaseState.status.limitSeconds
         return NavigationView{
             VStack{
                 Spacer().frame(height: 24)
@@ -32,7 +33,7 @@ struct CameraView: View {
                             .resizable()
                             .frame(width: 24, height: 24)
                     }).sheet(isPresented: $showMenu) {
-                        MenuView(showMenu: $showMenu)
+                        MenuView(showMenu: $showMenu).environmentObject(purchaseState)
                     }
                 }
                 VStack(alignment: .leading, spacing: 16) {

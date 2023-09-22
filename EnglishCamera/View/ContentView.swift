@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject private var studyHistoryState: StudyHistoryState = .init(StudyHistoryDataSource())
     @ObservedObject private var vocabularyState: VocabularyState = .init(VocabularyDataSource())
+    @ObservedObject private var purchaseState: PurchaseState = .init()
 
     init() {
         let appearance = UITabBarAppearance()
@@ -23,6 +24,7 @@ struct ContentView: View {
             CameraView()
                 .environmentObject(studyHistoryState)
                 .environmentObject(vocabularyState)
+                .environmentObject(purchaseState)
                 .tabItem {
                     Image(systemName: "camera")
                     Text("学習")

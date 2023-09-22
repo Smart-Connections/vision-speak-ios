@@ -9,9 +9,10 @@ import SwiftUI
 
 struct PurchaseView: View {
     @EnvironmentObject private var purchaseViewModel: PurchaseViewModel
+    @EnvironmentObject private var purchaseState: PurchaseState
     
     var body: some View {
-        var currentPlan = purchaseViewModel.getCurrentStatus()
+        let currentPlan = purchaseState.status
         return VStack{
             ForEach(0..<PurchaseStatus.allCases.count) { index in
                 VStack {
@@ -27,7 +28,9 @@ struct PurchaseView: View {
                             Spacer()
                             if (index != 0 && currentPlan != PurchaseStatus.allCases[index]) {
                                 Button() {
-                                    self.purchaseViewModel.purchase(PurchaseStatus.allCases[index])
+                                    self.purchaseViewModel.purchase(PurchaseStatus.allCases[index], successPurchase: {
+                                        purchaseState.updateStatus()
+                                    }, cancelPurchase: {})
                                 } label: {
                                     Text("購入")
                                         .frame(width: 88, height: 32)

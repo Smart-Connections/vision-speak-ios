@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aws-amplify/amplify-swift",
       "state" : {
-        "revision" : "c29563320147196aada3df65c176173970dc602b",
-        "version" : "2.16.1"
+        "revision" : "999a93e598ce16fc37618e81845dee8b9d053ca5",
+        "version" : "2.18.0"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
       "state" : {
-        "revision" : "c04f5e401a1ec682e6b08b1ee157e19a0f834a5f",
-        "version" : "13.17.1"
+        "revision" : "1eb93c9619f6a05b5a91c2719690606016802e0b",
+        "version" : "13.20.1"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "81a94ef9c41d9c3b2fe38533b6e281e23ddc34b4"
+        "revision" : "987523254e28254652cab86b4e558a96231bbfe3"
       }
     },
     {

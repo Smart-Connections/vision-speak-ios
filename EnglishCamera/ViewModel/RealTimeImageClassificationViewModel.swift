@@ -30,19 +30,21 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     private var lessonLimitSeconds: Double? = nil
+    private var purchaseState: PurchaseState? = nil
     
-    init() {
+    init(purchaseState: PurchaseState) {
         imageAnalysisModel.delegate = self
         videoCapture.delegate = self
         chatGPT.delegate = self
         textToSpeak.delegate = self
         cloudVision.delegate = self
         
-        self.lessonLimitSeconds = limitSeconds()
+        self.purchaseState = purchaseState
+        self.lessonLimitSeconds = purchaseState.status.limitSeconds
     }
     
     func startTimer() {
-        if (purchase.getStatus() == .unlimited) { return }
+        if (purchaseState?.status == .unlimited) { return }
         guard let lessonLimitSeconds = self.lessonLimitSeconds else { return }
         DispatchQueue.main.async {
             self.timer = Timer
@@ -99,10 +101,6 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     private func callGPT(_ text: String) {
         chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "")
         self.status = .waitingGptMessage
-    }
-    
-    private func limitSeconds() -> Double {
-        return purchase.getStatus().limitSeconds
     }
 }
 

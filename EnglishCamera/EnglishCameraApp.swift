@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RevenueCat
 import AWSMobileClient
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -31,9 +30,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         Task {
             await Authenticator().signUpUser() { userId in
                 print("userId: \(userId)")
-                if let userId = userId {
-                    Purchase().login(userId)
-                }
             }
         }
         return true
@@ -44,11 +40,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct EnglishCameraApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    init() {
-        Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: "appl_pZvVSuGNhBFIUTMOWjQkgBfGisv")
-    }
     
     var body: some Scene {
         return WindowGroup {

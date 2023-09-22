@@ -9,7 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct RealTimeImageClassificationView: View {
-    @ObservedObject private var viewModel = RealTimeImageClassificationViewModel()
+    @ObservedObject private var viewModel = RealTimeImageClassificationViewModel(purchaseState: PurchaseState())
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState
     
