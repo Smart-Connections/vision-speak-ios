@@ -22,16 +22,20 @@ class StudyHistoryDataSource: DataSource {
 extension StudyHistoryDataSource {
     
     func saveStudyHistory(passedTime: TimeInterval, wordsCount: Int) {
+        print("saveStudyHistory: \(passedTime), \(wordsCount)")
         if let historyValue = todayHistory() {
             updateHistory(historyValue, Int(passedTime), wordsCount)
         } else {
-            let history: StudyHistory = StudyHistory(studyTimeSeconds: Int(passedTime), userCredits: wordsCount, createdAt: Date().ymd)
+            let history: StudyHistory = StudyHistory(studyTimeSeconds: Int(passedTime),
+                                                     userCredits: wordsCount, createdAt: Date().ymd)
             update(history)
         }
     }
     
     func todayHistory() -> Target? {
-        return getWhere(Date().ymd).first
+        let today = getWhere(Date().ymd).first
+        print("todayHistory: \(String(describing: today))")
+        return today
     }
     
     func getWhere(_ date: String) -> [Target] {

@@ -98,6 +98,11 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         chatGPT.feedback(message: message, targetVocabularies: Array(selectedVocabulary))
     }
     
+    func resetTimer() {
+        self.passedTime = TimeInterval(AppValue.initSecondsSymbol)
+        self.remainSeconds = TimeInterval(AppValue.initSecondsSymbol)
+    }
+    
     private func callGPT(_ text: String) {
         chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "")
         self.status = .waitingGptMessage

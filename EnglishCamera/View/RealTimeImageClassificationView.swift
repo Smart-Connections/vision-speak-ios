@@ -59,10 +59,12 @@ struct RealTimeImageClassificationView: View {
     }
     
     private func showFeedbackViewIfNeeded() {
-        if (viewModel.remainSeconds <= 0) {
+        if (viewModel.remainSeconds == 0 && showFeedbackView == false) {
             // 制限時間を超えていればFB画面に遷移する
             DispatchQueue.main.async {
                 showFeedbackView = true
+                StudyHistoryDataSource().saveStudyHistory(passedTime: viewModel.passedTime, wordsCount: viewModel.wordsCount)
+                viewModel.resetTimer()
             }
         }
     }

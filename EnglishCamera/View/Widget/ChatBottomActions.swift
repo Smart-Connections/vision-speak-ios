@@ -54,6 +54,7 @@ struct ChatBottomActions: View {
                 } .alert("トピックを終了しますか？", isPresented: $showingFinishAlert) {
                     Button("フィードバックを見る") {
                         showFeedbackView = true
+                        StudyHistoryDataSource().saveStudyHistory(passedTime: viewModel.passedTime, wordsCount: viewModel.wordsCount)
                     }
                     Button("フィードバックを見ずに終了") {
                         viewModel.clearChatHistory()

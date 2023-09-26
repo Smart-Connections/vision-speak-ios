@@ -58,8 +58,7 @@ struct FeedbackView: View {
         }) {
             Text("Done").bold()
         })
-        .onAppear {
-            StudyHistoryDataSource().saveStudyHistory(passedTime: viewModel.passedTime, wordsCount: viewModel.wordsCount)
+        .onDisappear {
             studyHistoryState.refresh()
         }
     }
