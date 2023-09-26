@@ -104,6 +104,7 @@ enum PurchaseStatus: String, CaseIterable {
     }
     
     var limitSeconds: Double {
+        return 60
         switch (self) {
         case .free:
             return 60 * 3

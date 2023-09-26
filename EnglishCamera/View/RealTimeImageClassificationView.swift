@@ -15,6 +15,7 @@ struct RealTimeImageClassificationView: View {
     
     @State var showVocabulary: Bool = false
     @State var showVocabularySetting: Bool = false
+    @State var showFeedbackView:Bool = false
     
     @Binding private var showRealTimeView: Bool
     
@@ -25,17 +26,8 @@ struct RealTimeImageClassificationView: View {
     }
     
     var body: some View {
-        if (viewModel.remainSeconds <= 0) {
-            // 制限時間を超えていれば前の画面に戻る
-            showRealTimeView = false
-        }
-        if (viewModel.selectedVocabulary.isEmpty && !viewModel.notSetVocabulary) {
-            // ボキャブラリーが未設定の場合は1秒後にモーダルを表示する
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.showVocabularySetting = true
-                viewModel.notSetVocabulary = true
-            }
-        }
+        showFeedbackViewIfNeeded()
+        showVoiceRecognitionView()
         return NavigationStack {
             ZStack {
                 CameraPreviewView().environmentObject(viewModel)
@@ -44,7 +36,9 @@ struct RealTimeImageClassificationView: View {
                     ChatHeader(ShowNextView: $showRealTimeView).environmentObject(viewModel)
                     Spacer()
                     ChatMessages().environmentObject(viewModel)
-                    ChatBottomActions(showVocabulary: $showVocabulary, showRealTimeView: $showRealTimeView).environmentObject(viewModel)
+                    ChatBottomActions(showVocabulary: $showVocabulary,
+                                      showRealTimeView: $showRealTimeView,
+                                      showFeedbackView: $showFeedbackView).environmentObject(viewModel).environmentObject(studyHistoryState)
                     Spacer().frame(height: 16)
                 }.padding()
                 if (self.showVocabulary) {
@@ -61,17 +55,24 @@ struct RealTimeImageClassificationView: View {
         }
         .onDisappear {
             viewModel.reset()
-            saveStudyHistory()
-            studyHistoryState.refresh()
         }
     }
     
-    func saveStudyHistory() {
-        if let historyValue = studyHistoryDataSource.todayHistory() {
-            studyHistoryDataSource.updateHistory(historyValue, Int(viewModel.passedTime), viewModel.wordsCount)
-        } else {
-            let history: StudyHistory = StudyHistory(studyTimeSeconds: Int(viewModel.passedTime), userCredits: viewModel.wordsCount, createdAt: Date().ymd)
-            studyHistoryDataSource.update(history)
+    private func showFeedbackViewIfNeeded() {
+        if (viewModel.remainSeconds <= 0) {
+            // 制限時間を超えていればFB画面に遷移する
+            DispatchQueue.main.async {
+                showFeedbackView = true
+            }
+        }
+    }
+    
+    private func showVoiceRecognitionView() {
+        if (!viewModel.selectedVocabulary.isEmpty || viewModel.notSetVocabulary) { return }
+        // ボキャブラリーが未設定の場合は1秒後にモーダルを表示する
+        DispatchQueue.main.async {
+            self.showVocabularySetting = true
+            viewModel.notSetVocabulary = true
         }
     }
 }

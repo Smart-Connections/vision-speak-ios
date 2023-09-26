@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ChatBottomActions: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
+    @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @Binding var showVocabulary: Bool
     @Binding var showRealTimeView: Bool
     
     @State private var showingFinishAlert = false
-    @State private var showFeedbackView: Bool = false
+    @Binding var showFeedbackView: Bool
 
     var body: some View {
         ZStack {
@@ -75,7 +76,9 @@ struct ChatBottomActions: View {
                 }
             }
         }.navigationDestination(isPresented: $showFeedbackView, destination: {
-            FeedbackView(showFeedbackView: $showFeedbackView, showRealTimeView: $showRealTimeView).environmentObject(viewModel)
+            FeedbackView(showFeedbackView: $showFeedbackView, showRealTimeView: $showRealTimeView)
+                .environmentObject(viewModel)
+                .environmentObject(studyHistoryState)
         })
     }
 }

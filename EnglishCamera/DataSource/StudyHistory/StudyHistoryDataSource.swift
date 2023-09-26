@@ -20,7 +20,16 @@ class StudyHistoryDataSource: DataSource {
 }
 
 extension StudyHistoryDataSource {
-
+    
+    func saveStudyHistory(passedTime: TimeInterval, wordsCount: Int) {
+        if let historyValue = todayHistory() {
+            updateHistory(historyValue, Int(passedTime), wordsCount)
+        } else {
+            let history: StudyHistory = StudyHistory(studyTimeSeconds: Int(passedTime), userCredits: wordsCount, createdAt: Date().ymd)
+            update(history)
+        }
+    }
+    
     func todayHistory() -> Target? {
         return getWhere(Date().ymd).first
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedbackView: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
+    @EnvironmentObject private var studyHistoryState: StudyHistoryState
     
     @Binding var showFeedbackView: Bool
     @Binding var showRealTimeView: Bool
@@ -57,5 +58,9 @@ struct FeedbackView: View {
         }) {
             Text("Done").bold()
         })
+        .onAppear {
+            StudyHistoryDataSource().saveStudyHistory(passedTime: viewModel.passedTime, wordsCount: viewModel.wordsCount)
+            studyHistoryState.refresh()
+        }
     }
 }

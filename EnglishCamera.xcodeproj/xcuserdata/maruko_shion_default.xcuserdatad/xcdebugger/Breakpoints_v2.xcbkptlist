@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EnglishCamera/View/RealTimeImageClassificationView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "saveStudyHistory()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076 - a84867a3bc79b162"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EnglishCamera.RealTimeImageClassificationView.saveStudyHistory() -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/View/RealTimeImageClassificationView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "C7F4F21A-1813-40CA-B2D1-B73376722076 - a84867a3bc79b162"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EnglishCamera.RealTimeImageClassificationView.saveStudyHistory() -&gt; ()"
-                  moduleName = "EnglishCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maruko_shion_default/develop/EnglishCamera/EnglishCamera/View/RealTimeImageClassificationView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "524">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F5A6A364-3475-49A0-B4BD-F8B4EB519A2A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
