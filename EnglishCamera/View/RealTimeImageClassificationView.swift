@@ -35,7 +35,9 @@ struct RealTimeImageClassificationView: View {
                     Spacer().frame(height: 32)
                     ChatHeader(ShowNextView: $showRealTimeView).environmentObject(viewModel)
                     Spacer()
-                    ChatMessages().environmentObject(viewModel)
+                    ScrollView {
+                        ChatMessages().environmentObject(viewModel)
+                    }
                     ChatBottomActions(showVocabulary: $showVocabulary,
                                       showRealTimeView: $showRealTimeView,
                                       showFeedbackView: $showFeedbackView).environmentObject(viewModel).environmentObject(studyHistoryState)
