@@ -33,7 +33,9 @@ struct RealTimeImageClassificationView: View {
                 CameraPreviewView().environmentObject(viewModel)
                 VStack {
                     Spacer().frame(height: 32)
-                    ChatHeader(ShowNextView: $showRealTimeView).environmentObject(viewModel)
+                    ChatHeader(ShowNextView: $showRealTimeView)
+                        .environmentObject(viewModel)
+                        .environmentObject(studyHistoryState)
                     Spacer()
                     ScrollView {
                         ChatMessages().environmentObject(viewModel)

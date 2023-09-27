@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatHeader: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
+    @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @Binding var ShowNextView: Bool
     
     var body: some View {
@@ -16,6 +17,8 @@ struct ChatHeader: View {
             HStack {
                 Button(action: {
                     ShowNextView = false
+                    StudyHistoryDataSource().saveStudyHistory(passedTime: viewModel.passedTime, wordsCount: viewModel.wordsCount)
+                    studyHistoryState.refresh()
                 }) {
                     Image(systemName: "chevron.left")
                         .frame(width: 50, height: 50)
