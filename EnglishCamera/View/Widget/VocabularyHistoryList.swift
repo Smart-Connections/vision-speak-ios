@@ -13,12 +13,12 @@ struct VocabularyHistoryList: View {
     
     var body: some View {
         return VStack() {
-            if (vocabularyState.allVocabulary().isEmpty) {
+            if (vocabularyState.unlearnedVocabulary().isEmpty) {
                 Spacer()
                 Text("未学習のVocabularyはありません")
                 Spacer()
             } else {
-                List(vocabularyState.allVocabulary(), id: \.self, selection: $realTimeImageClassificationViewModel.selectedVocabulary) { vocabulary in
+                List(vocabularyState.unlearnedVocabulary(), id: \.self, selection: $realTimeImageClassificationViewModel.selectedVocabulary) { vocabulary in
                     Text(vocabulary.vocabulary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())

@@ -22,3 +22,10 @@ class VocabularyState: ObservableObject {
         datasource.add(vocabularies)
     }
 }
+
+extension VocabularyState {
+    
+    func unlearnedVocabulary() -> [Vocabulary] {
+        return datasource.getAll().filter { !$0.learned }
+    }    
+}

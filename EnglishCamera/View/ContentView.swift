@@ -29,6 +29,13 @@ struct ContentView: View {
                     Image(systemName: "camera")
                     Text("学習")
                 }
+            
+            VocabularyBrowserView()
+                .environmentObject(vocabularyState)
+                .tabItem {
+                    Image(systemName: "checklist")
+                    Text("Vocabulary")
+                }
             StudyHistoryView()
                 .environmentObject(studyHistoryState)
                 .tabItem {
