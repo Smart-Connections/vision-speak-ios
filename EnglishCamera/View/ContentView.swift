@@ -11,6 +11,8 @@ struct ContentView: View {
     @ObservedObject private var studyHistoryState: StudyHistoryState = .init(StudyHistoryDataSource())
     @ObservedObject private var vocabularyState: VocabularyState = .init(VocabularyDataSource())
     @ObservedObject private var purchaseState: PurchaseState = .init()
+    
+    @State private var tabPage: Int = 0
 
     init() {
         let appearance = UITabBarAppearance()
@@ -20,11 +22,12 @@ struct ContentView: View {
     }
     
     var body: some View {
-        return TabView {
+        return TabView(selection: $tabPage) {
             CameraView()
                 .environmentObject(studyHistoryState)
                 .environmentObject(vocabularyState)
                 .environmentObject(purchaseState)
+                .tag(0)
                 .tabItem {
                     Image(systemName: "camera")
                     Text("学習")
@@ -32,18 +35,25 @@ struct ContentView: View {
             
             VocabularyBrowserView()
                 .environmentObject(vocabularyState)
+                .tag(1)
                 .tabItem {
                     Image(systemName: "checklist")
                     Text("Vocabulary")
                 }
             StudyHistoryView()
                 .environmentObject(studyHistoryState)
+                .tag(2)
                 .tabItem {
                     Image(systemName: "note")
                     Text("学習記録")
                 }
         }.onAppear {
             studyHistoryState.refresh()
+        }
+        .onChange(of: tabPage) { _ in
+            if (tabPage == 1) {
+                vocabularyState.objectWillChange.send()
+            }
         }
     }
 }

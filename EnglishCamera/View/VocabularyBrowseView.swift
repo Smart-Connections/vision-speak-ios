@@ -13,19 +13,23 @@ struct VocabularyBrowserView: View {
     var body: some View {
         NavigationView{
             ScrollView {
-                VStack{
+                VStack(spacing: 0) {
                     Spacer().frame(height: 24)
                     HStack {
                         Text("Vocabulary").font(.largeTitle.bold())
                         Spacer()
                     }
                     Spacer().frame(height: 24)
-//                    allVocabularyを全て表示する
                     ForEach(Array(vocabularyState.allVocabulary())) { vocabulary in
-                        HStack(alignment: .top) {
+                        HStack(alignment: .center, spacing: 0) {
+                            Image(systemName: vocabulary.learned ? "checkmark.circle.fill" : "circle")                        .font(.title)
+                                .foregroundColor(.green)
+                                .padding(.vertical)
+                            Spacer().frame(width: 16)
                             Text(vocabulary.vocabulary).frame(maxWidth: .infinity, alignment: .leading)
-                        }.padding()
-                    }
+                            Spacer()
+                        }.padding(.horizontal)
+                    }.background(.white).cornerRadius(8)
                     Spacer()
                 }
             }
