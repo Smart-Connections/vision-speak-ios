@@ -18,7 +18,7 @@ struct TodayStudy: View {
     
     var body: some View {
         let history = studyHistoryDataSource.getWhere(Date().ymd).first
-        let enable = purchaseState.status == .unlimited || (Double(history?.studyTimeSeconds ?? 0)) < purchaseState.status.limitSeconds
+        let enable = isDebugMode || (purchaseState.status == .unlimited || (Double(history?.studyTimeSeconds ?? 0)) < purchaseState.status.limitSeconds)
         Text("今日の学習").font(.headline).frame(maxWidth: .infinity, alignment: .leading)
         VStack(alignment: .leading, spacing: 16) {
             Text("学習時間").font(.subheadline)
@@ -57,4 +57,12 @@ struct TodayStudy: View {
         .background(Color.white)
         .cornerRadius(8)
     }
+    
+    let isDebugMode: Bool = {
+        #if DEBUG
+        return true
+        #else
+        return false
+        #endif
+    }()
 }
