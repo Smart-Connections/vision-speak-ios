@@ -13,10 +13,6 @@ struct MenuView: View {
     
     @Binding var showMenu: Bool
     
-    init(showMenu: Binding<Bool>) {
-        self._showMenu = showMenu
-    }
-    
     var body: some View {
         NavigationView {
             VStack {

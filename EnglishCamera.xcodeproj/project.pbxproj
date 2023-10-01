@@ -36,6 +36,8 @@
 		E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CB2A7E28FD00F23507 /* CameraView.swift */; };
 		E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */; };
 		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
+		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
+		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
 		E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2C2A84C42000231BA1 /* RecordVoice.swift */; };
 		E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2E2A85D23400231BA1 /* AppValue.swift */; };
 		E8799D312A872FD200231BA1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D302A872FD200231BA1 /* Purchase.swift */; };
@@ -44,6 +46,7 @@
 		E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */; };
 		E88612EA2AC469B9006207AC /* TodayStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612E92AC469B9006207AC /* TodayStudy.swift */; };
 		E88612EC2AC4FDB0006207AC /* VocabularyBrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */; };
+		E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */; };
 		E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88A5E772A8C45A0003D787F /* CloudVision.swift */; };
 		E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B332AB5E19100FBA45F /* FeedbackView.swift */; };
 		E8C92B372ABC7C6700FBA45F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C92B362ABC7C6700FBA45F /* StoreKit.framework */; };
@@ -118,6 +121,8 @@
 		E85286CB2A7E28FD00F23507 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryView.swift; sourceTree = "<group>"; };
 		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
+		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
 		E8799D2C2A84C42000231BA1 /* RecordVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVoice.swift; sourceTree = "<group>"; };
 		E8799D2E2A85D23400231BA1 /* AppValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppValue.swift; sourceTree = "<group>"; };
 		E8799D302A872FD200231BA1 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		E88612E82ABEC7EC006207AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E88612E92AC469B9006207AC /* TodayStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStudy.swift; sourceTree = "<group>"; };
 		E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseView.swift; sourceTree = "<group>"; };
+		E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E88A5E772A8C45A0003D787F /* CloudVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudVision.swift; sourceTree = "<group>"; };
 		E8C92B332AB5E19100FBA45F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		E8C92B352AB9DB7000FBA45F /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKit.storekit; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 				E85286CF2A7E60BE00F23507 /* Extensions.swift */,
 				E842B6222A7F423900961719 /* CameraStatus.swift */,
 				E8799D2E2A85D23400231BA1 /* AppValue.swift */,
+				E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */,
 			);
 			path = EnglishCamera;
 			sourceTree = "<group>";
@@ -341,6 +348,8 @@
 				E8D403482AAD85E200EC9A12 /* VocabularySearchView.swift */,
 				E8C92B332AB5E19100FBA45F /* FeedbackView.swift */,
 				E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */,
+				E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */,
+				E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 			files = (
 				E84318C12AA1BC5C006EB761 /* awsconfiguration.json in Resources */,
 				E84EE49C2A6D12EB0045A804 /* Preview Assets.xcassets in Resources */,
+				E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */,
 				E84EE4992A6D12EB0045A804 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +639,7 @@
 				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
 				E822F7562A7DF258008BEC33 /* StudyHistoryDataSource.swift in Sources */,
 				E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */,
+				E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */,
 				E8D4034B2AADE29700EC9A12 /* SearchVocabulary.swift in Sources */,
 				E8D403492AAD85E200EC9A12 /* VocabularySearchView.swift in Sources */,
 				E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */,
@@ -638,6 +649,7 @@
 				E822F7492A7941D6008BEC33 /* ChatGPT.swift in Sources */,
 				E84EE4972A6D12EA0045A804 /* ContentView.swift in Sources */,
 				E8D403472AAD7FBD00EC9A12 /* VocabularyHistoryList.swift in Sources */,
+				E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */,
 				E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */,
 				E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */,
 				E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */,
@@ -819,7 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
@@ -833,7 +845,6 @@
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -863,7 +874,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
@@ -877,7 +888,6 @@
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
