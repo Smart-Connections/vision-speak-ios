@@ -9,35 +9,39 @@ import CoreML
 import Vision
 
 protocol ImageAnalysisModelDelegate: AnyObject {
-    func didRecieve(_ observation: VNClassificationObservation)
+    func didRecieve(_ results: [VNRecognizedObjectObservation])
 }
 
 class ImageAnalysisModel: NSObject {
 
     weak var delegate: ImageAnalysisModelDelegate?
 
-    func performRequet(with imageBuffer: CVImageBuffer) {
+    func performRequest(with imageBuffer: CVImageBuffer) {
         guard let model = try? VNCoreMLModel(for: YOLOv3Tiny(configuration: .init()).model)
         else { return }
-        
-        let group = DispatchGroup()
+
         let dispatchQueue = DispatchQueue(label: "QueueIdentification", qos: .background)
-        dispatchQueue.async(group: group,  execute: {
-            let request = VNCoreMLRequest(model: model) { request, error in
-                
+        dispatchQueue.async {
+            let request = VNCoreMLRequest(model: model) { (request, error) in
+
                 if let error = error {
-                    print(error.localizedDescription)
+                    print("Failed to perform request: \(error)")
                     return
                 }
 
-                guard let results = request.results as? [VNClassificationObservation],
-                      let firstObservation = results.first
-                else { return }
-                print(firstObservation.identifier)
-                self.delegate?.didRecieve(firstObservation)
+                guard let results = request.results else {
+                    print("No results")
+                    return
+                }
+                print("detect object results: \(results)")
+                self.delegate?.didRecieve(results as? [VNRecognizedObjectObservation] ?? [])
             }
-            let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: imageBuffer)
-            try? imageRequestHandler.perform([request])
-        })
+            let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: imageBuffer, options: [:])
+            do {
+                try imageRequestHandler.perform([request])
+            } catch {
+                print("Failed to perform image request: \(error)")
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Vision
 
 struct RealTimeImageClassificationView: View {
     @ObservedObject private var viewModel = RealTimeImageClassificationViewModel(purchaseState: PurchaseState())
@@ -52,6 +53,17 @@ struct RealTimeImageClassificationView: View {
                     VocabularySettingView(showVocabularySetting: $showVocabularySetting)
                         .environmentObject(viewModel)
                         .environmentObject(vocabularyState)
+                }
+                ForEach(viewModel.recognitionResults, id: \.self) { result in
+                    if let objectObservation = result as? VNRecognizedObjectObservation {
+                        let bounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(UIScreen.main.bounds.width), Int(UIScreen.main.bounds.height))
+                        Text(objectObservation.labels.first?.identifier ?? "")
+                            .foregroundColor(.green)
+                            .position(x: bounds.minX + 16, y: bounds.minY - 16)
+                        Path { path in path.addRect(bounds) }
+                            .stroke(lineWidth: 5)
+                            .fill(Color.green)
+                    }
                 }
             }.ignoresSafeArea()
         }.onAppear {

@@ -1,6 +1,8 @@
 import AVFoundation
 import Vision
 import Combine
+import CoreImage
+import UIKit
 
 class RealTimeImageClassificationViewModel: ObservableObject {
     private let videoCapture = VideoCapture()
@@ -27,6 +29,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var imageResult: AnalyzeImageResult?
     @Published var selectedVocabulary = Set<Vocabulary>()
     @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
+    @Published var recognitionResults: [VNRecognizedObjectObservation] = []
     
     private var cancellables = Set<AnyCancellable>()
     private var lessonLimitSeconds: Double? = nil
@@ -124,7 +127,7 @@ extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     }
     
     func didCaptureFrame(from imageBuffer: CVImageBuffer) {
-        imageAnalysisModel.performRequet(with: imageBuffer)
+        imageAnalysisModel.performRequest(with: imageBuffer)
     }
 }
 
@@ -179,7 +182,9 @@ extension RealTimeImageClassificationViewModel: AnalyzeImageDelegate {
 }
 
 extension RealTimeImageClassificationViewModel: ImageAnalysisModelDelegate {
-    func didRecieve(_ observation: VNClassificationObservation) {
-        print(observation)
+    func didRecieve(_ results: [VNRecognizedObjectObservation]) {
+        DispatchQueue.main.async {
+            self.recognitionResults = results
+        }
     }
 }

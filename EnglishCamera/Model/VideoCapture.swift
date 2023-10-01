@@ -34,13 +34,20 @@ class VideoCapture: NSObject, AVCapturePhotoCaptureDelegate {
             guard let captureDevice = AVCaptureDevice.default(for: .video),
                   let deviceInput = try? AVCaptureDeviceInput(device: captureDevice)
             else { return }
+            
             self.captureSession.addInput(deviceInput)
             self.captureSession.startRunning()
             self.videoOutput.setSampleBufferDelegate(self, queue: self.sessionQueue)
-            self.captureSession.addOutput(self.videoOutput)
+            if self.captureSession.canAddOutput(self.videoOutput) {
+                self.captureSession.addOutput(self.videoOutput)
+                if let connection = self.videoOutput.connection(with: .video) {
+                    connection.videoOrientation = .portrait // Change as needed
+                }
+            }
             self.captureSession.addOutput(self.photoOutput)
 
             let previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+            previewLayer.connection?.videoOrientation = .portrait
             self.delegate?.didSet(previewLayer)
         })
     }
@@ -63,7 +70,7 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput,
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 1)
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
         else { return }
         delegate?.didCaptureFrame(from: imageBuffer)
