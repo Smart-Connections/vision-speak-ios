@@ -22,4 +22,8 @@ class PurchaseViewModel: ObservableObject {
             })
         }
     }
+    
+    func restore(successfulRestore:@escaping() -> Void, errorRestore:@escaping() -> Void) {
+        purchase.restore(successfulRestore: {successfulRestore()}, errorRestore: {errorRestore()})
+    }
 }

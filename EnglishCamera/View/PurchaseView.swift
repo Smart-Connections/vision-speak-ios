@@ -12,8 +12,7 @@ struct PurchaseView: View {
     @EnvironmentObject private var purchaseState: PurchaseState
     
     var body: some View {
-        let currentPlan = purchaseState.status
-        return VStack{
+        VStack{
             ForEach(0..<PurchaseStatus.allCases.count) { index in
                 VStack {
                     VStack {
@@ -26,7 +25,7 @@ struct PurchaseView: View {
                         HStack {
                             Text("・\(PurchaseStatus.allCases[index].description)")
                             Spacer()
-                            if (index != 0 && currentPlan != PurchaseStatus.allCases[index]) {
+                            if (index != 0 && currentPlan() != PurchaseStatus.allCases[index]) {
                                 Button() {
                                     self.purchaseViewModel.purchase(PurchaseStatus.allCases[index], successPurchase: {
                                         purchaseState.updateStatus()
@@ -43,17 +42,22 @@ struct PurchaseView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(currentPlan == PurchaseStatus.allCases[index] ? Color.orange : Color.white)
+                    .background(currentPlan() == PurchaseStatus.allCases[index] ? Color.orange : Color.white)
                     .cornerRadius(8)
                     Spacer().frame(height: 32)
                 }
             }
             Spacer()
+            PurchaseRestoreButton().environmentObject(purchaseViewModel)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(red: 247/255, green: 247/255, blue: 247/255))
         .navigationTitle("ステータス")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func currentPlan() -> PurchaseStatus {
+        return purchaseState.status
     }
 }

@@ -38,6 +38,7 @@
 		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
 		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
+		E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */; };
 		E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2C2A84C42000231BA1 /* RecordVoice.swift */; };
 		E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D2E2A85D23400231BA1 /* AppValue.swift */; };
 		E8799D312A872FD200231BA1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8799D302A872FD200231BA1 /* Purchase.swift */; };
@@ -123,6 +124,7 @@
 		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
 		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
+		E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
 		E8799D2C2A84C42000231BA1 /* RecordVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVoice.swift; sourceTree = "<group>"; };
 		E8799D2E2A85D23400231BA1 /* AppValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppValue.swift; sourceTree = "<group>"; };
 		E8799D302A872FD200231BA1 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				E8D4033C2AAD67FF00EC9A12 /* ChatMessages.swift */,
 				E8D403462AAD7FBD00EC9A12 /* VocabularyHistoryList.swift */,
 				E88612E92AC469B9006207AC /* TodayStudy.swift */,
+				E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */,
 				E88612EA2AC469B9006207AC /* TodayStudy.swift in Sources */,
 				E8D403392AAD5E0A00EC9A12 /* VocabularyView.swift in Sources */,
+				E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */,
 				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84318C42AA31A8F006EB761 /* VisionSpeakApiClient.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,

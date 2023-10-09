@@ -26,6 +26,17 @@ class Purchase {
         }
     }
     
+    func restore(successfulRestore:@escaping() -> Void, errorRestore:@escaping() -> Void) {
+        Task {
+            do {
+                try await AppStore.sync()
+                successfulRestore()
+            } catch {
+                errorRestore()
+            }
+        }
+    }
+    
     private func purchase(product: Product) async throws -> Transaction  {
         // Product.PurchaseResultの取得
         let purchaseResult: Product.PurchaseResult
