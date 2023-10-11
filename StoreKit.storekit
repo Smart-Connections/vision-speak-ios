@@ -36,7 +36,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.smartconnections.daily.speak.basic.subscription",
+          "productID" : "com.smartconnections.daily.speak.basic.subscription.2",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "basic",
           "subscriptionGroupID" : "BF572EFB",
@@ -61,7 +61,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.smartconnections.daily.speak.unlimited.subscription",
+          "productID" : "com.smartconnections.daily.speak.unlimited.subscription.2",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "unlimited",
           "subscriptionGroupID" : "BF572EFB",

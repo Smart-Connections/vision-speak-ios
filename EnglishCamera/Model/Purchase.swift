@@ -89,8 +89,8 @@ enum SubscribeError: LocalizedError {
 
 enum PurchaseStatus: String, CaseIterable {
     case free = ""
-    case basic = "com.smartconnections.daily.speak.basic.subscription"
-    case unlimited = "com.smartconnections.daily.speak.unlimited.subscription"
+    case basic = "com.smartconnections.daily.speak.basic.subscription.2"
+    case unlimited = "com.smartconnections.daily.speak.unlimited.subscription.2"
     
     var name: String {
         switch (self) {
