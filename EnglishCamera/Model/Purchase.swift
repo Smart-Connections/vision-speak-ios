@@ -10,8 +10,6 @@ import StoreKit
 
 class Purchase {
     
-    private let entitlementId = "tech.smartconnections.daily.speak"
-    
     func purchase(productId:String, successfulPurchase:@escaping() -> Void, cancelPurchase:@escaping() -> Void) async {
         print("課金アイテムID: \(productId)")
         do {
