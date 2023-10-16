@@ -17,10 +17,13 @@ class Purchase {
             if let item = products.first {
                 let transaction = try await self.purchase(product: item)
                 await transaction.finish()
+                successfulPurchase()
             }
+            cancelPurchase()
         } catch  {
             print("===================purchase error===================")
             print(error)
+            cancelPurchase()
         }
     }
     
