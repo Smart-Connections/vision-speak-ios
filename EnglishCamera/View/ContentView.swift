@@ -23,7 +23,7 @@ struct ContentView: View {
     
     var body: some View {
         return TabView(selection: $tabPage) {
-            CameraView()
+            TodayStudyView()
                 .environmentObject(studyHistoryState)
                 .environmentObject(vocabularyState)
                 .environmentObject(purchaseState)

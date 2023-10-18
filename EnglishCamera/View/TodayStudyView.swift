@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CameraView: View {
+struct TodayStudyView: View {
     @EnvironmentObject private var purchaseState: PurchaseState
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState

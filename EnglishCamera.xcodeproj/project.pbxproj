@@ -33,7 +33,7 @@
 		E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4C72A6D59C00045A804 /* VideoCapture.swift */; };
 		E84EE4CA2A6D5A4E0045A804 /* MLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4C92A6D5A4E0045A804 /* MLManager.swift */; };
 		E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */; };
-		E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CB2A7E28FD00F23507 /* CameraView.swift */; };
+		E85286CC2A7E28FD00F23507 /* TodayStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CB2A7E28FD00F23507 /* TodayStudyView.swift */; };
 		E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */; };
 		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
@@ -122,7 +122,7 @@
 		E84EE4C72A6D59C00045A804 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		E84EE4C92A6D5A4E0045A804 /* MLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLManager.swift; sourceTree = "<group>"; };
 		E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeImageClassificationViewModel.swift; sourceTree = "<group>"; };
-		E85286CB2A7E28FD00F23507 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E85286CB2A7E28FD00F23507 /* TodayStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStudyView.swift; sourceTree = "<group>"; };
 		E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryView.swift; sourceTree = "<group>"; };
 		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 				E82723FF2A9CF49D00E34D5A /* Widget */,
 				E84EE4962A6D12EA0045A804 /* ContentView.swift */,
 				E822F74A2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift */,
-				E85286CB2A7E28FD00F23507 /* CameraView.swift */,
+				E85286CB2A7E28FD00F23507 /* TodayStudyView.swift */,
 				E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */,
 				E8799D322A873C6000231BA1 /* MenuView.swift */,
 				E8799D342A87512E00231BA1 /* PurchaseView.swift */,
@@ -664,7 +664,7 @@
 				E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */,
 				E8D4034B2AADE29700EC9A12 /* SearchVocabulary.swift in Sources */,
 				E8D403492AAD85E200EC9A12 /* VocabularySearchView.swift in Sources */,
-				E85286CC2A7E28FD00F23507 /* CameraView.swift in Sources */,
+				E85286CC2A7E28FD00F23507 /* TodayStudyView.swift in Sources */,
 				E8799D312A872FD200231BA1 /* Purchase.swift in Sources */,
 				E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */,
 				E8D4034D2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift in Sources */,
