@@ -13,6 +13,7 @@ struct CameraView: View {
     @EnvironmentObject private var vocabularyState: VocabularyState
     
     @State private var showMenu = false
+    @State private var showCoachMark = false
     
     var body: some View {
         NavigationView{
@@ -22,7 +23,7 @@ struct CameraView: View {
                     HStack {
                         Text("学習").font(.largeTitle.bold())
                         Spacer()
-                        Button(action: {
+                        Button(action:{
                             showMenu = true
                         }, label: {
                             Image(systemName: "line.3.horizontal.circle.fill")
@@ -33,7 +34,9 @@ struct CameraView: View {
                         }
                     }
                     Spacer().frame(height: 24)
-                    TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState)
+                    VStack{
+                        TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "この画面から学習を始められます。Startを押して学習を開始しましょう。")
+                    }.frame(height: 270)
                     Spacer()
                 }
             }

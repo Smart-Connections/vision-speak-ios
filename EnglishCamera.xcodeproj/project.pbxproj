@@ -51,6 +51,7 @@
 		E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88A5E772A8C45A0003D787F /* CloudVision.swift */; };
 		E89088F62ADD743500E1B9B6 /* PurchaseItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088F52ADD743500E1B9B6 /* PurchaseItems.swift */; };
 		E89088F82ADD76C500E1B9B6 /* AppProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088F72ADD76C500E1B9B6 /* AppProgressView.swift */; };
+		E89088FB2ADE39F600E1B9B6 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088FA2ADE39F600E1B9B6 /* ViewExtension.swift */; };
 		E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B332AB5E19100FBA45F /* FeedbackView.swift */; };
 		E8C92B372ABC7C6700FBA45F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C92B362ABC7C6700FBA45F /* StoreKit.framework */; };
 		E8C92B392ABC834500FBA45F /* PurchaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B382ABC834500FBA45F /* PurchaseState.swift */; };
@@ -140,6 +141,7 @@
 		E88A5E772A8C45A0003D787F /* CloudVision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudVision.swift; sourceTree = "<group>"; };
 		E89088F52ADD743500E1B9B6 /* PurchaseItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItems.swift; sourceTree = "<group>"; };
 		E89088F72ADD76C500E1B9B6 /* AppProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressView.swift; sourceTree = "<group>"; };
+		E89088FA2ADE39F600E1B9B6 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		E8C92B332AB5E19100FBA45F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		E8C92B352AB9DB7000FBA45F /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKit.storekit; sourceTree = "<group>"; };
 		E8C92B362ABC7C6700FBA45F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -300,6 +302,7 @@
 		E84EE4932A6D12EA0045A804 /* EnglishCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E89088F92ADE39E100E1B9B6 /* Extension */,
 				E88612E82ABEC7EC006207AC /* Info.plist */,
 				E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */,
 				E84318C22AA31A68006EB761 /* Client */,
@@ -310,7 +313,6 @@
 				E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */,
 				E84EE4982A6D12EB0045A804 /* Assets.xcassets */,
 				E84EE49A2A6D12EB0045A804 /* Preview Content */,
-				E85286CF2A7E60BE00F23507 /* Extensions.swift */,
 				E842B6222A7F423900961719 /* CameraStatus.swift */,
 				E8799D2E2A85D23400231BA1 /* AppValue.swift */,
 				E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */,
@@ -371,6 +373,15 @@
 				E8D4034C2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E89088F92ADE39E100E1B9B6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E85286CF2A7E60BE00F23507 /* Extensions.swift */,
+				E89088FA2ADE39F600E1B9B6 /* ViewExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E8D403402AAD792B00EC9A12 /* StudyHistory */ = {
@@ -647,6 +658,7 @@
 				E8D4033D2AAD67FF00EC9A12 /* ChatMessages.swift in Sources */,
 				E8799D332A873C6000231BA1 /* MenuView.swift in Sources */,
 				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
+				E89088FB2ADE39F600E1B9B6 /* ViewExtension.swift in Sources */,
 				E822F7562A7DF258008BEC33 /* StudyHistoryDataSource.swift in Sources */,
 				E84EE4C82A6D59C00045A804 /* VideoCapture.swift in Sources */,
 				E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */,
@@ -843,7 +855,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1.0.8;
+				CURRENT_PROJECT_VERSION = 0.1.0.9;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -885,7 +897,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 0.1.0.8;
+				CURRENT_PROJECT_VERSION = 0.1.0.9;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
