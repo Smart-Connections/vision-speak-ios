@@ -8,4 +8,7 @@
 class AppValue {
     // 制限時間設定前の初期値
     static let initSecondsSymbol = 999999
+    
+    // 起動バージョンを保存するUserDefaultsKey
+    static let appVersionCode = "appVersionCode"
 }

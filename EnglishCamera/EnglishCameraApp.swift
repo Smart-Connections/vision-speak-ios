@@ -27,11 +27,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                             userPoolConfiguration: userPoolConfigration,
                                             forKey: CognitoConstants.SignInProviderKey)
         
+        // サインイン
         Task {
             await Authenticator().signUpUser() { userId in
                 print("userId: \(userId)")
             }
         }
+        
+        // 初回起動時にすべてのコーチマーク表示フラグをTrueにする
+        if UserDefaults.standard.integer(forKey: AppValue.appVersionCode) == 0 {
+            CoachMark.allCases.forEach { value in
+                UserDefaults.standard.set(true, forKey: value.rawValue)
+            }
+        }
+        
+        // 起動バージョンコードを保存
+        UserDefaults.standard.set(Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String), forKey: AppValue.appVersionCode)
+        
         return true
     }
 }
