@@ -44,7 +44,7 @@ struct TodayStudyView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red: 247/255, green: 247/255, blue: 247/255))
         }.onAppear {
-            showCoachMarkIfNeeded()
+//            showCoachMarkIfNeeded()
         }
     }
     

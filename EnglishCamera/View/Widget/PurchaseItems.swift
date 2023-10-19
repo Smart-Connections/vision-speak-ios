@@ -18,11 +18,10 @@ struct PurchaseItems: View {
             VStack {
                 VStack {
                     HStack {
-                        Text("\(PurchaseStatus.allCases[index].name) プラン").font(.title2)
+                        Text("\(PurchaseStatus.allCases[index].name) プラン").font(.title3)
                         Spacer()
-                        Text(["", "¥680/月", "¥1800/月"][index])
+                        Text(["", "¥680/月", "¥1800/月"][index]).frame(height: 28)
                     }
-                    Spacer().frame(height: 8)
                     HStack {
                         Text("・\(PurchaseStatus.allCases[index].description)")
                         Spacer()
@@ -38,7 +37,7 @@ struct PurchaseItems: View {
                                 })
                             } label: {
                                 Text("購入")
-                                    .frame(width: 88, height: 32)
+                                    .frame(width: 88, height: 28)
                                     .foregroundColor(.white)
                                     .background(Color.blue)
                                     .cornerRadius(32)
@@ -50,7 +49,7 @@ struct PurchaseItems: View {
                 .frame(maxWidth: .infinity)
                 .background(currentPlan() == PurchaseStatus.allCases[index] ? Color.orange : Color.white)
                 .cornerRadius(8)
-                Spacer().frame(height: 32)
+                Spacer().frame(height: 16)
             }
         }
     }
