@@ -30,15 +30,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // サインイン
         Task {
             await Authenticator().signUpUser() { userId in
-                print("userId: \(userId)")
+                print("userId: \(String(describing: userId))")
             }
         }
         
         // 初回起動時にすべてのコーチマーク表示フラグをTrueにする
         if UserDefaults.standard.integer(forKey: AppValue.appVersionCode) == 0 {
-            CoachMark.allCases.forEach { value in
-                UserDefaults.standard.set(true, forKey: value.rawValue)
-            }
+            CoachMark.turnOnCoachMark()
         }
         
         // 起動バージョンコードを保存

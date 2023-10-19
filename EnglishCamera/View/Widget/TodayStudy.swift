@@ -19,43 +19,45 @@ struct TodayStudy: View {
     var body: some View {
         let history = studyHistoryDataSource.getWhere(Date().ymd).first
         let enable = isDebugMode || (purchaseState.status == .unlimited || (Double(history?.studyTimeSeconds ?? 0)) < purchaseState.status.limitSeconds)
-        Text("今日の学習").font(.headline).frame(maxWidth: .infinity, alignment: .leading)
-        VStack(alignment: .leading, spacing: 16) {
-            Text("学習時間").font(.subheadline)
-            HStack {
-                Spacer()
-                Text(TimeInterval(history?.studyTimeSeconds ?? 0).ms).font(.title3)
-                Spacer()
+        VStack {
+            Text("今日の学習").font(.headline).frame(maxWidth: .infinity, alignment: .leading)
+            VStack(alignment: .leading, spacing: 16) {
+                Text("学習時間").font(.subheadline)
+                HStack {
+                    Spacer()
+                    Text(TimeInterval(history?.studyTimeSeconds ?? 0).ms).font(.title3)
+                    Spacer()
+                }
+                Text("使用単語数").font(.subheadline)
+                HStack {
+                    Spacer()
+                    Text(String(history?.userCredits ?? 0)).font(.title3)
+                    Spacer()
+                }
+                Spacer().frame(height: 16)
+                Button(action: {
+                    showNextView = true
+                }) {
+                    Text("Start")
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(enable ? Color.blue : Color.gray)
+                        .cornerRadius(8)
+                }
+                .disabled(!enable)
+                .frame(maxWidth: .infinity)
+                .fullScreenCover(isPresented: $showNextView, content: {
+                    RealTimeImageClassificationView(showNextView: $showNextView)
+                        .environmentObject(studyHistoryState)
+                        .environmentObject(vocabularyState)
+                })
             }
-            Text("使用単語数").font(.subheadline)
-            HStack {
-                Spacer()
-                Text(String(history?.userCredits ?? 0)).font(.title3)
-                Spacer()
-            }
-            Spacer().frame(height: 16)
-            Button(action: {
-                showNextView = true
-            }) {
-                Text("Start")
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(enable ? Color.blue : Color.gray)
-                    .cornerRadius(8)
-            }
-            .disabled(!enable)
+            .padding()
             .frame(maxWidth: .infinity)
-            .fullScreenCover(isPresented: $showNextView, content: {
-                RealTimeImageClassificationView(showNextView: $showNextView)
-                    .environmentObject(studyHistoryState)
-                    .environmentObject(vocabularyState)
-            })
+            .background(Color.white)
+            .cornerRadius(8)
         }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background(Color.white)
-        .cornerRadius(8)
     }
     
     let isDebugMode: Bool = {

@@ -17,7 +17,7 @@ extension View {
             } else {
                 GeometryReader { geometry in
                     self.fullScreenCover(isPresented: show) {
-                        ZStack(alignment: .topLeading){
+                        ZStack(alignment: .topLeading) {
                             ZStack(alignment: .topLeading) {
                                 Color.black.opacity(0.5)
                                 Rectangle()
@@ -30,6 +30,8 @@ extension View {
                             .ignoresSafeArea()
                             .background(BackgroundBlurView())
                             Text(text).foregroundColor(.white).padding(.trailing, geometry.frame(in: .global).minX - 8).offset(x:geometry.frame(in: .global).minX - 8, y:geometry.frame(in: .global).maxY - 32)
+                        }.onTapGesture {
+                            show.wrappedValue = false
                         }
                     }.transaction({ transaction in
                         transaction.disablesAnimations = true

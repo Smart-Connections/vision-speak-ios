@@ -16,26 +16,18 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel).environmentObject(purchaseState)) {
-                    ZStack {
-                        HStack {
-                            Text("ステータス").font(.caption).foregroundColor(.black)
-                            Spacer()
+                MenuStatusButton().environmentObject(purchaseViewModel).environmentObject(purchaseState)
+                Spacer().frame(height: 16)
+                List {
+                    Text("使い方を見る")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            showMenu = false
+                            CoachMark.turnOnCoachMark()
                         }
-                        HStack {
-                            Spacer()
-                            Text(purchaseState.status.name)
-                                .font(.title)
-                                .foregroundColor(.black)
-                            Spacer()
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.white)
-                    .cornerRadius(8)
                 }
-                .padding()
+                .listStyle(.plain)
                 Spacer()
             }
             .background(Color(red: 247/255, green: 247/255, blue: 247/255))

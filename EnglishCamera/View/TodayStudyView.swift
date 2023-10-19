@@ -36,7 +36,7 @@ struct TodayStudyView: View {
                     Spacer().frame(height: 24)
                     VStack{
                         TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "この画面から学習を始められます。Startを押して学習を開始しましょう。")
-                    }.frame(height: 270)
+                    }.frame(height: 300)
                     Spacer()
                 }
             }
@@ -44,7 +44,7 @@ struct TodayStudyView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red: 247/255, green: 247/255, blue: 247/255))
         }.onAppear {
-//            showCoachMarkIfNeeded()
+            showCoachMarkIfNeeded()
         }
     }
     
