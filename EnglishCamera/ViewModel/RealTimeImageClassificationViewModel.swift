@@ -114,8 +114,8 @@ class RealTimeImageClassificationViewModel: ObservableObject {
 
 extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     func didTakePicture(_ data: Data) {
-        self.picture = data
-        cloudVision.analyzeImage(imageBase64: data.base64EncodedString())
+        self.picture = UIImage(data: data)?.resizeImage(withPercentage: 0.2)?.jpegData(compressionQuality: 0.2)
+        cloudVision.analyzeImage(imageBase64: picture?.base64EncodedString() ?? "")
     }
     
     func didSet(_ previewLayer: AVCaptureVideoPreviewLayer) {
