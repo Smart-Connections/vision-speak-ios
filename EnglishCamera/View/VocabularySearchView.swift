@@ -16,7 +16,9 @@ struct VocabularySearchView: View {
     @State private var difficultyOption: Difficulty = .easy
     @State private var type: VocabularyType = .word
     @State private var searchText = ""
+    
     @State private var showCoachMark = false
+    @State private var showProgressView = false
     
     @Binding var showSearchModal: Bool
     
@@ -36,6 +38,7 @@ struct VocabularySearchView: View {
                     searchText: $searchText
                 )
                 Button(action: {
+                    showProgressView = true
                     viewModel.search(
                         SearchVocabularyCondition(
                             keyword: $searchText.wrappedValue,
@@ -77,9 +80,11 @@ struct VocabularySearchView: View {
                 showSearchModal = false
             }) {
                 Text("Close").bold()
-            })
+            }).showProgressView(show: $showProgressView)
         }.onAppear {
             showCoachMarkIfNeeded()
+        }.onChange(of: viewModel.vocabularyList) { _ in
+            showProgressView = false
         }
     }
     

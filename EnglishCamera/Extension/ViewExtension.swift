@@ -10,6 +10,15 @@ import SwiftUI
 
 extension View {
     
+    func showProgressView(show: Binding<Bool>) -> some View {
+        ZStack {
+            self
+            if show.wrappedValue {
+                AppProgressView()
+            }
+        }
+    }
+    
     func showCoachMark(show: Binding<Bool>, text: String, showOnWidget: Bool = false) -> some View {
         Group {
             if !show.wrappedValue {
