@@ -10,7 +10,7 @@ import SwiftUI
 
 extension View {
     
-    func showCoachMark(show: Binding<Bool>, text: String) -> some View {
+    func showCoachMark(show: Binding<Bool>, text: String, showOnWidget: Bool = false) -> some View {
         Group {
             if !show.wrappedValue {
                 self
@@ -29,7 +29,7 @@ extension View {
                             .compositingGroup()
                             .ignoresSafeArea()
                             .background(BackgroundBlurView())
-                            Text(text).foregroundColor(.white).padding(.trailing, geometry.frame(in: .global).minX - 8).offset(x:geometry.frame(in: .global).minX - 8, y:geometry.frame(in: .global).maxY - 32)
+                            Text(text).foregroundColor(.white).padding(.horizontal, 16).offset(y:CoachMarkHelper.textYPosition(geometry: geometry, showOnWidget: showOnWidget))
                         }.onTapGesture {
                             show.wrappedValue = false
                         }
@@ -52,4 +52,14 @@ struct BackgroundBlurView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {}
+}
+
+class CoachMarkHelper {
+    static func textYPosition(geometry: GeometryProxy, showOnWidget: Bool = false) -> Double {
+        if showOnWidget {
+            return (geometry.frame(in: .global).minY - 108)
+        } else {
+            return (geometry.frame(in: .global).maxY - 32)
+        }
+    }
 }

@@ -10,30 +10,34 @@ import SwiftUI
 struct FeedbackView: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
-    
+
     @Binding var showFeedbackView: Bool
     @Binding var showRealTimeView: Bool
+    
+    @State private var showCoachMark: Bool = false
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
                     Text("レッスン完了").font(.title).bold().frame(alignment: .center)
-                    HStack {
-                        Spacer()
-                        VStack(alignment: .center) {
-                            Text("使えた数").frame(maxWidth: .infinity, alignment: .center).font(.title3)
-                            Spacer().frame(height: 4)
-                            Text("\(viewModel.selectedVocabulary.filter{ $0.learned }.count)/\(viewModel.selectedVocabulary.count)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
-                        }
-                        Spacer()
-                        VStack(alignment: .center) {
-                            Text("使った単語").frame(maxWidth: .infinity, alignment: .center).font(.title3)
-                            Spacer().frame(height: 4)
-                            Text("\(viewModel.wordsCount)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
-                        }
-                        Spacer()
-                    }.padding(.horizontal, 48).padding(.vertical, 16)
+                    Group {
+                        HStack {
+                            Spacer()
+                            VStack(alignment: .center) {
+                                Text("使えた数").frame(maxWidth: .infinity, alignment: .center).font(.title3)
+                                Spacer().frame(height: 4)
+                                Text("\(viewModel.selectedVocabulary.filter{ $0.learned }.count)/\(viewModel.selectedVocabulary.count)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
+                            }
+                            Spacer()
+                            VStack(alignment: .center) {
+                                Text("使った単語").frame(maxWidth: .infinity, alignment: .center).font(.title3)
+                                Spacer().frame(height: 4)
+                                Text("\(viewModel.wordsCount)").frame(maxWidth: .infinity, alignment: .center).font(.title3).bold()
+                            }
+                            Spacer()
+                        }.padding(.horizontal, 48).padding(.vertical, 16).showCoachMark(show: $showCoachMark, text: "会話の中で使用できたVocabulary、単語数を確認できます。適度に復習をして、次に学習に移りましょう。\n\nこれでアプリの説明は以上になります。ご覧いただきありがとうございました。")
+                    }.frame(height: 80)
                     ForEach(Array(viewModel.selectedVocabulary)) { vocabulary in
                         HStack(alignment: .center) {
                             Text(vocabulary.vocabulary).frame(maxWidth: .infinity, alignment: .leading)
@@ -58,8 +62,18 @@ struct FeedbackView: View {
         }) {
             Text("Done").bold()
         })
+        .onAppear {
+            showSendVoiceCoachMarkIfNeeded()
+        }
         .onDisappear {
             studyHistoryState.refresh()
         }
+    }
+    
+    private func showSendVoiceCoachMarkIfNeeded() {
+        if !UserDefaults.standard.bool(forKey: CoachMark.feedbackView.rawValue) { return }
+        
+        showCoachMark = true
+        UserDefaults.standard.set(false, forKey: CoachMark.feedbackView.rawValue)
     }
 }

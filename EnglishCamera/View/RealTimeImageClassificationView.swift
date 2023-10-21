@@ -16,7 +16,9 @@ struct RealTimeImageClassificationView: View {
     
     @State var showVocabulary: Bool = false
     @State var showVocabularySetting: Bool = false
-    @State var showFeedbackView:Bool = false
+    @State var showFeedbackView: Bool = false
+    @State var showCoachMark: Bool = false
+    @State var showSendVoiceCoachMark: Bool = false
     
     @Binding private var showRealTimeView: Bool
     
@@ -43,6 +45,8 @@ struct RealTimeImageClassificationView: View {
                     }
                     ChatBottomActions(showVocabulary: $showVocabulary,
                                       showRealTimeView: $showRealTimeView,
+                                      showCameraCoachMark: $showCoachMark,
+                                      showSendVoiceCoachMark: $showSendVoiceCoachMark,
                                       showFeedbackView: $showFeedbackView).environmentObject(viewModel).environmentObject(studyHistoryState)
                     Spacer().frame(height: 16)
                 }.padding()
@@ -50,7 +54,7 @@ struct RealTimeImageClassificationView: View {
                     VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
                 }
                 if (self.showVocabularySetting) {
-                    VocabularySettingView(showVocabularySetting: $showVocabularySetting)
+                    VocabularySettingView(showVocabularySetting: $showVocabularySetting, showCameraCoachMark: $showCoachMark)
                         .environmentObject(viewModel)
                         .environmentObject(vocabularyState)
                 }

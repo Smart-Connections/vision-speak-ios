@@ -29,13 +29,15 @@ struct TodayStudyView: View {
                             Image(systemName: "line.3.horizontal.circle.fill")
                                 .resizable()
                                 .frame(width: 24, height: 24)
-                        }).sheet(isPresented: $showMenu) {
+                        }).sheet(isPresented: $showMenu , onDismiss : {
+                            showCoachMarkIfNeeded()
+                        }) {
                             MenuView(showMenu: $showMenu).environmentObject(purchaseState)
                         }
                     }
                     Spacer().frame(height: 24)
                     VStack{
-                        TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "この画面から学習を始められます。Startを押して学習を開始しましょう。")
+                        TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "Vision Speakのインストールありがとうございます。使い方を説明させていただきます。\n\nこの画面から学習を始められます。Startを押して学習を開始しましょう。")
                     }.frame(height: 300)
                     Spacer()
                 }

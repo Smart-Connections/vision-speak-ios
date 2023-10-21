@@ -54,6 +54,8 @@
 		E89088FB2ADE39F600E1B9B6 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088FA2ADE39F600E1B9B6 /* ViewExtension.swift */; };
 		E89088FE2AE0108700E1B9B6 /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088FD2AE0108700E1B9B6 /* CoachMark.swift */; };
 		E89089002AE18B6E00E1B9B6 /* MenuStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89088FF2AE18B6E00E1B9B6 /* MenuStatusButton.swift */; };
+		E89089022AE293A000E1B9B6 /* VocabularySearchConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89089012AE293A000E1B9B6 /* VocabularySearchConditions.swift */; };
+		E89089042AE294B100E1B9B6 /* VocabularySearchActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89089032AE294B100E1B9B6 /* VocabularySearchActionButtons.swift */; };
 		E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B332AB5E19100FBA45F /* FeedbackView.swift */; };
 		E8C92B372ABC7C6700FBA45F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C92B362ABC7C6700FBA45F /* StoreKit.framework */; };
 		E8C92B392ABC834500FBA45F /* PurchaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C92B382ABC834500FBA45F /* PurchaseState.swift */; };
@@ -146,6 +148,8 @@
 		E89088FA2ADE39F600E1B9B6 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		E89088FD2AE0108700E1B9B6 /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
 		E89088FF2AE18B6E00E1B9B6 /* MenuStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStatusButton.swift; sourceTree = "<group>"; };
+		E89089012AE293A000E1B9B6 /* VocabularySearchConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySearchConditions.swift; sourceTree = "<group>"; };
+		E89089032AE294B100E1B9B6 /* VocabularySearchActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySearchActionButtons.swift; sourceTree = "<group>"; };
 		E8C92B332AB5E19100FBA45F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		E8C92B352AB9DB7000FBA45F /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKit.storekit; sourceTree = "<group>"; };
 		E8C92B362ABC7C6700FBA45F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -268,6 +272,8 @@
 				E89088F52ADD743500E1B9B6 /* PurchaseItems.swift */,
 				E89088F72ADD76C500E1B9B6 /* AppProgressView.swift */,
 				E89088FF2AE18B6E00E1B9B6 /* MenuStatusButton.swift */,
+				E89089012AE293A000E1B9B6 /* VocabularySearchConditions.swift */,
+				E89089032AE294B100E1B9B6 /* VocabularySearchActionButtons.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */,
 				E8D4034B2AADE29700EC9A12 /* SearchVocabulary.swift in Sources */,
 				E8D403492AAD85E200EC9A12 /* VocabularySearchView.swift in Sources */,
+				E89089042AE294B100E1B9B6 /* VocabularySearchActionButtons.swift in Sources */,
 				E85286CC2A7E28FD00F23507 /* TodayStudyView.swift in Sources */,
 				E8799D312A872FD200231BA1 /* Purchase.swift in Sources */,
 				E8799D2D2A84C42000231BA1 /* RecordVoice.swift in Sources */,
@@ -692,6 +699,7 @@
 				E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */,
 				E89089002AE18B6E00E1B9B6 /* MenuStatusButton.swift in Sources */,
 				E8799D2F2A85D23400231BA1 /* AppValue.swift in Sources */,
+				E89089022AE293A000E1B9B6 /* VocabularySearchConditions.swift in Sources */,
 				E822F7542A7DF220008BEC33 /* StudyHistory.swift in Sources */,
 				E89088F62ADD743500E1B9B6 /* PurchaseItems.swift in Sources */,
 				E822F7582A7DF27D008BEC33 /* DataSourceProtocol.swift in Sources */,
@@ -892,7 +900,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -16,6 +16,7 @@ struct VocabularySearchView: View {
     @State private var difficultyOption: Difficulty = .easy
     @State private var type: VocabularyType = .word
     @State private var searchText = ""
+    @State private var showCoachMark = false
     
     @Binding var showSearchModal: Bool
     
@@ -24,51 +25,16 @@ struct VocabularySearchView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationView{
             VStack{
-                HStack(alignment: .center) {
-                    Text("キーワード")
-                    Spacer()
-                    TextField("例: 美味しい！のリアクション、水回りの単語", text: $searchText)
-                        .font(.subheadline)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("シチュエーション")
-                    Spacer()
-                    Picker("", selection: $situationOption) {
-                        ForEach(Situation.allCases, id: \.self) { option in
-                            Text(option.rawValue)
-                        }
-                    }
-                }
-                HStack {
-                    Text("シーン")
-                    Spacer()
-                    Picker("", selection: $styleOption) {
-                        ForEach(ConversationStyle.allCases, id: \.self) { option in
-                            Text(option.rawValue)
-                        }
-                    }
-                }
-                HStack {
-                    Text("難しさ")
-                    Spacer()
-                    Picker("", selection: $difficultyOption) {
-                        ForEach(Difficulty.allCases, id: \.self) { option in
-                            Text(option.rawValue)
-                        }
-                    }
-                }
-                HStack {
-                    Text("種類")
-                    Spacer()
-                    Picker("", selection: $type) {
-                        ForEach(VocabularyType.allCases, id: \.self) { option in
-                            Text(option.rawValue)
-                        }
-                    }
-                }
+                VocabularySearchConditions(
+                    partOfSpeechOption: $partOfSpeechOption,
+                    situationOption: $situationOption,
+                    styleOption: $styleOption,
+                    difficultyOption: $difficultyOption,
+                    type: $type,
+                    searchText: $searchText
+                )
                 Button(action: {
                     viewModel.search(
                         SearchVocabularyCondition(
@@ -102,37 +68,7 @@ struct VocabularySearchView: View {
                         }
                 }.environment(\.editMode, .constant(.active))
                 if !viewModel.vocabularyList.isEmpty {
-                    HStack {
-                        Button(action: {
-                            viewModel.clearResult()
-                        }) {
-                            HStack {
-                                Text("クリア")
-                            }
-                            .padding(.vertical, 10)
-                            .foregroundColor(.blue)
-                            .frame(width: 80)
-                            .background(Color.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.blue, lineWidth: 0.5)
-                            )
-                        }
-                        Button(action: {
-                            viewModel.saveVocabulary()
-                            showSearchModal = false
-                        }) {
-                            HStack {
-                                Text("保存する")
-                                Image(systemName: "plus.circle")
-                            }
-                            .padding(.vertical, 10)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .background(viewModel.selectedVocabulary.isEmpty ? Color.gray : Color.blue)
-                            .cornerRadius(8)
-                        }.disabled(viewModel.selectedVocabulary.isEmpty)
-                    }
+                    VocabularySearchActionButtons(showSearchModal: $showSearchModal).environmentObject(viewModel)
                 }
             }
             .padding()
@@ -142,6 +78,15 @@ struct VocabularySearchView: View {
             }) {
                 Text("Close").bold()
             })
+        }.onAppear {
+            showCoachMarkIfNeeded()
         }
+    }
+    
+    private func showCoachMarkIfNeeded() {
+        if !UserDefaults.standard.bool(forKey: CoachMark.searchVocabulary.rawValue) { return }
+        
+        showCoachMark = true
+        UserDefaults.standard.set(false, forKey: CoachMark.searchVocabulary.rawValue)
     }
 }
