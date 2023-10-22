@@ -38,7 +38,7 @@ class RecordVoice {
         
         // エラーの場合
         catch {
-            print("Error setting up audio recorder: \(error)")
+            debugPrint("Error setting up audio recorder: \(error)")
         }
     }
     
@@ -49,7 +49,7 @@ class RecordVoice {
             try recordingSession?.setCategory(.playback, mode: .measurement)
             try recordingSession?.setActive(false)
         } catch {
-            print("Error setting up audio recorder: \(error)")
+            debugPrint("Error setting up audio recorder: \(error)")
         }
         recordingSession = nil
     }

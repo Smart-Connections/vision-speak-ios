@@ -10,9 +10,11 @@ import AWSMobileClient
 class VisionSpeakApiClient {
     
     func call(endPoint: String, body: [String: Any], completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        debugPrint("API Call: \(endPoint)")
         AWSMobileClient.default().getTokens { (tokens, error) in
             if let error = error {
-                print(error)
+                debugPrint("call API Token取得で例外発生")
+                debugPrint(error)
                 return
             }
             guard let idToken = tokens?.idToken?.tokenString else { return }

@@ -11,6 +11,7 @@ import Foundation
 class Vocabulary: Object, Identifiable {
     @Persisted var id = UUID()
     @Persisted var vocabulary: String
+    @Persisted var vocabularyJa: String
     @Persisted var situcation: Situation
     @Persisted var scene: ConversationStyle
     @Persisted var difficulty: Difficulty
@@ -21,6 +22,7 @@ class Vocabulary: Object, Identifiable {
     
     convenience init(
         vocabulary: String,
+        vocabularyJa: String,
         situcation: Situation,
         scene: ConversationStyle,
         difficulty: Difficulty,
@@ -31,6 +33,7 @@ class Vocabulary: Object, Identifiable {
     ) {
         self.init()
         self.vocabulary = vocabulary
+        self.vocabularyJa = vocabularyJa
         self.situcation = situcation
         self.scene = scene
         self.difficulty = difficulty

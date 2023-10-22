@@ -14,7 +14,7 @@ class StudyHistoryDataSource: DataSource {
     var realm: Realm
     
     init() {
-        print("StudyHistoryDataSource init")
+        debugPrint("StudyHistoryDataSource init")
         self.realm = try! RealmWrapper.sharedInstance()
     }
 }
@@ -22,7 +22,7 @@ class StudyHistoryDataSource: DataSource {
 extension StudyHistoryDataSource {
     
     func saveStudyHistory(passedTime: TimeInterval, wordsCount: Int) {
-        print("saveStudyHistory: \(passedTime), \(wordsCount)")
+        debugPrint("saveStudyHistory: \(passedTime), \(wordsCount)")
         if let historyValue = todayHistory() {
             updateHistory(historyValue, Int(passedTime), wordsCount)
         } else {
@@ -34,7 +34,7 @@ extension StudyHistoryDataSource {
     
     func todayHistory() -> Target? {
         let today = getWhere(Date().ymd).first
-        print("todayHistory: \(String(describing: today))")
+        debugPrint("todayHistory: \(String(describing: today))")
         return today
     }
     

@@ -29,7 +29,7 @@ class SearchVocabulary {
                         let vocabularyList = try decoder.decode(VocabularyList.self, from: data)
                         self.delegate?.getVocabulary(vocabularyList)
                     } catch {
-                        print("Error parsing JSON: \(error)")
+                        debugPrint("Error parsing JSON: \(error)")
                     }
                 }
             }
@@ -46,4 +46,5 @@ struct SearchVocabularyCondition {
 
 struct VocabularyList: Decodable {
     let english_vocabulary_list: [String]
+    let japanese_vocabulary_list: [String]
 }

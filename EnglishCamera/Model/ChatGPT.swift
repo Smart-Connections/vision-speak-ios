@@ -25,7 +25,7 @@ class ChatGPT {
                         let message = Message(role: "assistant", english_message: result["english_message"] ?? "", japanese_message: result["japanese_message"] ?? "")
                         self.delegate?.receiveMessage(message)
                     } catch {
-                        print("Error parsing JSON: \(error)")
+                        debugPrint("Error parsing JSON: \(error)")
                     }
                 }
             }
@@ -39,7 +39,7 @@ class ChatGPT {
                         let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
                         self.delegate?.receiveTranscript(result["text"] ?? "")
                     } catch {
-                        print("Error parsing JSON: \(error)")
+                        debugPrint("Error parsing JSON: \(error)")
                     }
                 }
             }
@@ -57,7 +57,7 @@ class ChatGPT {
                         let feedback = Feedback(evaluation: evaluation, feedback: feedbackString, feedback_for_target_word: feedbackForTargetWord, message: message)
                         self.delegate?.receiveFeedback(feedback: feedback)
                     } catch {
-                        print("Error parsing JSON: \(error)")
+                        debugPrint("Error parsing JSON: \(error)")
                     }
                 }
             }

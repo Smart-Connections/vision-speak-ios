@@ -39,7 +39,7 @@ struct VocabularyBrowserView: View {
                                 .foregroundColor(.blue)
                                 .padding(.vertical)
                             Spacer().frame(width: 16)
-                            Text(vocabulary.vocabulary).frame(maxWidth: .infinity, alignment: .leading)
+                            VocabularyItem(english: vocabulary.vocabulary, japanese: vocabulary.vocabularyJa).frame(maxWidth: .infinity, alignment: .leading)
                             Spacer()
                         }.padding(.horizontal)
                     }.background(.white).cornerRadius(8)

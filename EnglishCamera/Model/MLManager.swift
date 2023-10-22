@@ -25,22 +25,22 @@ class ImageAnalysisModel: NSObject {
             let request = VNCoreMLRequest(model: model) { (request, error) in
 
                 if let error = error {
-                    print("Failed to perform request: \(error)")
+                    debugPrint("Failed to perform request: \(error)")
                     return
                 }
 
                 guard let results = request.results else {
-                    print("No results")
+                    debugPrint("No results")
                     return
                 }
-                print("detect object results: \(results)")
+                debugPrint("detect object results: \(results)")
                 self.delegate?.didRecieve(results as? [VNRecognizedObjectObservation] ?? [])
             }
             let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: imageBuffer, options: [:])
             do {
                 try imageRequestHandler.perform([request])
             } catch {
-                print("Failed to perform image request: \(error)")
+                debugPrint("Failed to perform image request: \(error)")
             }
         }
     }

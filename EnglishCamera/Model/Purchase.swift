@@ -11,7 +11,7 @@ import StoreKit
 class Purchase {
     
     func purchase(productId:String, successfulPurchase:@escaping() -> Void, cancelPurchase:@escaping() -> Void) async {
-        print("課金アイテムID: \(productId)")
+        debugPrint("課金アイテムID: \(productId)")
         do {
             let products = try await Product.products(for: [productId])
             if let item = products.first {
@@ -21,8 +21,8 @@ class Purchase {
             }
             cancelPurchase()
         } catch  {
-            print("===================purchase error===================")
-            print(error)
+            debugPrint("===================purchase error===================")
+            debugPrint(error)
             cancelPurchase()
         }
     }
@@ -55,13 +55,13 @@ class Purchase {
         let verificationResult: VerificationResult<Transaction>
         switch purchaseResult {
         case .success(let result):
-            print("課金成功")
+            debugPrint("課金成功")
             verificationResult = result
         case .userCancelled:
-            print("user canceled")
+            debugPrint("user canceled")
             throw SubscribeError.userCancelled
         case .pending:
-            print("pending")
+            debugPrint("pending")
             throw SubscribeError.pending
         @unknown default:
             throw SubscribeError.otherError
@@ -70,10 +70,10 @@ class Purchase {
         // Transactionの取得
         switch verificationResult {
         case .verified(let transaction):
-            print("verified")
+            debugPrint("verified")
             return transaction
         case .unverified:
-            print("unverified")
+            debugPrint("unverified")
             throw SubscribeError.failedVerification
         }
     }

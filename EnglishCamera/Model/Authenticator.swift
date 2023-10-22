@@ -12,18 +12,18 @@ class Authenticator {
     
     func signUpUser(completion: @escaping (String?) -> Void) async {
         checkUserLoggedIn { isLoggedIn in
-            print("Is user signed in - \(isLoggedIn)")
+            debugPrint("Is user signed in - \(isLoggedIn)")
             if (isLoggedIn) { return }
             let username = self.randomString(length: 10)
             let password = self.randomPassword()
             // Cognitoでusernameとpasswordでユーザーを作成する
             AWSMobileClient.default().signUp(username: username, password: password) {result, error in
-                print("result: \(result)")
-                print("error: \(error)")
+                debugPrint("result: \(result)")
+                debugPrint("error: \(error)")
                 // usernameとpasswordでログインする
                 AWSMobileClient.default().signIn(username: username, password: password) {result, error in
-                    print("result: \(result)")
-                    print("error: \(error)")
+                    debugPrint("result: \(result)")
+                    debugPrint("error: \(error)")
                     completion(username)
                 }
             }
@@ -41,7 +41,7 @@ class Authenticator {
         return 
         AWSMobileClient.default().initialize { userState, error in
             if let error = error {
-                print("error: \(error)")
+                debugPrint("error: \(error)")
                 completion(false)
                 return
             }

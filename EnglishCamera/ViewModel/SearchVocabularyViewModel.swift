@@ -11,8 +11,8 @@ import Foundation
 class SearchVocabularyViewModel: ObservableObject {
     private let searchVocabulary = SearchVocabulary()
     
-    @Published var vocabularyList = [String]()
-    @Published var selectedVocabulary = Set<String>()
+    @Published var vocabularyList = [VocabularyEntry]()
+    @Published var selectedVocabulary = Set<VocabularyEntry>()
     @Published var lastSearchVocabularyCondition: SearchVocabularyCondition?
     
     init() {
@@ -28,7 +28,8 @@ class SearchVocabularyViewModel: ObservableObject {
         let vocabularyList = self.vocabularyList.filter { selectedVocabulary.contains($0) }
         let vocabularies = vocabularyList.map {
             Vocabulary(
-                vocabulary: $0,
+                vocabulary: $0.english,
+                vocabularyJa: $0.japanese,
                 situcation: lastSearchVocabularyCondition!.situation,
                 scene: lastSearchVocabularyCondition!.style,
                 difficulty: lastSearchVocabularyCondition!.difficulty,
@@ -47,9 +48,14 @@ class SearchVocabularyViewModel: ObservableObject {
 
 extension SearchVocabularyViewModel: SearchVocabularyDelegate {
     func getVocabulary(_ vocabularyList: VocabularyList) {
-        print("getVocabulary \(vocabularyList.english_vocabulary_list)")
+        debugPrint("getVocabulary \(vocabularyList.english_vocabulary_list)")
         DispatchQueue.main.async {
-            self.vocabularyList = vocabularyList.english_vocabulary_list
+            self.vocabularyList = zip(vocabularyList.english_vocabulary_list, vocabularyList.japanese_vocabulary_list).map { VocabularyEntry(english: $0, japanese: $1) }
         }
     }
+}
+
+struct VocabularyEntry: Hashable {
+    let english: String
+    let japanese: String
 }

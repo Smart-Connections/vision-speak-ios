@@ -59,16 +59,16 @@ struct VocabularySearchView: View {
                     .cornerRadius(8)
                 }.disabled($searchText.wrappedValue.isEmpty || viewModel.lastSearchVocabularyCondition != nil)
                 List(viewModel.vocabularyList, id: \.self, selection: $viewModel.selectedVocabulary) { vocabulary in
-                    Text(vocabulary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            if viewModel.selectedVocabulary.contains(vocabulary) {
-                                viewModel.selectedVocabulary.remove(vocabulary)
-                            } else {
-                                viewModel.selectedVocabulary.insert(vocabulary)
-                            }
+                    VocabularyItem(english: vocabulary.english, japanese: vocabulary.japanese)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if viewModel.selectedVocabulary.contains(vocabulary) {
+                            viewModel.selectedVocabulary.remove(vocabulary)
+                        } else {
+                            viewModel.selectedVocabulary.insert(vocabulary)
                         }
+                    }
                 }.environment(\.editMode, .constant(.active))
                 if !viewModel.vocabularyList.isEmpty {
                     VocabularySearchActionButtons(showSearchModal: $showSearchModal).environmentObject(viewModel)

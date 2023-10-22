@@ -41,10 +41,10 @@ class PurchaseState: ObservableObject {
         
         if !productId.isEmpty {
             // 特典を付与
-            print("enablePrivilege productId: \(productId)")
+            debugPrint("enablePrivilege productId: \(productId)")
         } else {
             // 特典を削除
-            print("disablePrivilege()")
+            debugPrint("disablePrivilege()")
         }
         return productId
     }

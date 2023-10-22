@@ -21,7 +21,7 @@ struct VocabularyView: View {
                     HStack(alignment: .top) {
                         Image(systemName: "circle.fill").resizable().frame(width: 8, height: 8).foregroundColor(.green).padding(.top, 6)
                         Spacer().frame(width: 8)
-                        Text(vocabulary.vocabulary).frame(maxWidth: .infinity, alignment: .leading)
+                        VocabularyItem(english: vocabulary.vocabulary, japanese: vocabulary.vocabularyJa).frame(maxWidth: .infinity, alignment: .leading)
                     }.padding()
                     Divider().frame(height: 0.5)
                 }

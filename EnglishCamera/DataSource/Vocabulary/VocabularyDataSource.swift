@@ -14,7 +14,7 @@ class VocabularyDataSource: DataSource {
     var realm: Realm
     
     init() {
-        print("VocabularyDataSource init")
+        debugPrint("VocabularyDataSource init")
         self.realm = try! RealmWrapper.sharedInstance()
     }
 }

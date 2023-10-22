@@ -19,7 +19,7 @@ struct VocabularyHistoryList: View {
                 Spacer()
             } else {
                 List(vocabularyState.unlearnedVocabulary(), id: \.self, selection: $realTimeImageClassificationViewModel.selectedVocabulary) { vocabulary in
-                    Text(vocabulary.vocabulary)
+                    VocabularyItem(english: vocabulary.vocabulary, japanese: vocabulary.vocabularyJa)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
                         .onTapGesture {

@@ -23,7 +23,7 @@ class AnalyzeImage {
                     let result = try decoder.decode(AnalyzeImageResult.self, from: data)
                     self.delegate?.didAnalyzeImage(result)
                 } catch {
-                    print("Error parsing JSON: \(error)")
+                    debugPrint("Error parsing JSON: \(error)")
                 }
             }
         }

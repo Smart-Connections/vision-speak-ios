@@ -14,10 +14,10 @@ class PurchaseViewModel: ObservableObject {
     func purchase(_ status: PurchaseStatus, successPurchase: @escaping () -> Void, cancelPurchase: @escaping () -> Void) {
         Task {
             await purchase.purchase(productId: status.rawValue, successfulPurchase: {
-                print("課金成功")
+                debugPrint("課金成功")
                 successPurchase()
             }, cancelPurchase: {
-                print("課金キャンセル")
+                debugPrint("課金キャンセル")
                 cancelPurchase()
             })
         }
