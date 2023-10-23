@@ -156,7 +156,7 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     
     private func standLearnedFlagIfNeeded(_ text: String) {
         selectedVocabulary.forEach { vocabulary in
-            if (text.contains(vocabulary.vocabulary)) {
+            if (text.lowercased().contains(vocabulary.vocabulary.lowercased())) {
                 vocabularyDataSource.updateVocabulary(vocabulary, true)
             }
         }
