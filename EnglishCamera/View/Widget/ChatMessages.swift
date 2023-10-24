@@ -34,6 +34,11 @@ struct ChatMessages: View {
                                 }
                             }
                         }
+                        if isFeedback && message.role == "user" && viewModel.feedbacks.first(where: {$0.message == message}) == nil {
+                            ZStack(alignment: .center) {
+                                Image(systemName: "chevron.down").foregroundColor(.gray)
+                            }
+                        }
                         if let feedback = viewModel.feedbacks.first(where: {$0.message == message}) {
                             VStack(alignment: .leading) {
                                 Divider().frame(height: 0.5)
