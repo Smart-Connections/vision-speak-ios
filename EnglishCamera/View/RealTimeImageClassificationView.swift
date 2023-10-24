@@ -54,7 +54,7 @@ struct RealTimeImageClassificationView: View {
                     VocabularyView(showVocabulary: $showVocabulary).environmentObject(viewModel)
                 }
                 if (self.showVocabularySetting) {
-                    VocabularySettingView(showVocabularySetting: $showVocabularySetting, showCameraCoachMark: $showCoachMark)
+                    VocabularySettingView(showVocabularySetting: $showVocabularySetting, showCameraCoachMark: $showCoachMark, showRealTimeView: $showRealTimeView)
                         .environmentObject(viewModel)
                         .environmentObject(vocabularyState)
                 }

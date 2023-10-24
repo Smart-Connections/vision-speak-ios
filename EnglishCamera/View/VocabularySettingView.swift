@@ -13,6 +13,7 @@ struct VocabularySettingView: View {
     @EnvironmentObject private var viewModel: RealTimeImageClassificationViewModel
     @Binding var showVocabularySetting: Bool
     @Binding var showCameraCoachMark: Bool
+    @Binding var showRealTimeView: Bool
     
     @State private var showSearchModal = false
     @State private var showCoachMark = false
@@ -20,8 +21,17 @@ struct VocabularySettingView: View {
     var body: some View {
         VStack{
             Spacer()
-            VStack{
-                Text("使いたいVocabularyを設定しよう").font(.title3)
+            VStack(alignment: .leading){
+                Button(action: {
+                    showRealTimeView = false
+                }) {
+                    Image(systemName: "chevron.left")
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .cornerRadius(16)
+                }
+                Text("使いたいVocabularyを設定しよう").font(.title3).frame(maxWidth: .infinity, alignment: .center)
                 Spacer().frame(height: 16)
                 ZStack {
                     HStack {
