@@ -15,7 +15,11 @@ struct VocabularyHistoryList: View {
         return VStack() {
             if (vocabularyState.unlearnedVocabulary().isEmpty) {
                 Spacer()
-                Text("未学習のVocabularyはありません")
+                HStack {
+                    Spacer()
+                    Text("未学習のVocabularyはありません")
+                    Spacer()
+                }
                 Spacer()
             } else {
                 List(vocabularyState.unlearnedVocabulary(), id: \.self, selection: $realTimeImageClassificationViewModel.selectedVocabulary) { vocabulary in

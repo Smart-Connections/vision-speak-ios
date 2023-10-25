@@ -58,10 +58,20 @@ struct FeedbackView: View {
                 }
                 if $showConfetti.wrappedValue {
                     GeometryReader { geometry in
-                        SpriteView(
-                            scene: self.createRainParticleScene(size: geometry.size),
-                            options: [.allowsTransparency]
-                        ).edgesIgnoringSafeArea(.all)
+                        ZStack {
+                            SpriteView(
+                                scene: self.createRainParticleScene(size: geometry.size, color: .red),
+                                options: [.allowsTransparency]
+                            ).edgesIgnoringSafeArea(.all)
+                            SpriteView(
+                                scene: self.createRainParticleScene(size: geometry.size, color: .green),
+                                options: [.allowsTransparency]
+                            ).edgesIgnoringSafeArea(.all)
+                            SpriteView(
+                                scene: self.createRainParticleScene(size: geometry.size, color: .blue),
+                                options: [.allowsTransparency]
+                            ).edgesIgnoringSafeArea(.all)
+                        }
                     }
                 }
             }
@@ -90,8 +100,11 @@ struct FeedbackView: View {
         UserDefaults.standard.set(false, forKey: CoachMark.feedbackView.rawValue)
     }
     
-    private func createRainParticleScene(size: CGSize) -> SKScene {
+    private func createRainParticleScene(size: CGSize, color: UIColor) -> SKScene {
         let emitterNode = SKEmitterNode(fileNamed: "Confetti")!
+        emitterNode.particleColorSequence = nil
+        emitterNode.particleColorBlendFactor = 1
+        emitterNode.particleColor = color
         let scene = SKScene(size: size)
         scene.addChild(emitterNode)
         scene.backgroundColor = .clear
