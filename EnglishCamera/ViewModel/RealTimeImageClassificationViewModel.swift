@@ -143,6 +143,7 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     
     func receiveMessage(_ message: Message) {
         DispatchQueue.main.async {
+            self.status = .gptSpeaking
             self.textToSpeak.textToSpeak(text: message.english_message)
             self.messagesWithChatGPT.append(message)
         }
@@ -173,6 +174,7 @@ extension RealTimeImageClassificationViewModel: TextToSpeakDelegate {
 extension RealTimeImageClassificationViewModel: AnalyzeImageDelegate {
     func didAnalyzeImage(_ result: AnalyzeImageResult) {
         DispatchQueue.main.async {
+            self.status = .gptSpeaking
             self.imageResult = result
             let message = Message(role: "assistant", english_message: result.englishMessage, japanese_message: result.japaneseMessage)
             self.messagesWithChatGPT.append(message)

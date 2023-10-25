@@ -18,7 +18,7 @@ struct ChatMessages: View {
     }
     
     var body: some View {
-        if (viewModel.messagesWithChatGPT.count >= 0) {
+        VStack {
             ForEach(viewModel.messagesWithChatGPT, id: \.hashValue) { message in
                 HStack {
                     Spacer().frame(width: leftMargin(message.role == "user"))
@@ -58,7 +58,22 @@ struct ChatMessages: View {
                     }
                 }
             }
+            if waitingResponse() {
+                HStack {
+                    if !viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" {
+                        Spacer()
+                    }
+                    LottieView(name: "lottie_dots_animation").frame(width: 160, height: 80).background(!viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92)).cornerRadius(8)
+                    if viewModel.messagesWithChatGPT.isEmpty || viewModel.messagesWithChatGPT.last?.role == "user" {
+                        Spacer()
+                    }
+                }
+            }
         }
+    }
+    
+    private func waitingResponse() -> Bool {
+        return viewModel.status == .waitingGptMessage || viewModel.status == .waitingVisionResults
     }
     
     private func leftMargin(_ isUser: Bool) -> Double {

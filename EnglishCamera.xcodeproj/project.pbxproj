@@ -47,6 +47,8 @@
 		E87A82122AE4E6D100B3221A /* VocabularyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A82112AE4E6D100B3221A /* VocabularyItem.swift */; };
 		E87A821C2AE6A8E700B3221A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87A821A2AE6A8E700B3221A /* Assets.xcassets */; };
 		E87A82242AE6AEC700B3221A /* Confetti.sks in Resources */ = {isa = PBXBuildFile; fileRef = E87A82232AE6AEC700B3221A /* Confetti.sks */; };
+		E87A82282AE8D02000B3221A /* lottie_dots_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E87A82272AE8D02000B3221A /* lottie_dots_animation.json */; };
+		E87A822A2AE8D04200B3221A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A82292AE8D04100B3221A /* LottieView.swift */; };
 		E88612EA2AC469B9006207AC /* TodayStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612E92AC469B9006207AC /* TodayStudy.swift */; };
 		E88612EC2AC4FDB0006207AC /* VocabularyBrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */; };
 		E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */; };
@@ -142,6 +144,8 @@
 		E87A82112AE4E6D100B3221A /* VocabularyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyItem.swift; sourceTree = "<group>"; };
 		E87A821A2AE6A8E700B3221A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87A82232AE6AEC700B3221A /* Confetti.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Confetti.sks; sourceTree = "<group>"; };
+		E87A82272AE8D02000B3221A /* lottie_dots_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_dots_animation.json; sourceTree = "<group>"; };
+		E87A82292AE8D04100B3221A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E88612E82ABEC7EC006207AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E88612E92AC469B9006207AC /* TodayStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStudy.swift; sourceTree = "<group>"; };
 		E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseView.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 				E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */,
 				E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */,
 				E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */,
+				E87A82292AE8D04100B3221A /* LottieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				E8D403362AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel */,
 				E87A821A2AE6A8E700B3221A /* Assets.xcassets */,
 				E87A82232AE6AEC700B3221A /* Confetti.sks */,
+				E87A82272AE8D02000B3221A /* lottie_dots_animation.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				E84318C12AA1BC5C006EB761 /* awsconfiguration.json in Resources */,
 				E84EE49C2A6D12EB0045A804 /* Preview Assets.xcassets in Resources */,
 				E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */,
+				E87A82282AE8D02000B3221A /* lottie_dots_animation.json in Resources */,
 				E87A82242AE6AEC700B3221A /* Confetti.sks in Resources */,
 				E87A821C2AE6A8E700B3221A /* Assets.xcassets in Resources */,
 			);
@@ -733,6 +740,7 @@
 				E822F74B2A7C75E5008BEC33 /* RealTimeImageClassificationView.swift in Sources */,
 				E8799D352A87512E00231BA1 /* PurchaseView.swift in Sources */,
 				E88612EC2AC4FDB0006207AC /* VocabularyBrowseView.swift in Sources */,
+				E87A822A2AE8D04200B3221A /* LottieView.swift in Sources */,
 				E8D403432AAD795700EC9A12 /* VocabularyState.swift in Sources */,
 				E8D403372AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel in Sources */,
 				E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */,
