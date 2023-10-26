@@ -49,6 +49,8 @@
 		E87A82242AE6AEC700B3221A /* Confetti.sks in Resources */ = {isa = PBXBuildFile; fileRef = E87A82232AE6AEC700B3221A /* Confetti.sks */; };
 		E87A82282AE8D02000B3221A /* lottie_dots_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E87A82272AE8D02000B3221A /* lottie_dots_animation.json */; };
 		E87A822A2AE8D04200B3221A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A82292AE8D04100B3221A /* LottieView.swift */; };
+		E87BADB82AEA725E008856E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E87BADB72AEA725E008856E7 /* GoogleService-Info.plist */; };
+		E87BADBA2AEA727B008856E7 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = E87BADB92AEA727B008856E7 /* GoogleService-Info-dev.plist */; };
 		E88612EA2AC469B9006207AC /* TodayStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612E92AC469B9006207AC /* TodayStudy.swift */; };
 		E88612EC2AC4FDB0006207AC /* VocabularyBrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */; };
 		E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */; };
@@ -146,6 +148,8 @@
 		E87A82232AE6AEC700B3221A /* Confetti.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Confetti.sks; sourceTree = "<group>"; };
 		E87A82272AE8D02000B3221A /* lottie_dots_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_dots_animation.json; sourceTree = "<group>"; };
 		E87A82292AE8D04100B3221A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		E87BADB72AEA725E008856E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E87BADB92AEA727B008856E7 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		E88612E82ABEC7EC006207AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E88612E92AC469B9006207AC /* TodayStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStudy.swift; sourceTree = "<group>"; };
 		E88612EB2AC4FDB0006207AC /* VocabularyBrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseView.swift; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 				E822F75B2A7DF34D008BEC33 /* DataSource */,
 				E84EE49A2A6D12EB0045A804 /* Preview Content */,
 				E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */,
+				E87BADB92AEA727B008856E7 /* GoogleService-Info-dev.plist */,
+				E87BADB72AEA725E008856E7 /* GoogleService-Info.plist */,
 				E88612E82ABEC7EC006207AC /* Info.plist */,
 				E88612ED2AC5AD80006207AC /* LaunchScreen.storyboard */,
 			);
@@ -569,11 +575,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E84318C12AA1BC5C006EB761 /* awsconfiguration.json in Resources */,
+				E87BADBA2AEA727B008856E7 /* GoogleService-Info-dev.plist in Resources */,
 				E84EE49C2A6D12EB0045A804 /* Preview Assets.xcassets in Resources */,
 				E88612EE2AC5AD80006207AC /* LaunchScreen.storyboard in Resources */,
 				E87A82282AE8D02000B3221A /* lottie_dots_animation.json in Resources */,
 				E87A82242AE6AEC700B3221A /* Confetti.sks in Resources */,
 				E87A821C2AE6A8E700B3221A /* Assets.xcassets in Resources */,
+				E87BADB82AEA725E008856E7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,7 +923,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -935,7 +943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -957,7 +965,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
@@ -978,7 +986,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

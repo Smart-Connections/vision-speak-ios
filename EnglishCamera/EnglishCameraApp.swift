@@ -7,10 +7,12 @@
 
 import SwiftUI
 import AWSMobileClient
+import FirebaseCore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        configureFirebase()
   
         // AWS サービス設定を作成.
         let serviceConfiguration: AWSServiceConfiguration = AWSServiceConfiguration(
@@ -44,11 +46,25 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         return true
     }
+    
+    private func configureFirebase() {
+        #if DEBUG
+        if let filePath = Bundle.main.path(forResource: "GoogleService-Info-dev", ofType: "plist") {
+            guard let options = FirebaseOptions(contentsOfFile: filePath) else {
+                assert(false, "Could not load config file.")
+            }
+            FirebaseApp.configure(options: options)
+        }
+        #else
+        FirebaseApp.configure()
+        #endif
+    }
 }
 
 @main
 struct EnglishCameraApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {

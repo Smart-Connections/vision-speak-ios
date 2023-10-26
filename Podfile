@@ -9,6 +9,7 @@ target 'EnglishCamera' do
   pod 'RealmSwift'
   pod 'AWSMobileClient'
   pod 'lottie-ios'
+  pod 'FirebaseAnalytics'
   
   target 'EnglishCameraTests' do
     inherit! :search_paths
