@@ -24,7 +24,7 @@ struct ChatMessages: View {
                     Spacer().frame(width: leftMargin(message.role == "user"))
                     VStack{
                         HStack {
-                            Text(viewModel.jaMessages.contains(message) ? message.japanese_message : message.english_message)
+                            Text(viewModel.jaMessages.contains(message) ? message.japanese_message : message.english_message).fixedSize(horizontal: false, vertical: true)
                             Spacer()
                             if (message.role != "user") {
                                 Button(action: {
@@ -38,12 +38,15 @@ struct ChatMessages: View {
                             ZStack(alignment: .center) {
                                 Image(systemName: "chevron.down").foregroundColor(.gray)
                             }
+                            if viewModel.waitingFeedback {
+                                loadingAnimation
+                            }
                         }
                         if let feedback = viewModel.feedbacks.first(where: {$0.message == message}) {
                             VStack(alignment: .leading) {
                                 Divider().frame(height: 0.5)
                                 Spacer().frame(height: 12)
-                                Text(feedback.feedback).foregroundColor(.gray).frame(alignment: .leading)
+                                Text(feedback.feedback).fixedSize(horizontal: false, vertical: true).foregroundColor(.gray).frame(alignment: .leading)
                             }
                         }
                     }
@@ -53,7 +56,7 @@ struct ChatMessages: View {
                     .cornerRadius(8)
                     Spacer().frame(width: rightMargin(message.role == "user"))
                 }.onTapGesture {
-                    if (isFeedback && message.role == "user") {
+                    if (isFeedback && message.role == "user" && viewModel.feedbacks.first(where: {$0.message == message}) == nil) {
                         viewModel.getFeedback(message: message)
                     }
                 }
@@ -63,13 +66,17 @@ struct ChatMessages: View {
                     if !viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" {
                         Spacer()
                     }
-                    LottieView(name: "lottie_dots_animation").frame(width: 160, height: 80).background(!viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92)).cornerRadius(8)
+                    loadingAnimation
                     if viewModel.messagesWithChatGPT.isEmpty || viewModel.messagesWithChatGPT.last?.role == "user" {
                         Spacer()
                     }
                 }
             }
         }
+    }
+    
+    var loadingAnimation: some View {
+        LottieView(name: "lottie_dots_animation").frame(width: 160, height: 80).background(!viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92)).cornerRadius(8)
     }
     
     private func waitingResponse() -> Bool {

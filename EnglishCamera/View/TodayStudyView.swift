@@ -13,6 +13,7 @@ struct TodayStudyView: View {
     @EnvironmentObject private var vocabularyState: VocabularyState
     
     @State private var showMenu = false
+    @State private var showPurchaseView = false
     @State private var showCoachMark = false
     
     var body: some View {
@@ -32,12 +33,12 @@ struct TodayStudyView: View {
                         }).sheet(isPresented: $showMenu , onDismiss : {
                             showCoachMarkIfNeeded()
                         }) {
-                            MenuView(showMenu: $showMenu).environmentObject(purchaseState)
+                            MenuView(showMenu: $showMenu, showPurchaseView: $showPurchaseView).environmentObject(purchaseState)
                         }
                     }
                     Spacer().frame(height: 24)
                     VStack{
-                        TodayStudy().environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "Vision Speakのインストールありがとうございます。使い方を説明させていただきます。\n\nこの画面から学習を始められます。Startを押して学習を開始しましょう。")
+                        TodayStudy(showMenu: $showMenu, showPurchaseView: $showPurchaseView).environmentObject(purchaseState).environmentObject(studyHistoryState).environmentObject(vocabularyState).showCoachMark(show: $showCoachMark, text: "Vision Speakのインストールありがとうございます。使い方を説明させていただきます。\n\nこの画面から学習を始められます。Startを押して学習を開始しましょう。")
                     }.frame(height: 300)
                     Spacer()
                 }

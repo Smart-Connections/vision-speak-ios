@@ -24,12 +24,13 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var jaMessages = [Message]() // 日本語で表示するメッセージ
     @Published var feedbacks = [Feedback]() // Feedbackの数
     @Published var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
-    @Published var status: CameraStatus = .ready
+    @Published var status: ChatStatus = .ready
     @Published var picture: Data?
     @Published var imageResult: AnalyzeImageResult?
     @Published var selectedVocabulary = Set<Vocabulary>()
     @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
     @Published var recognitionResults: [VNRecognizedObjectObservation] = []
+    @Published var waitingFeedback = false
     
     private var cancellables = Set<AnyCancellable>()
     private var lessonLimitSeconds: Double? = nil
@@ -99,6 +100,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     func getFeedback(message: Message) {
         chatGPT.feedback(message: message, targetVocabularies: Array(selectedVocabulary))
+        self.waitingFeedback = true
     }
     
     func resetTimer() {
@@ -152,6 +154,7 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveFeedback(feedback: Feedback) {
         DispatchQueue.main.async {
             self.feedbacks.append(feedback)
+            self.waitingFeedback = false
         }
     }
     

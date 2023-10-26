@@ -12,11 +12,12 @@ struct MenuView: View {
     @ObservedObject private var purchaseViewModel: PurchaseViewModel = PurchaseViewModel()
     
     @Binding var showMenu: Bool
+    @Binding var showPurchaseView: Bool
     
     var body: some View {
         NavigationView {
             VStack {
-                MenuStatusButton().environmentObject(purchaseViewModel).environmentObject(purchaseState)
+                MenuStatusButton(showPurchaseView: $showPurchaseView).environmentObject(purchaseViewModel).environmentObject(purchaseState)
                 Spacer().frame(height: 16)
                 List {
                     Text("使い方を見る")

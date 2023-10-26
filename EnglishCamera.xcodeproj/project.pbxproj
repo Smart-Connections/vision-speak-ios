@@ -20,7 +20,7 @@
 		E82724012A9CF4B400E34D5A /* ChatBottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82724002A9CF4B400E34D5A /* ChatBottomActions.swift */; };
 		E82724032A9CF79400E34D5A /* ChatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82724022A9CF79400E34D5A /* ChatHeader.swift */; };
 		E83E145E2A9A41CD00A440D2 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83E145D2A9A41CD00A440D2 /* Authenticator.swift */; };
-		E842B6232A7F423900961719 /* CameraStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842B6222A7F423900961719 /* CameraStatus.swift */; };
+		E842B6232A7F423900961719 /* ChatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842B6222A7F423900961719 /* ChatStatus.swift */; };
 		E84318C12AA1BC5C006EB761 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ABEB88D801950390007B3C3 /* awsconfiguration.json */; };
 		E84318C42AA31A8F006EB761 /* VisionSpeakApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84318C32AA31A8F006EB761 /* VisionSpeakApiClient.swift */; };
 		E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */; };
@@ -78,6 +78,7 @@
 		E8D403492AAD85E200EC9A12 /* VocabularySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D403482AAD85E200EC9A12 /* VocabularySearchView.swift */; };
 		E8D4034B2AADE29700EC9A12 /* SearchVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4034A2AADE29700EC9A12 /* SearchVocabulary.swift */; };
 		E8D4034D2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4034C2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift */; };
+		E8DFF1692AEA9DCC000E52BC /* ShimmerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF1682AEA9DCC000E52BC /* ShimmerAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +118,7 @@
 		E82724002A9CF4B400E34D5A /* ChatBottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBottomActions.swift; sourceTree = "<group>"; };
 		E82724022A9CF79400E34D5A /* ChatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeader.swift; sourceTree = "<group>"; };
 		E83E145D2A9A41CD00A440D2 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
-		E842B6222A7F423900961719 /* CameraStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStatus.swift; sourceTree = "<group>"; };
+		E842B6222A7F423900961719 /* ChatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStatus.swift; sourceTree = "<group>"; };
 		E84318C32AA31A8F006EB761 /* VisionSpeakApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSpeakApiClient.swift; sourceTree = "<group>"; };
 		E84EE4912A6D12EA0045A804 /* EnglishCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84EE4942A6D12EA0045A804 /* EnglishCameraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishCameraApp.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		E8D403482AAD85E200EC9A12 /* VocabularySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySearchView.swift; sourceTree = "<group>"; };
 		E8D4034A2AADE29700EC9A12 /* SearchVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVocabulary.swift; sourceTree = "<group>"; };
 		E8D4034C2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVocabularyViewModel.swift; sourceTree = "<group>"; };
+		E8DFF1682AEA9DCC000E52BC /* ShimmerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerAnimation.swift; sourceTree = "<group>"; };
 		F41B6AF198D092E7C3F1E6D3 /* Pods-EnglishCamera-EnglishCameraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishCamera-EnglishCameraUITests.debug.xcconfig"; path = "Target Support Files/Pods-EnglishCamera-EnglishCameraUITests/Pods-EnglishCamera-EnglishCameraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCD7E199942FC88038E3B3C3 /* Pods-EnglishCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishCamera.release.xcconfig"; path = "Target Support Files/Pods-EnglishCamera/Pods-EnglishCamera.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -328,6 +330,7 @@
 		E84EE4932A6D12EA0045A804 /* EnglishCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E8DFF1672AEA9DBF000E52BC /* Util */,
 				E87A82142AE6A65A00B3221A /* Constant */,
 				E87A82132AE6A63900B3221A /* Resource */,
 				E89088FC2AE0107000E1B9B6 /* Enum */,
@@ -435,7 +438,7 @@
 		E89088FC2AE0107000E1B9B6 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				E842B6222A7F423900961719 /* CameraStatus.swift */,
+				E842B6222A7F423900961719 /* ChatStatus.swift */,
 				E89088FD2AE0108700E1B9B6 /* CoachMark.swift */,
 			);
 			path = Enum;
@@ -459,6 +462,14 @@
 				E8D403442AAD796600EC9A12 /* VocabularyDataSource.swift */,
 			);
 			path = Vocabulary;
+			sourceTree = "<group>";
+		};
+		E8DFF1672AEA9DBF000E52BC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E8DFF1682AEA9DCC000E52BC /* ShimmerAnimation.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -758,11 +769,12 @@
 				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84318C42AA31A8F006EB761 /* VisionSpeakApiClient.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,
-				E842B6232A7F423900961719 /* CameraStatus.swift in Sources */,
+				E842B6232A7F423900961719 /* ChatStatus.swift in Sources */,
 				E87A82122AE4E6D100B3221A /* VocabularyItem.swift in Sources */,
 				E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */,
 				E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */,
 				E8D403452AAD796600EC9A12 /* VocabularyDataSource.swift in Sources */,
+				E8DFF1692AEA9DCC000E52BC /* ShimmerAnimation.swift in Sources */,
 				E8C92B392ABC834500FBA45F /* PurchaseState.swift in Sources */,
 				E8D4033B2AAD5F0300EC9A12 /* Vocabulary.swift in Sources */,
 			);
@@ -923,7 +935,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -965,7 +977,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;

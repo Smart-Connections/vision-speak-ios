@@ -12,6 +12,9 @@ struct TodayStudy: View {
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState
     
+    @Binding var showMenu: Bool
+    @Binding var showPurchaseView: Bool
+    
     @State private var showNextView = false
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
@@ -34,7 +37,26 @@ struct TodayStudy: View {
                     Text(String(history?.userCredits ?? 0)).font(.title3)
                     Spacer()
                 }
-                Spacer().frame(height: 16)
+                if enable {
+                    Spacer().frame(height: 8)
+                }
+                if !enable && purchaseState.status == .free {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            showMenu = true
+                            showPurchaseView = true
+                        }) {
+                            Text("プラン変更")
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 16)
+                                .foregroundColor(.white)
+                                .background(.orange)
+                                .cornerRadius(32)
+                                .shimmering()
+                        }
+                    }
+                }
                 Button(action: {
                     showNextView = true
                 }) {

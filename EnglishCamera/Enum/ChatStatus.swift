@@ -5,7 +5,7 @@
 //  Created by maruko_shion_default on 2023/08/06.
 //
 
-enum CameraStatus {
+enum ChatStatus {
     case ready
     case waitingVisionResults
     case waitingSelectVisionResults

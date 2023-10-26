@@ -11,8 +11,10 @@ struct MenuStatusButton: View {
     @EnvironmentObject private var purchaseViewModel: PurchaseViewModel
     @EnvironmentObject private var purchaseState: PurchaseState
     
+    @Binding var showPurchaseView: Bool
+    
     var body: some View {
-        NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel).environmentObject(purchaseState)) {
+        NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel).environmentObject(purchaseState), isActive: $showPurchaseView) {
             ZStack {
                 HStack {
                     Text("ステータス").font(.caption).foregroundColor(.black)
