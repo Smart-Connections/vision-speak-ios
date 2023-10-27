@@ -57,7 +57,7 @@ struct VocabularySettingView: View {
                                 .showCoachMark(show: $showCoachMark, text: "会話中に使いたいVocabularyをここから追加ができます")
                             }.frame(width: 80, height: 40)
                         }.sheet(isPresented: $showSearchModal) {
-                            VocabularySearchView(showSearchModal: $showSearchModal)
+                            VocabularySearchView(showSearchModal: $showSearchModal).environmentObject(vocabularyState)
                         }
                     }
                 }

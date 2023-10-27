@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class VocabularyState: ObservableObject {
     private var datasource: VocabularyDataSource
+    
+    private(set) var objectWillChange = ObservableObjectPublisher()
     
     @Published var situcationCondition: Optional<Situation> = .none
     @Published var sceneCondition: Optional<ConversationStyle> = .none
@@ -27,6 +30,10 @@ class VocabularyState: ObservableObject {
     
     func addAll(_ vocabularies: [Vocabulary]) {
         datasource.add(vocabularies)
+    }
+    
+    func refresh() {
+        self.objectWillChange.send()
     }
 }
 

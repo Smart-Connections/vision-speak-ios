@@ -10,6 +10,8 @@ import SwiftUI
 struct VocabularySearchView: View {
     @StateObject private var viewModel = SearchVocabularyViewModel()
     
+    @EnvironmentObject private var vocabularyState: VocabularyState
+    
     @State private var partOfSpeechOption: Part = .noun
     @State private var situationOption: Situation = .daily
     @State private var styleOption: ConversationStyle = .casual
@@ -85,6 +87,8 @@ struct VocabularySearchView: View {
             showCoachMarkIfNeeded()
         }.onChange(of: viewModel.vocabularyList) { _ in
             showProgressView = false
+        }.onDisappear {
+            vocabularyState.refresh()
         }
     }
     

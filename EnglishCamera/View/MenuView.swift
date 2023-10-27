@@ -20,6 +20,13 @@ struct MenuView: View {
                 MenuStatusButton(showPurchaseView: $showPurchaseView).environmentObject(purchaseViewModel).environmentObject(purchaseState)
                 Spacer().frame(height: 16)
                 List {
+                    Text("アカウント")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            showMenu = false
+                            CoachMark.turnOnCoachMark()
+                        }
                     Text("使い方を見る")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
