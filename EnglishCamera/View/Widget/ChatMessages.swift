@@ -35,10 +35,11 @@ struct ChatMessages: View {
                             }
                         }
                         if isFeedback && message.role == "user" && viewModel.feedbacks.first(where: {$0.message == message}) == nil {
+                            Spacer().frame(height: 8)
                             ZStack(alignment: .center) {
                                 Image(systemName: "chevron.down").foregroundColor(.gray)
                             }
-                            if viewModel.waitingFeedback {
+                            if viewModel.waitingFeedbackMessage == message {
                                 loadingAnimation
                             }
                         }

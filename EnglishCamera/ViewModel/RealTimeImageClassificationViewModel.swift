@@ -30,7 +30,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     @Published var selectedVocabulary = Set<Vocabulary>()
     @Published var notSetVocabulary: Bool = false // Vocabularyを設定しない場合にtrue
     @Published var recognitionResults: [VNRecognizedObjectObservation] = []
-    @Published var waitingFeedback = false
+    @Published var waitingFeedbackMessage: Message? = nil
+    @Published var inputtingByMic = true
+    @Published var recordingVoice = false
     
     private var cancellables = Set<AnyCancellable>()
     private var lessonLimitSeconds: Double? = nil
@@ -75,9 +77,21 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     func reset() {
         videoCapture.stopCapturing()
         self.recordVoice.cancelRecording()
+        self.recordingVoice = false
+    }
+    
+    func startRecording() {
+        self.recordVoice.startRecording()
+        self.recordingVoice = true
+    }
+    
+    func stopRecording() {
+        self.recordVoice.cancelRecording()
+        self.recordingVoice = false
     }
     
     @MainActor func transcript() {
+        self.recordingVoice = false
         guard let url = self.recordVoice.stopRecording() else { return }
         guard let audioData = FileManager().contents(atPath: url.relativePath) else { return }
         self.recordVoice.cancelRecording()
@@ -99,13 +113,21 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     }
     
     func getFeedback(message: Message) {
+        if (waitingFeedbackMessage != nil) { return }
         chatGPT.feedback(message: message, targetVocabularies: Array(selectedVocabulary))
-        self.waitingFeedback = true
+        self.waitingFeedbackMessage = message
     }
     
     func resetTimer() {
         self.passedTime = TimeInterval(AppValue.initSecondsSymbol)
         self.remainSeconds = TimeInterval(AppValue.initSecondsSymbol)
+    }
+    
+    func sendReply(_ text: String) {
+        self.messagesWithChatGPT.append(Message(role: "user", english_message: text, japanese_message: ""))
+        self.wordsCount += text.split(separator: " ").count
+        self.callGPT(text)
+        self.standLearnedFlagIfNeeded(text)
     }
     
     private func callGPT(_ text: String) {
@@ -136,10 +158,7 @@ extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
 extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveTranscript(_ text: String) {
         DispatchQueue.main.async {
-            self.messagesWithChatGPT.append(Message(role: "user", english_message: text, japanese_message: ""))
-            self.wordsCount += text.split(separator: " ").count
-            self.callGPT(text)
-            self.standLearnedFlagIfNeeded(text)
+            self.sendReply(text)
         }
     }
     
@@ -154,7 +173,7 @@ extension RealTimeImageClassificationViewModel: ChatGPTDelegate {
     func receiveFeedback(feedback: Feedback) {
         DispatchQueue.main.async {
             self.feedbacks.append(feedback)
-            self.waitingFeedback = false
+            self.waitingFeedbackMessage = nil
         }
     }
     
@@ -171,6 +190,7 @@ extension RealTimeImageClassificationViewModel: TextToSpeakDelegate {
     func finishSpeak() {
         self.status = .inputtingReply
         self.recordVoice.startRecording()
+        self.recordingVoice = true
     }
 }
 

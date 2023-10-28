@@ -14,13 +14,17 @@ struct RealTimeImageClassificationView: View {
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState
     
-    @State var showVocabulary: Bool = false
-    @State var showVocabularySetting: Bool = false
-    @State var showFeedbackView: Bool = false
-    @State var showCoachMark: Bool = false
-    @State var showSendVoiceCoachMark: Bool = false
-    
     @Binding private var showRealTimeView: Bool
+    
+    @State private var showVocabulary: Bool = false
+    @State private var showVocabularySetting: Bool = false
+    @State private var showFeedbackView: Bool = false
+    @State private var showCoachMark: Bool = false
+    @State private var showSendVoiceCoachMark: Bool = false
+    @State private var text: String = ""
+    
+    @State private var showTextField: Bool = false
+    @FocusState private var focus:Bool
     
     private let studyHistoryDataSource = StudyHistoryDataSource()
     
@@ -47,7 +51,10 @@ struct RealTimeImageClassificationView: View {
                                       showRealTimeView: $showRealTimeView,
                                       showCameraCoachMark: $showCoachMark,
                                       showSendVoiceCoachMark: $showSendVoiceCoachMark,
-                                      showFeedbackView: $showFeedbackView).environmentObject(viewModel).environmentObject(studyHistoryState)
+                                      showFeedbackView: $showFeedbackView,
+                                      showTextField: $showTextField,
+                                      focused: $focus
+                    ).environmentObject(viewModel).environmentObject(studyHistoryState)
                     Spacer().frame(height: 16)
                 }.padding()
                 if (self.showVocabulary) {
@@ -67,6 +74,33 @@ struct RealTimeImageClassificationView: View {
                         Path { path in path.addRect(bounds) }
                             .stroke(lineWidth: 5)
                             .fill(Color.green)
+                    }
+                }
+                if showTextField {
+                    HStack {
+                        Spacer()
+                        ZStack {
+                            TextField("TextField", text: self.$text).focused(self.$focus).padding().padding(.trailing, 36).background(.white).cornerRadius(8)
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    if $text.wrappedValue.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return }
+                                    viewModel.sendReply($text.wrappedValue)
+                                    self.$text.wrappedValue = ""
+                                    self.$focus.wrappedValue = false
+                                    self.$showTextField.wrappedValue = false
+                                    viewModel.inputtingByMic = true
+                                }) {
+                                    Image(systemName: "arrow.up")
+                                        .foregroundColor(.white)
+                                        .frame(width: 36, height: 36)
+                                        .background(Color.blue)
+                                        .cornerRadius(18)
+                                }
+                                Spacer().frame(width: 16)
+                            }
+                        }
+                        Spacer()
                     }
                 }
             }.ignoresSafeArea()
