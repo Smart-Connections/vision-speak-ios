@@ -25,7 +25,7 @@ struct VocabularyView: View {
                     }.padding()
                     Divider().frame(height: 0.5)
                 }
-            }.padding().background(.white).cornerRadius(8)
+            }.padding().background(Color("surface")).cornerRadius(8)
             Spacer().frame(height: 96)
         }
         .padding()

@@ -27,7 +27,7 @@ struct PurchaseRestoreButton: View {
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.blue)
                 .padding()
-                .background(Color.white)
+                .background(Color("surface"))
                 .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)

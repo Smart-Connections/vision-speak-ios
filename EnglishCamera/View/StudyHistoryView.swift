@@ -39,11 +39,11 @@ struct StudyHistoryView: View {
                     }
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color("surface"))
                 .cornerRadius(8)
             }
             .padding()
-            .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+            .background(Color("back"))
         }
     }
 }

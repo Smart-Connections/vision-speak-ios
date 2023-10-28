@@ -17,7 +17,7 @@ struct ContentView: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
-        appearance.backgroundColor = UIColor.white
+        appearance.backgroundColor = UIColor(Color("surface"))
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     

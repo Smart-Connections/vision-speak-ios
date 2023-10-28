@@ -17,13 +17,12 @@ struct VocabularySearchActionButtons: View {
             Button(action: {
                 viewModel.clearResult()
             }) {
-                HStack {
-                    Text("クリア")
-                }
+                Text("クリア")
                 .padding(.vertical, 10)
                 .foregroundColor(.blue)
                 .frame(width: 80)
                 .background(Color.white)
+                .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.blue, lineWidth: 0.5)

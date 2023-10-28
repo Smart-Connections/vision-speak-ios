@@ -67,7 +67,7 @@ struct VocabularyBrowseFilterSettingView: View {
                 Spacer()
             }
             .padding()
-            .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+            .background(Color("back"))
             .navigationBarTitle(Text("Menu"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 showFilterSettingView = false

@@ -47,13 +47,13 @@ struct ChatMessages: View {
                             VStack(alignment: .leading) {
                                 Divider().frame(height: 0.5)
                                 Spacer().frame(height: 12)
-                                Text(feedback.feedback).fixedSize(horizontal: false, vertical: true).foregroundColor(.gray).frame(alignment: .leading)
+                                Text(feedback.feedback).fixedSize(horizontal: false, vertical: true).foregroundColor(Color("onSurfaceLight")).frame(alignment: .leading)
                             }
                         }
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(message.role == "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92))
+                    .background(message.role == "user" ? Color("surface") : Color("gptMessageBackground"))
                     .cornerRadius(8)
                     Spacer().frame(width: rightMargin(message.role == "user"))
                 }.onTapGesture {
@@ -77,7 +77,7 @@ struct ChatMessages: View {
     }
     
     var loadingAnimation: some View {
-        LottieView(name: "lottie_dots_animation").frame(width: 160, height: 80).background(!viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" ? Color.white : Color.init(red: 0.92, green: 0.92, blue: 0.92)).cornerRadius(8)
+        LottieView(name: "lottie_dots_animation").frame(width: 160, height: 80).background(!viewModel.messagesWithChatGPT.isEmpty && viewModel.messagesWithChatGPT.last?.role != "user" ? Color("surface") : Color("gptMessageBackground")).cornerRadius(8)
     }
     
     private func waitingResponse() -> Bool {

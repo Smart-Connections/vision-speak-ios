@@ -17,20 +17,20 @@ struct MenuStatusButton: View {
         NavigationLink(destination: PurchaseView().environmentObject(purchaseViewModel).environmentObject(purchaseState), isActive: $showPurchaseView) {
             ZStack {
                 HStack {
-                    Text("ステータス").font(.caption).foregroundColor(.black)
+                    Text("ステータス").font(.caption).foregroundColor(Color("onSurface"))
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     Text(purchaseState.status.name)
                         .font(.title)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("onSurface"))
                     Spacer()
                 }
             }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(.white)
+            .background(Color("surface"))
             .cornerRadius(8)
         }
         .padding()

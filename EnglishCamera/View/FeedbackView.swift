@@ -54,7 +54,7 @@ struct FeedbackView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+                    .background(Color("back"))
                 }
                 if $showConfetti.wrappedValue {
                     GeometryReader { geometry in

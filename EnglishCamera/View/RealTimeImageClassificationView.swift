@@ -80,7 +80,7 @@ struct RealTimeImageClassificationView: View {
                     HStack {
                         Spacer()
                         ZStack {
-                            TextField("TextField", text: self.$text).focused(self.$focus).padding().padding(.trailing, 36).background(.white).cornerRadius(8)
+                            TextField("TextField", text: self.$text).focused(self.$focus).padding().padding(.trailing, 36).background(Color("surface")).cornerRadius(8)
                             HStack {
                                 Spacer()
                                 Button(action: {

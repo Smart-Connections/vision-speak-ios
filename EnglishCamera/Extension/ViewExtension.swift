@@ -28,7 +28,7 @@ extension View {
                     self.fullScreenCover(isPresented: show) {
                         ZStack(alignment: .topLeading) {
                             ZStack(alignment: .topLeading) {
-                                Color.black.opacity(0.5)
+                                Color("onSurfaceLight").opacity(0.7)
                                 Rectangle()
                                     .cornerRadius(8)
                                     .frame(width: geometry.size.width + 16, height: geometry.size.height + 16)

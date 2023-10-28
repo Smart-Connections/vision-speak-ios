@@ -27,8 +27,8 @@ struct VocabularySettingView: View {
                 }) {
                     Image(systemName: "chevron.left")
                         .frame(width: 32, height: 32)
-                        .foregroundColor(.white)
-                        .background(.black)
+                        .foregroundColor(Color("surface"))
+                        .background(Color("onSurfaceStrong"))
                         .cornerRadius(16)
                 }
                 Text("使いたいVocabularyを設定しよう").font(.title3).frame(maxWidth: .infinity, alignment: .center)
@@ -76,7 +76,7 @@ struct VocabularySettingView: View {
                 }.disabled(viewModel.selectedVocabulary.isEmpty)
             }
             .padding()
-            .background(.white)
+            .background(Color("surface"))
             .cornerRadius(8)
             Spacer()
         }

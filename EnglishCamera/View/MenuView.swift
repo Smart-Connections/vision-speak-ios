@@ -38,7 +38,7 @@ struct MenuView: View {
                 .listStyle(.plain)
                 Spacer()
             }
-            .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+            .background(Color("back"))
             .navigationBarTitle(Text("Menu"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 showMenu = false

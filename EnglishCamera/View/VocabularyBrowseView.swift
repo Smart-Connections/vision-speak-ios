@@ -44,13 +44,15 @@ struct VocabularyBrowserView: View {
                                 VocabularyItem(english: vocabulary.vocabulary, japanese: vocabulary.vocabularyJa).frame(maxWidth: .infinity, alignment: .leading)
                                 Spacer()
                             }.padding(.horizontal)
-                        }.background(.white).cornerRadius(8)
+                        }
+                        .background(Color("surface"))
+                        .cornerRadius(8)
                         Spacer()
                     }
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color(red: 247/255, green: 247/255, blue: 247/255))
+                .background(Color("back"))
                 VStack{
                     Spacer()
                     HStack {

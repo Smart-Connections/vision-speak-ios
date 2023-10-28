@@ -35,6 +35,7 @@
 		E85286CC2A7E28FD00F23507 /* TodayStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CB2A7E28FD00F23507 /* TodayStudyView.swift */; };
 		E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */; };
 		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
+		E858CBA52AED372000DBCBB7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E858CBA42AED372000DBCBB7 /* Colors.xcassets */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
 		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
 		E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */; };
@@ -135,6 +136,7 @@
 		E85286CB2A7E28FD00F23507 /* TodayStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStudyView.swift; sourceTree = "<group>"; };
 		E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryView.swift; sourceTree = "<group>"; };
 		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E858CBA42AED372000DBCBB7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
 		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
 		E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				E87A821A2AE6A8E700B3221A /* Assets.xcassets */,
 				E87A82232AE6AEC700B3221A /* Confetti.sks */,
 				E87A82272AE8D02000B3221A /* lottie_dots_animation.json */,
+				E858CBA42AED372000DBCBB7 /* Colors.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E858CBA52AED372000DBCBB7 /* Colors.xcassets in Resources */,
 				E84318C12AA1BC5C006EB761 /* awsconfiguration.json in Resources */,
 				E87BADBA2AEA727B008856E7 /* GoogleService-Info-dev.plist in Resources */,
 				E84EE49C2A6D12EB0045A804 /* Preview Assets.xcassets in Resources */,
@@ -935,7 +939,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -955,7 +959,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.4;
+				MARKETING_VERSION = 0.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -977,7 +981,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
@@ -998,7 +1002,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.4;
+				MARKETING_VERSION = 0.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

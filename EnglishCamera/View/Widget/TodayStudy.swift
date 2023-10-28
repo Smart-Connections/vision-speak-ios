@@ -77,7 +77,7 @@ struct TodayStudy: View {
             }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color.white)
+            .background(Color("surface"))
             .cornerRadius(8)
         }
     }

@@ -16,7 +16,7 @@ struct VocabularyItem: View {
         HStack{
             Text(english)
             Spacer().frame(width: 16)
-            Text(japanese).font(.callout).foregroundColor(.black.opacity(0.7))
+            Text(japanese).font(.callout).foregroundColor(Color("onSurfaceLight"))
         }
     }
 }

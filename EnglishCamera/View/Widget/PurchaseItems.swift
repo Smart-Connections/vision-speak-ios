@@ -47,7 +47,7 @@ struct PurchaseItems: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(currentPlan() == PurchaseStatus.allCases[index] ? Color.orange : Color.white)
+                .background(currentPlan() == PurchaseStatus.allCases[index] ? Color.orange : Color("surface"))
                 .cornerRadius(8)
                 Spacer().frame(height: 16)
             }
