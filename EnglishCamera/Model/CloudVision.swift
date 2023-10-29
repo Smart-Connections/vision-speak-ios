@@ -15,8 +15,12 @@ class AnalyzeImage {
     
     weak var delegate: AnalyzeImageDelegate?
     
-    func analyzeImage(imageBase64: String) {
+    func analyzeImage(imageBase64: String, onError: @escaping (Error) -> Void) {
         VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_setup_chat", body: ["filename": Date().description, "image": imageBase64]) { (data, response, error) in
+            if let error = error {
+                onError(error)
+                return
+            }
             if let data = data {
                 do {
                     let decoder = JSONDecoder()

@@ -9,8 +9,11 @@ import AWSMobileClient
 
 class VisionSpeakApiClient {
     
+    private var backgroundTaskID : UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
+    
     func call(endPoint: String, body: [String: Any], completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         debugPrint("API Call: \(endPoint)")
+        self.backgroundTaskID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
         AWSMobileClient.default().getTokens { (tokens, error) in
             if let error = error {
                 debugPrint("call API Token取得で例外発生")
@@ -29,9 +32,10 @@ class VisionSpeakApiClient {
                 if (data != nil) {
                     debugPrint((try? JSONSerialization.jsonObject(with: data ?? Data(), options: [])) ?? "")
                 }
-                debugPrint(response as Any)
-                debugPrint(error as Any)
+                debugPrint("VisionSpeakApiClient#call response: \(response as Any)")
+                debugPrint("VisionSpeakApiClient#call error: \(error as Any)")
                 completion(data, response, error)
+                UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
             }
             task.resume()
         }

@@ -16,9 +16,13 @@ protocol ChatGPTDelegate: AnyObject {
 class ChatGPT {
     weak var delegate: ChatGPTDelegate?
     
-    func sendMessage(message: String, threadId: String) {
+    func sendMessage(message: String, threadId: String, onError: @escaping (Error) -> Void) {
         VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_send_message", body: [
             "message": message, "chat_thread_id": threadId]) { (data, response, error) in
+                if let error = error {
+                    onError(error)
+                    return
+                }
                 if let data = data {
                     do {
                         let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
@@ -31,9 +35,13 @@ class ChatGPT {
             }
     }
     
-    func transcript(message: String) {
+    func transcript(message: String, onError: @escaping (Error) -> Void) {
         VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_transcript", body: [
             "message_voice": message]) { (data, response, error) in
+                if let error = error {
+                    onError(error)
+                    return
+                }
                 if let data = data {
                     do {
                         let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
@@ -45,9 +53,13 @@ class ChatGPT {
             }
     }
     
-    func feedback(message: Message, targetVocabularies: [Vocabulary]) {
+    func feedback(message: Message, targetVocabularies: [Vocabulary], onError: @escaping (Error) -> Void) {
         VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_feedback", body: [
             "message": message.english_message, "words": targetVocabularies.map{ $0.vocabulary }]) { (data, response, error) in
+                if let error = error {
+                    onError(error)
+                    return
+                }
                 if let data = data {
                     do {
                         let result = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]

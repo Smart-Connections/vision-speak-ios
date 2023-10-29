@@ -78,7 +78,6 @@ struct ChatBottomActions: View {
                         }
                         Spacer()
                     }
-                    
                 }
                 if (viewModel.status == .ready) {
                     Group {

@@ -95,7 +95,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
         guard let url = self.recordVoice.stopRecording() else { return }
         guard let audioData = FileManager().contents(atPath: url.relativePath) else { return }
         self.recordVoice.cancelRecording()
-        chatGPT.transcript(message: audioData.base64EncodedString())
+        chatGPT.transcript(message: audioData.base64EncodedString()) { error in
+            self.status = .inputtingReply
+        }
         self.status = .waitingGptMessage
     }
     
@@ -114,7 +116,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     
     func getFeedback(message: Message) {
         if (waitingFeedbackMessage != nil) { return }
-        chatGPT.feedback(message: message, targetVocabularies: Array(selectedVocabulary))
+        chatGPT.feedback(message: message, targetVocabularies: Array(selectedVocabulary)) {error in
+            self.waitingFeedbackMessage = nil
+        }
         self.waitingFeedbackMessage = message
     }
     
@@ -131,7 +135,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
     }
     
     private func callGPT(_ text: String) {
-        chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "")
+        chatGPT.sendMessage(message: text, threadId: imageResult?.chatThreadID ?? "") { error in
+            self.status = .inputtingReply
+        }
         self.status = .waitingGptMessage
     }
 }
@@ -139,7 +145,9 @@ class RealTimeImageClassificationViewModel: ObservableObject {
 extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     func didTakePicture(_ data: Data) {
         self.picture = UIImage(data: data)?.resizeImage(withPercentage: 0.2)?.jpegData(compressionQuality: 0.2)
-        cloudVision.analyzeImage(imageBase64: picture?.base64EncodedString() ?? "")
+        cloudVision.analyzeImage(imageBase64: picture?.base64EncodedString() ?? "") { error in
+            self.status = .ready
+        }
     }
     
     func didSet(_ previewLayer: AVCaptureVideoPreviewLayer) {

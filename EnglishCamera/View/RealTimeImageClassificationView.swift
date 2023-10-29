@@ -106,8 +106,7 @@ struct RealTimeImageClassificationView: View {
             }.ignoresSafeArea()
         }.onAppear {
             viewModel.startCapturing()
-        }
-        .onDisappear {
+        }.onDisappear {
             viewModel.reset()
         }
     }
