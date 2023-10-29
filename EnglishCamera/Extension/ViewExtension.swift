@@ -5,10 +5,57 @@
 //  Created by maruko_shion_default on 2023/10/17.
 //
 
+import AVFoundation
 import Foundation
 import SwiftUI
 
 extension View {
+    
+    func showMicPermissionDialogIfNeeded(tryShow: Binding<Bool>) -> some View {
+        Group {
+            if !tryShow.wrappedValue {
+                self
+            } else if AVCaptureDevice.authorizationStatus(for: AVMediaType.audio) == .authorized {
+                self
+            } else {
+                self.alert("アプリを使用するにはマイクを使用する必要があります。", isPresented: tryShow) {
+                    Button("キャンセル") {}
+                    Button("設定を開く") {
+                        AVCaptureDevice.requestAccess(for: .audio, completionHandler: { granted in
+                            if (granted == false) {
+                                DispatchQueue.main.sync {
+                                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
+    func showCameraPermissionDialogIfNeeded(tryShow: Binding<Bool>) -> some View {
+        Group {
+            if !tryShow.wrappedValue {
+                self
+            } else if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .authorized {
+                self
+            } else {
+                self.alert("アプリを使用するにはカメラを使用する必要があります。", isPresented: tryShow) {
+                    Button("キャンセル") {}
+                    Button("設定を開く") {
+                        AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
+                            if (granted == false) {
+                                DispatchQueue.main.sync {
+                                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
     
     func showProgressView(show: Binding<Bool>) -> some View {
         ZStack {
@@ -59,7 +106,7 @@ struct BackgroundBlurView: UIViewRepresentable {
         }
         return view
     }
-
+    
     func updateUIView(_ uiView: UIView, context: Context) {}
 }
 

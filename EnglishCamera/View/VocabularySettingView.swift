@@ -5,6 +5,7 @@
 //  Created by maruko_shion_default on 2023/09/10.
 //
 
+import AVFoundation
 import Foundation
 import SwiftUI
 
@@ -17,6 +18,7 @@ struct VocabularySettingView: View {
     
     @State private var showSearchModal = false
     @State private var showCoachMark = false
+    @State private var tryShowCameraPermission = false
     
     var body: some View {
         VStack{
@@ -63,9 +65,13 @@ struct VocabularySettingView: View {
                 }
                 VocabularyHistoryList().environmentObject(vocabularyState)
                 Button(action: {
-                    showVocabularySetting = false
-                    viewModel.startTimer()
-                    showCameraCoachMarkIfNeeded()
+                    if AVCaptureDevice.authorizationStatus(for: .video) != .authorized || AVCaptureDevice.authorizationStatus(for: .audio) != .authorized {
+                        tryShowCameraPermission = true
+                    } else {
+                        showVocabularySetting = false
+                        viewModel.startTimer()
+                        showCameraCoachMarkIfNeeded()
+                    }
                 }) {
                     Text("Start")
                         .padding(.vertical, 10)
@@ -73,7 +79,10 @@ struct VocabularySettingView: View {
                         .frame(maxWidth: .infinity)
                         .background(viewModel.selectedVocabulary.isEmpty ? Color.gray : Color.blue)
                         .cornerRadius(8)
-                }.disabled(viewModel.selectedVocabulary.isEmpty)
+                }
+                .disabled(viewModel.selectedVocabulary.isEmpty)
+                .showCameraPermissionDialogIfNeeded(tryShow: $tryShowCameraPermission)
+                .showMicPermissionDialogIfNeeded(tryShow: $tryShowCameraPermission)
             }
             .padding()
             .background(Color("surface"))

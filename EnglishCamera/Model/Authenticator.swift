@@ -16,20 +16,62 @@ class Authenticator {
             if (isLoggedIn) { return }
             let username = self.randomString(length: 10)
             let password = self.randomPassword()
-            // Cognitoでusernameとpasswordでユーザーを作成する
-            AWSMobileClient.default().signUp(username: username, password: password) {result, error in
-                debugPrint("result: \(result)")
-                debugPrint("error: \(error)")
-                // usernameとpasswordでログインする
-                AWSMobileClient.default().signIn(username: username, password: password) {result, error in
-                    debugPrint("result: \(result)")
-                    debugPrint("error: \(error)")
-                    completion(username)
+            
+            AWSMobileClient.default().signUp(username: username, password: password) {signUpResult, error in
+                if let signUpResult = signUpResult {
+                    switch(signUpResult.signUpConfirmationState) {
+                    case .confirmed:
+                        self.signIn(username: username, password: password, completion: completion)
+                    case .unconfirmed:
+                        debugPrint("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                    case .unknown:
+                        debugPrint("Unexpected case")
+                    }
+                } else if let error = error {
+                    debugPrint("ユーザー登録で例外発生: \(error.localizedDescription)")
                 }
             }
         }
     }
-
+    
+    private func signIn(username: String, password: String, completion: @escaping (String?) -> Void) {
+        AWSMobileClient.default().signIn(username: username, password: password) {signInResult, error in
+            if let error = error  {
+                debugPrint("ログインで例外発生: \(error.localizedDescription)")
+            } else if let signInResult = signInResult {
+                switch (signInResult.signInState) {
+                case .signedIn:
+                    debugPrint("User is signed in.")
+                    completion(username)
+                case .smsMFA:
+                    debugPrint("SMS message sent to \(signInResult.codeDetails!.destination!)")
+                default:
+                    debugPrint("Sign In needs info which is not et supported.")
+                }
+            }
+        }
+    }
+    
+    private func saveLoginData(username: String, password: String) {
+        guard let bundleId = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") else { fatalError("BundleId取得失敗") }
+        let userNameQuery = [
+            kSecValueData: username.data(using: .utf8)!,
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrService: bundleId,
+            kSecAttrAccount: "vision.speak.user.name",
+        ] as CFDictionary
+        
+        let passwordQuery = [
+            kSecValueData: password.data(using: .utf8)!,
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrService: bundleId,
+            kSecAttrAccount: "vision.speak.password",
+        ] as CFDictionary
+        
+        SecItemAdd(userNameQuery, nil)
+        SecItemAdd(passwordQuery, nil)
+    }
+    
     enum AuthError: Error {
         case signedUpToConfirm
         case signInIncomplete
@@ -38,7 +80,7 @@ class Authenticator {
     
     func checkUserLoggedIn(completion: @escaping (Bool) -> Void) {
         completion(false)
-        return 
+        return
         AWSMobileClient.default().initialize { userState, error in
             if let error = error {
                 debugPrint("error: \(error)")
