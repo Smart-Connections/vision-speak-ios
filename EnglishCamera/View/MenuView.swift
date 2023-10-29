@@ -14,19 +14,22 @@ struct MenuView: View {
     @Binding var showMenu: Bool
     @Binding var showPurchaseView: Bool
     
+    @State private var showAccountView: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
                 MenuStatusButton(showPurchaseView: $showPurchaseView).environmentObject(purchaseViewModel).environmentObject(purchaseState)
                 Spacer().frame(height: 16)
                 List {
-//                    Text("アカウント")
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                        .contentShape(Rectangle())
-//                        .onTapGesture {
-//                            showMenu = false
-//                            CoachMark.turnOnCoachMark()
-//                        }
+                    NavigationLink(destination: AccountView(showAccountView: $showAccountView), isActive: $showAccountView) {
+                        Text("アカウント")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                showAccountView = true
+                            }
+                    }
                     Text("使い方を見る")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())

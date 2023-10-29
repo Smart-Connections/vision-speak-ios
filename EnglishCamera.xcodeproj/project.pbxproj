@@ -36,6 +36,9 @@
 		E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */; };
 		E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85286CF2A7E60BE00F23507 /* Extensions.swift */; };
 		E858CBA52AED372000DBCBB7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E858CBA42AED372000DBCBB7 /* Colors.xcassets */; };
+		E858CBA72AEDF7C200DBCBB7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */; };
+		E858CBA92AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */; };
+		E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
 		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
 		E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */; };
@@ -137,6 +140,9 @@
 		E85286CD2A7E29F700F23507 /* StudyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHistoryView.swift; sourceTree = "<group>"; };
 		E85286CF2A7E60BE00F23507 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E858CBA42AED372000DBCBB7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoutRegisterForm.swift; sourceTree = "<group>"; };
+		E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginForm.swift; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
 		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
 		E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
@@ -394,6 +400,9 @@
 				E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */,
 				E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */,
 				E87A82292AE8D04100B3221A /* LottieView.swift */,
+				E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */,
+				E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */,
+				E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -730,6 +739,7 @@
 				E83E145E2A9A41CD00A440D2 /* Authenticator.swift in Sources */,
 				E82724012A9CF4B400E34D5A /* ChatBottomActions.swift in Sources */,
 				E89089062AE42C4100E1B9B6 /* UIImageExtension.swift in Sources */,
+				E858CBA72AEDF7C200DBCBB7 /* AccountView.swift in Sources */,
 				E8799D372A877FAF00231BA1 /* PurchaseViewModel.swift in Sources */,
 				E82724032A9CF79400E34D5A /* ChatHeader.swift in Sources */,
 				E8D4033D2AAD67FF00EC9A12 /* ChatMessages.swift in Sources */,
@@ -773,8 +783,10 @@
 				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84318C42AA31A8F006EB761 /* VisionSpeakApiClient.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,
+				E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */,
 				E842B6232A7F423900961719 /* ChatStatus.swift in Sources */,
 				E87A82122AE4E6D100B3221A /* VocabularyItem.swift in Sources */,
+				E858CBA92AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift in Sources */,
 				E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */,
 				E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */,
 				E8D403452AAD796600EC9A12 /* VocabularyDataSource.swift in Sources */,
