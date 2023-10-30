@@ -31,7 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         // サインイン
         Task {
-            await Authenticator().signUpUser() { userId in
+            await Authenticator().signInOrUpUserIfNeeded() { userId in
                 debugPrint("userId: \(String(describing: userId))")
             }
         }

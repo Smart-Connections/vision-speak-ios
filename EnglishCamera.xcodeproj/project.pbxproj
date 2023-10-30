@@ -39,6 +39,8 @@
 		E858CBA72AEDF7C200DBCBB7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */; };
 		E858CBA92AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */; };
 		E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */; };
+		E858CBAD2AEFDEA800DBCBB7 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBAC2AEFDEA800DBCBB7 /* AuthError.swift */; };
+		E858CBB12AEFDFF800DBCBB7 /* KeyChainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB02AEFDFF700DBCBB7 /* KeyChainKey.swift */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
 		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
 		E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */; };
@@ -143,6 +145,8 @@
 		E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoutRegisterForm.swift; sourceTree = "<group>"; };
 		E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginForm.swift; sourceTree = "<group>"; };
+		E858CBAC2AEFDEA800DBCBB7 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		E858CBB02AEFDFF700DBCBB7 /* KeyChainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainKey.swift; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
 		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
 		E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
@@ -452,6 +456,8 @@
 			children = (
 				E842B6222A7F423900961719 /* ChatStatus.swift */,
 				E89088FD2AE0108700E1B9B6 /* CoachMark.swift */,
+				E858CBAC2AEFDEA800DBCBB7 /* AuthError.swift */,
+				E858CBB02AEFDFF700DBCBB7 /* KeyChainKey.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -762,6 +768,7 @@
 				E89088FE2AE0108700E1B9B6 /* CoachMark.swift in Sources */,
 				E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */,
 				E85286CE2A7E29F700F23507 /* StudyHistoryView.swift in Sources */,
+				E858CBB12AEFDFF800DBCBB7 /* KeyChainKey.swift in Sources */,
 				E8C92B342AB5E19100FBA45F /* FeedbackView.swift in Sources */,
 				E88A5E782A8C45A0003D787F /* CloudVision.swift in Sources */,
 				E89089002AE18B6E00E1B9B6 /* MenuStatusButton.swift in Sources */,
@@ -786,6 +793,7 @@
 				E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */,
 				E842B6232A7F423900961719 /* ChatStatus.swift in Sources */,
 				E87A82122AE4E6D100B3221A /* VocabularyItem.swift in Sources */,
+				E858CBAD2AEFDEA800DBCBB7 /* AuthError.swift in Sources */,
 				E858CBA92AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift in Sources */,
 				E8D2A93A2A7E8ED900EAD243 /* TextToSpeak.swift in Sources */,
 				E84EE4CE2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift in Sources */,
@@ -951,7 +959,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -971,7 +979,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.5;
+				MARKETING_VERSION = 0.3.6;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -993,7 +1001,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;
@@ -1014,7 +1022,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.5;
+				MARKETING_VERSION = 0.3.6;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.smartconnections.daily.speak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1024,6 +1032,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DPRODUCTION;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

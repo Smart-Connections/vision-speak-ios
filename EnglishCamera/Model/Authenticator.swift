@@ -10,26 +10,51 @@ import AWSMobileClient
 
 class Authenticator {
     
-    func signUpUser(completion: @escaping (String?) -> Void) async {
+    func signInOrUpUserIfNeeded(completion: @escaping (String?) -> Void) async {
         checkUserLoggedIn { isLoggedIn in
-            debugPrint("Is user signed in - \(isLoggedIn)")
+            debugPrint("ログインチェック結果: \(isLoggedIn)")
             if (isLoggedIn) { return }
-            let username = self.randomString(length: 10)
-            let password = self.randomPassword()
             
-            AWSMobileClient.default().signUp(username: username, password: password) {signUpResult, error in
-                if let signUpResult = signUpResult {
-                    switch(signUpResult.signUpConfirmationState) {
-                    case .confirmed:
-                        self.signIn(username: username, password: password, completion: completion)
-                    case .unconfirmed:
-                        debugPrint("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
-                    case .unknown:
-                        debugPrint("Unexpected case")
-                    }
-                } else if let error = error {
-                    debugPrint("ユーザー登録で例外発生: \(error.localizedDescription)")
+            AWSMobileClient.default().signOut()
+            let shouldSignUpResult = self.shouldSignUp()
+            if shouldSignUpResult.shouldSignUp {
+                debugPrint("ログイン情報がないため、初回登録を実行")
+                self.signUp(completion: completion)
+            } else {
+                debugPrint("ログイン情報があるため、ログイン処理を実行")
+                self.signIn(username: shouldSignUpResult.userName, password: shouldSignUpResult.password, completion: completion)
+            }
+        }
+    }
+    
+    private func shouldSignUp() -> ShouldSignUpResult {
+        var userNameResult: AnyObject?
+        var passwordResult: AnyObject?
+        SecItemCopyMatching(KeyChainKey.username.readQuery(), &userNameResult)
+        SecItemCopyMatching(KeyChainKey.password.readQuery(), &passwordResult)
+        guard let userNameData = userNameResult as? Data, let passwordData = passwordResult as? Data else { return ShouldSignUpResult(shouldSignUp: true) }
+        return ShouldSignUpResult(
+            shouldSignUp: false,
+            userName: String(data: userNameData, encoding: .utf8)!,
+            password: String(data: passwordData, encoding: .utf8)!
+        )
+    }
+    
+    private func signUp(completion: @escaping (String?) -> Void) {
+        let username = self.randomString(length: 10)
+        let password = self.randomPassword()
+        AWSMobileClient.default().signUp(username: username, password: password) {signUpResult, error in
+            if let signUpResult = signUpResult {
+                switch(signUpResult.signUpConfirmationState) {
+                case .confirmed:
+                    self.signIn(username: username, password: password, completion: completion)
+                case .unconfirmed:
+                    debugPrint("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                case .unknown:
+                    debugPrint("Unexpected case")
                 }
+            } else if let error = error {
+                debugPrint("ユーザー登録で例外発生: \(error.localizedDescription)")
             }
         }
     }
@@ -42,6 +67,7 @@ class Authenticator {
                 switch (signInResult.signInState) {
                 case .signedIn:
                     debugPrint("User is signed in.")
+                    self.saveLoginData(username: username, password: password)
                     completion(username)
                 case .smsMFA:
                     debugPrint("SMS message sent to \(signInResult.codeDetails!.destination!)")
@@ -53,34 +79,13 @@ class Authenticator {
     }
     
     private func saveLoginData(username: String, password: String) {
-        guard let bundleId = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") else { fatalError("BundleId取得失敗") }
-        let userNameQuery = [
-            kSecValueData: username.data(using: .utf8)!,
-            kSecClass: kSecClassGenericPassword,
-            kSecAttrService: bundleId,
-            kSecAttrAccount: "vision.speak.user.name",
-        ] as CFDictionary
-        
-        let passwordQuery = [
-            kSecValueData: password.data(using: .utf8)!,
-            kSecClass: kSecClassGenericPassword,
-            kSecAttrService: bundleId,
-            kSecAttrAccount: "vision.speak.password",
-        ] as CFDictionary
-        
+        let userNameQuery = KeyChainKey.username.addQuery(value: username)
+        let passwordQuery = KeyChainKey.password.addQuery(value: password)
         SecItemAdd(userNameQuery, nil)
         SecItemAdd(passwordQuery, nil)
     }
     
-    enum AuthError: Error {
-        case signedUpToConfirm
-        case signInIncomplete
-        case unknown
-    }
-    
-    func checkUserLoggedIn(completion: @escaping (Bool) -> Void) {
-        completion(false)
-        return
+    private func checkUserLoggedIn(completion: @escaping (Bool) -> Void) {
         AWSMobileClient.default().initialize { userState, error in
             if let error = error {
                 debugPrint("error: \(error)")
@@ -108,5 +113,17 @@ class Authenticator {
     private func randomPassword() -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
         return String((0..<12).map{ _ in letters.randomElement()! })
+    }
+    
+    class ShouldSignUpResult {
+        var shouldSignUp: Bool
+        var userName: String
+        var password: String
+        
+        init(shouldSignUp: Bool, userName: String = "", password: String = "") {
+            self.shouldSignUp = shouldSignUp
+            self.userName = userName
+            self.password = password
+        }
     }
 }

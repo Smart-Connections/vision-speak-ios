@@ -14,9 +14,9 @@
             filePath = "EnglishCamera/Model/Authenticator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "signUpUser(completion:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "signInOrUpUserIfNeeded(completion:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -77,10 +77,10 @@
             filePath = "EnglishCamera/Model/Authenticator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "Authenticator"
-            landmarkType = "3">
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "randomString(length:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8452C831-B392-4F5F-92B7-7E0AC1F7F17B - 8ec32dceb700841d"
@@ -365,8 +365,8 @@
             filePath = "EnglishCamera/Model/Authenticator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "saveLoginData(username:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -640,6 +640,22 @@
             endingLineNumber = "60"
             landmarkName = "feedback(message:targetVocabularies:onError:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2A6F8E3-635C-45AF-930C-18C952FA9F97"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EnglishCamera/View/MenuView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

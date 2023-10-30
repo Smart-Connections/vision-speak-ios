@@ -22,14 +22,14 @@ struct MenuView: View {
                 MenuStatusButton(showPurchaseView: $showPurchaseView).environmentObject(purchaseViewModel).environmentObject(purchaseState)
                 Spacer().frame(height: 16)
                 List {
-                    NavigationLink(destination: AccountView(showAccountView: $showAccountView), isActive: $showAccountView) {
-                        Text("アカウント")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                showAccountView = true
-                            }
-                    }
+//                    NavigationLink(destination: AccountView(showAccountView: $showAccountView), isActive: $showAccountView) {
+//                        Text("アカウント")
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                            .contentShape(Rectangle())
+//                            .onTapGesture {
+//                                showAccountView = true
+//                            }
+//                    }
                     Text("使い方を見る")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
