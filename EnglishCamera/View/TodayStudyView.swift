@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TodayStudyView: View {
+    @EnvironmentObject private var chatHistoryViewModel: ChatHistoryViewModel
     @EnvironmentObject private var purchaseState: PurchaseState
     @EnvironmentObject private var studyHistoryState: StudyHistoryState
     @EnvironmentObject private var vocabularyState: VocabularyState
@@ -42,11 +43,28 @@ struct TodayStudyView: View {
                     }.frame(height: 300)
                     Spacer()
                 }
+                Spacer().frame(height: 32)
+                
+                if !chatHistoryViewModel.latestThreeThreads.isEmpty {
+                    HStack {
+                        Text("会話履歴").font(.headline)
+                        Spacer()
+                    }
+                    VStack {
+                        ForEach(chatHistoryViewModel.latestThreeThreads, id: \.self) { index in
+                            VStack {
+                                ChatHistoryItem(chatThread: index)
+                                Divider().frame(height: 0.5)
+                            }
+                        }
+                    }.padding().background(Color("surface")).cornerRadius(8)
+                }
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("back"))
         }.onAppear {
+            chatHistoryViewModel.getThreads()
             showCoachMarkIfNeeded()
         }
     }

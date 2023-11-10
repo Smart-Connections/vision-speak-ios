@@ -144,7 +144,7 @@ class RealTimeImageClassificationViewModel: ObservableObject {
 
 extension RealTimeImageClassificationViewModel: VideoCaptureDelegate {
     func didTakePicture(_ data: Data) {
-        self.picture = UIImage(data: data)?.resizeImage(withPercentage: 0.2)?.jpegData(compressionQuality: 0.2)
+        self.picture = UIImage(data: data)?.resizeImage(withPercentage: 0.15)?.jpegData(compressionQuality: 1)
         cloudVision.analyzeImage(imageBase64: picture?.base64EncodedString() ?? "") { error in
             self.status = .ready
         }

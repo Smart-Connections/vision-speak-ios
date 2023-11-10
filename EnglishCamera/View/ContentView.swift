@@ -11,6 +11,7 @@ struct ContentView: View {
     @ObservedObject private var studyHistoryState: StudyHistoryState = .init(StudyHistoryDataSource())
     @ObservedObject private var vocabularyState: VocabularyState = .init(VocabularyDataSource())
     @ObservedObject private var purchaseState: PurchaseState = .init()
+    @ObservedObject private var chatHistoryViewModel: ChatHistoryViewModel = .init()
     
     @State private var tabPage: Int = 0
 
@@ -27,6 +28,7 @@ struct ContentView: View {
                 .environmentObject(studyHistoryState)
                 .environmentObject(vocabularyState)
                 .environmentObject(purchaseState)
+                .environmentObject(chatHistoryViewModel)
                 .tag(0)
                 .tabItem {
                     Image(systemName: "camera")

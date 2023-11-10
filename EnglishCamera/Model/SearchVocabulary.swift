@@ -16,7 +16,7 @@ class SearchVocabulary {
     var delegate: SearchVocabularyDelegate?
     
     func searchVocabulary(_ searchVocabularyCondition: SearchVocabularyCondition) {
-        VisionSpeakApiClient().call(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_search_vocabulary", body: [
+        VisionSpeakApiClient().post(endPoint: "https://2oi5uy417l.execute-api.ap-northeast-1.amazonaws.com/main/v1_search_vocabulary", body: [
             "keyword": searchVocabularyCondition.keyword,
             "situation": searchVocabularyCondition.situation.rawValue,
             "style": searchVocabularyCondition.style.rawValue,

@@ -41,6 +41,11 @@
 		E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */; };
 		E858CBAD2AEFDEA800DBCBB7 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBAC2AEFDEA800DBCBB7 /* AuthError.swift */; };
 		E858CBB12AEFDFF800DBCBB7 /* KeyChainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB02AEFDFF700DBCBB7 /* KeyChainKey.swift */; };
+		E858CBB32AF3AD4300DBCBB7 /* ChatHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB22AF3AD4300DBCBB7 /* ChatHistory.swift */; };
+		E858CBB52AF3AE0C00DBCBB7 /* ChatHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB42AF3AE0C00DBCBB7 /* ChatHistoryViewModel.swift */; };
+		E858CBB72AF3B4EF00DBCBB7 /* ChatHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB62AF3B4EF00DBCBB7 /* ChatHistoryItem.swift */; };
+		E858CBB92AF941A800DBCBB7 /* ChatHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBB82AF941A800DBCBB7 /* ChatHistoryDetailView.swift */; };
+		E858CBBB2AF9428D00DBCBB7 /* ChatThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858CBBA2AF9428D00DBCBB7 /* ChatThread.swift */; };
 		E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */; };
 		E869C8D22AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */; };
 		E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */; };
@@ -147,6 +152,11 @@
 		E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginForm.swift; sourceTree = "<group>"; };
 		E858CBAC2AEFDEA800DBCBB7 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		E858CBB02AEFDFF700DBCBB7 /* KeyChainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainKey.swift; sourceTree = "<group>"; };
+		E858CBB22AF3AD4300DBCBB7 /* ChatHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistory.swift; sourceTree = "<group>"; };
+		E858CBB42AF3AE0C00DBCBB7 /* ChatHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryViewModel.swift; sourceTree = "<group>"; };
+		E858CBB62AF3B4EF00DBCBB7 /* ChatHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryItem.swift; sourceTree = "<group>"; };
+		E858CBB82AF941A800DBCBB7 /* ChatHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryDetailView.swift; sourceTree = "<group>"; };
+		E858CBBA2AF9428D00DBCBB7 /* ChatThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatThread.swift; sourceTree = "<group>"; };
 		E869C8CF2AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterSettingView.swift; sourceTree = "<group>"; };
 		E869C8D12AC8206D0025CE12 /* VocabularyBrowseFilterCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBrowseFilterCondition.swift; sourceTree = "<group>"; };
 		E86F09942AD39CB70008CE62 /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
@@ -283,6 +293,8 @@
 				E83E145D2A9A41CD00A440D2 /* Authenticator.swift */,
 				E8D4034A2AADE29700EC9A12 /* SearchVocabulary.swift */,
 				E8C92B382ABC834500FBA45F /* PurchaseState.swift */,
+				E858CBB22AF3AD4300DBCBB7 /* ChatHistory.swift */,
+				E858CBBA2AF9428D00DBCBB7 /* ChatThread.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +315,7 @@
 				E89089012AE293A000E1B9B6 /* VocabularySearchConditions.swift */,
 				E89089032AE294B100E1B9B6 /* VocabularySearchActionButtons.swift */,
 				E87A82112AE4E6D100B3221A /* VocabularyItem.swift */,
+				E858CBB62AF3B4EF00DBCBB7 /* ChatHistoryItem.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -407,6 +420,7 @@
 				E858CBA62AEDF7C200DBCBB7 /* AccountView.swift */,
 				E858CBA82AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift */,
 				E858CBAA2AEDFDC000DBCBB7 /* AccountLoginForm.swift */,
+				E858CBB82AF941A800DBCBB7 /* ChatHistoryDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +431,7 @@
 				E84EE4CD2A6D5DB60045A804 /* RealTimeImageClassificationViewModel.swift */,
 				E8799D362A877FAF00231BA1 /* PurchaseViewModel.swift */,
 				E8D4034C2AB09B5E00EC9A12 /* SearchVocabularyViewModel.swift */,
+				E858CBB42AF3AE0C00DBCBB7 /* ChatHistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -750,6 +765,7 @@
 				E82724032A9CF79400E34D5A /* ChatHeader.swift in Sources */,
 				E8D4033D2AAD67FF00EC9A12 /* ChatMessages.swift in Sources */,
 				E8799D332A873C6000231BA1 /* MenuView.swift in Sources */,
+				E858CBB32AF3AD4300DBCBB7 /* ChatHistory.swift in Sources */,
 				E85286D02A7E60BE00F23507 /* Extensions.swift in Sources */,
 				E89088FB2ADE39F600E1B9B6 /* ViewExtension.swift in Sources */,
 				E822F7562A7DF258008BEC33 /* StudyHistoryDataSource.swift in Sources */,
@@ -757,6 +773,7 @@
 				E869C8D02AC7CC7C0025CE12 /* VocabularyBrowseFilterSettingView.swift in Sources */,
 				E8D4034B2AADE29700EC9A12 /* SearchVocabulary.swift in Sources */,
 				E8D403492AAD85E200EC9A12 /* VocabularySearchView.swift in Sources */,
+				E858CBB72AF3B4EF00DBCBB7 /* ChatHistoryItem.swift in Sources */,
 				E89089042AE294B100E1B9B6 /* VocabularySearchActionButtons.swift in Sources */,
 				E85286CC2A7E28FD00F23507 /* TodayStudyView.swift in Sources */,
 				E8799D312A872FD200231BA1 /* Purchase.swift in Sources */,
@@ -784,14 +801,17 @@
 				E8D403432AAD795700EC9A12 /* VocabularyState.swift in Sources */,
 				E8D403372AAC72E700EC9A12 /* YOLOv3Tiny.mlmodel in Sources */,
 				E822F75A2A7DF2BF008BEC33 /* StudyHistoryState.swift in Sources */,
+				E858CBBB2AF9428D00DBCBB7 /* ChatThread.swift in Sources */,
 				E88612EA2AC469B9006207AC /* TodayStudy.swift in Sources */,
 				E8D403392AAD5E0A00EC9A12 /* VocabularyView.swift in Sources */,
 				E86F09952AD39CB70008CE62 /* PurchaseRestoreButton.swift in Sources */,
 				E822F74D2A7DF16E008BEC33 /* RealmWrapper.swift in Sources */,
 				E84318C42AA31A8F006EB761 /* VisionSpeakApiClient.swift in Sources */,
+				E858CBB52AF3AE0C00DBCBB7 /* ChatHistoryViewModel.swift in Sources */,
 				E84EE4952A6D12EA0045A804 /* EnglishCameraApp.swift in Sources */,
 				E858CBAB2AEDFDC000DBCBB7 /* AccountLoginForm.swift in Sources */,
 				E842B6232A7F423900961719 /* ChatStatus.swift in Sources */,
+				E858CBB92AF941A800DBCBB7 /* ChatHistoryDetailView.swift in Sources */,
 				E87A82122AE4E6D100B3221A /* VocabularyItem.swift in Sources */,
 				E858CBAD2AEFDEA800DBCBB7 /* AuthError.swift in Sources */,
 				E858CBA92AEDFD2F00DBCBB7 /* AccoutRegisterForm.swift in Sources */,
@@ -959,7 +979,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = J9ATR58RL2;
 				ENABLE_PREVIEWS = YES;
@@ -1001,7 +1021,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_ASSET_PATHS = "\"EnglishCamera/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J9ATR58RL2;

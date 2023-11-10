@@ -13,7 +13,35 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
-  
+        configureCognito()
+        turnOnCoachMark()
+        signIn()
+        saveVersionCode()
+        return true
+    }
+    
+    private func saveVersionCode() {
+        // 起動バージョンコードを保存
+        UserDefaults.standard.set(Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String), forKey: AppValue.appVersionCode)
+    }
+    
+    private func signIn() {
+        // サインイン
+        Task {
+            await Authenticator().signInOrUpUserIfNeeded() { userId in
+                debugPrint("userId: \(String(describing: userId))")
+            }
+        }
+    }
+    
+    private func turnOnCoachMark() {
+        // 初回起動時にすべてのコーチマーク表示フラグをTrueにする
+        if UserDefaults.standard.integer(forKey: AppValue.appVersionCode) == 0 {
+            CoachMark.turnOnCoachMark()
+        }
+    }
+    
+    private func configureCognito() {
         // AWS サービス設定を作成.
         let serviceConfiguration: AWSServiceConfiguration = AWSServiceConfiguration(
             region: CognitoConstants.IdentityUserPoolRegion,
@@ -28,23 +56,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AWSCognitoIdentityUserPool.register(with: serviceConfiguration,
                                             userPoolConfiguration: userPoolConfigration,
                                             forKey: CognitoConstants.SignInProviderKey)
-        
-        // サインイン
-        Task {
-            await Authenticator().signInOrUpUserIfNeeded() { userId in
-                debugPrint("userId: \(String(describing: userId))")
-            }
-        }
-        
-        // 初回起動時にすべてのコーチマーク表示フラグをTrueにする
-        if UserDefaults.standard.integer(forKey: AppValue.appVersionCode) == 0 {
-            CoachMark.turnOnCoachMark()
-        }
-        
-        // 起動バージョンコードを保存
-        UserDefaults.standard.set(Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String), forKey: AppValue.appVersionCode)
-        
-        return true
     }
     
     private func configureFirebase() {
